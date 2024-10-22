@@ -31,7 +31,7 @@ module.exports = {
         'utility': {
           'button': '#95ADE5',
           'pressed-button': '#596889',
-          'loading-button': '#778ab7',
+          'loading-button': '#C2D3FC',
           'error': '#F10700',
           'border': '#000000',
         },
