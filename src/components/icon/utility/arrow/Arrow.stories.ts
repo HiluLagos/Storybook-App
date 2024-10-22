@@ -12,6 +12,11 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    state: {
+      control: 'select',
+      options: ['default', 'pressed'],
+      description: 'The state of the arrow'
+    },
     orientation: {
       control: 'select',
       options: ['left', 'up', 'right', 'down'],
@@ -27,29 +32,65 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Left: Story = {
+export const LeftDefault: Story = {
   args: {
+    state: 'default',
     orientation: 'left',
     onToggleAction: () => {},
   },
 }
 
-export const Up: Story = {
+export const LeftPressed: Story = {
   args: {
+    state: 'pressed',
+    orientation: 'left',
+    onToggleAction: () => {},
+  },
+}
+
+export const UpDefault: Story = {
+  args: {
+    state: 'default',
     orientation: 'up',
     onToggleAction: () => {},
   },
 }
 
-export const Right: Story = {
+export const UpPressed: Story = {
   args: {
+    state: 'pressed',
+    orientation: 'up',
+    onToggleAction: () => {},
+  },
+}
+
+export const RightDefault: Story = {
+  args: {
+    state: 'default',
     orientation: 'right',
     onToggleAction: () => {},
   },
 }
 
-export const Down: Story = {
+export const RightPressed: Story = {
   args: {
+    state: 'pressed',
+    orientation: 'right',
+    onToggleAction: () => {},
+  },
+}
+
+export const DownDefault: Story = {
+  args: {
+    state: 'default',
+    orientation: 'down',
+    onToggleAction: () => {},
+  },
+}
+
+export const DownPressed: Story = {
+  args: {
+    state: 'pressed',
     orientation: 'down',
     onToggleAction: () => {},
   },
