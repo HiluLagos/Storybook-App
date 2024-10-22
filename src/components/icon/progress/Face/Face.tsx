@@ -1,3 +1,5 @@
+import React from "react";
+
 type FaceState = "happy" | "neutral" | "sad";
 
 interface FaceProps {
