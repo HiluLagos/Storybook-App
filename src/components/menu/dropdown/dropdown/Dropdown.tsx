@@ -2,11 +2,11 @@ import React from "react";
 import {cva, VariantProps} from "class-variance-authority";
 
 const dropdown = cva(
-  "rounded-2xl w-80 bg-slate-50", {
+  "rounded-2xl w-80", {
     variants: {
       dropped: {
-        true: "h-fit",
-        false: "h-40",
+        true: "bg-red-800",
+        false: "bg-gray-700",
       }
     },
     defaultVariants: {
@@ -19,7 +19,9 @@ type DropdownProps = VariantProps<typeof dropdown> & {
   children: React.ReactNode;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ dropped, children }: DropdownProps) => {
+export const Dropdown: React.FC<DropdownProps> = ({ dropped = false, children }: DropdownProps) => {
+  console.log(dropdown({ dropped }));
+
   return (
     <div className={dropdown({ dropped })}>
       <h1>Dropdown</h1>
