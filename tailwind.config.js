@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      //colors
       colors: {
         'primary': {
           100: '#D0F2B5',
@@ -121,6 +122,25 @@ module.exports = {
           100: 'linear-gradient(to right, #E0E030, #7A7A1A)',
           30: 'linear-gradient(to right, rgba(224, 224, 48, 0.3), rgba(122, 122, 26, 0.3))',
         },
+      },
+
+      //text
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+      fontWeight: {
+        regular: 400,
+        semibold: 600,
+        extrabold: 800,
+      },
+      fontSize: {
+        'h1': '48px',
+        'h2': '40px',
+        'h3': '34px',
+        'h4': '28px',
+        'h5': '20px',
+        'p': '16px',
+        'm': '14px',
       },
     },
   },
