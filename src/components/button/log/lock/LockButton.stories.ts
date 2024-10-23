@@ -2,7 +2,7 @@ import LockButton from "./LockButton.tsx";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    title: 'Button/Log/Lock/LockButton',
+    title: 'Button/Log/LockButton',
     component: LockButton,
     parameters: {
         layout: 'centered',

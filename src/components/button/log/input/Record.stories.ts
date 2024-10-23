@@ -2,7 +2,7 @@ import RecordButton from "./RecordButton.tsx";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    title: 'Button/Log/Input/RecordButton',
+    title: 'Button/Log/RecordButton',
     component: RecordButton,
     parameters: {
         layout: 'centered',
