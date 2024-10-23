@@ -17,13 +17,6 @@ module.exports = {
           900: '#6A8C4F',
         },
         'secondary': {
-          100: '#F4F3E1',
-          300: '#EFEED5',
-          500: '#E8E6C3',
-          700: '#D1CFB0',
-          900: '#BAB89C',
-        },
-        'tertiary': {
           100: '#FFFFFF',
           300: '#E6E6E6',
           500: '#CCCCCC',
@@ -31,14 +24,11 @@ module.exports = {
           900: '#999999',
         },
         'utility': {
-          'button': '#95ADE5',
-          'pressed-button': '#596889',
-          'loading-button': '#C2D3FC',
           'error': '#F10700',
           'border': '#000000',
         },
         'icon': {
-          'lightblue': '#2DBCD2',
+          'lightblue': '#62DFF2',
           'orange': '#EDB14D',
           'lightgreen': '#74CB3E',
           'yellow': '#E0E030',
@@ -55,28 +45,31 @@ module.exports = {
           },
         },
         'bg': {
-          'default': '#F4F3E1',
+          'default': '#FFFFFF',
           'bright':{
-            'blue': '#E4FAFA',
-            'orange': '#FCF7F0',
-            'green': '#EEFBF2',
-            'violet': '#FBF0FC',
-            'red': '#FDF1F5',
+            'blue': '#DBFEFF',
+            'orange': '#FFF1DF',
+            'green': '#EAFFF0',
+            'violet': '#FEE8FF',
+            'red': '#FFECED',
+            'yellow': '#FFF9DA',
           },
           'colorful':{
-            'lightblue': '#2DBCD2',
+            'lightblue': '#62DFF2',
             'orange': '#EDB14D',
             'lightgreen': '#74CB3E',
             'violet': '#D74DDE',
             'red': '#F10700',
             'yellow': '#E0E030',
           },
+          'light':{
+            'lightblue': '#BBD7DC',
+            'orange': '#F7E1BF',
+            'yellow': '#F5F5C1',
+          },
         },
         'text': {
-          'default': {
-            'black':'#000000',
-            'white': '#FFFFFF',
-          },
+          'default': '#000000',
           'description': {
             'dark': '#707070',
             'bright': '#A8A8A8',
@@ -95,14 +88,11 @@ module.exports = {
           },
           'primary': {
             100: '#D0F2B5',
+            500: '#B1E983',
             900: '#6A8C4F',
           },
           'secondary': {
-            100: '#F4F3E1',
-          },
-          'button': {
-            'pressed': '#596889',
-
+            100: '#FFFFFF',
           },
         },
       },
