@@ -23,10 +23,6 @@ module.exports = {
           700: '#B3B3B3',
           900: '#999999',
         },
-        'utility': {
-          'error': '#F10700',
-          'border': '#000000',
-        },
         'icon': {
           'lightblue': '#62DFF2',
           'orange': '#EDB14D',
@@ -34,6 +30,8 @@ module.exports = {
           'yellow': '#E0E030',
           'green': '#28C40B',
           'violet': '#D74DDE',
+          'red': '#F10700',
+          'black': '#000000',
         },
         'shadow': {
           'black':{
