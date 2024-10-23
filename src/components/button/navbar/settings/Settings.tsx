@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
-import TalksIcon from "../../../icon/utility/navigation/talks/HelpTalks.tsx"
+import SettingsIcon from "../../../icon/utility/navigation/settings/Settings.tsx"
 
 const subText = cva("font-montserrat font-regular text-m text-center", {
     variants: {
@@ -27,19 +27,18 @@ const borderIcon = cva("rounded-full fit-content px-6 py-2" ,{
     }
 })
 
-type TalksIconProps = VariantProps<typeof subText> & {
+type SettingsComponentProps = VariantProps<typeof subText> & {
 };
 
-const TalksComponent: React.FC<TalksIconProps> = ({ state = "default" }: TalksIconProps) => {
-
+const SettingsComponent: React.FC<SettingsComponentProps> = ({ state = "default" }: SettingsComponentProps) => {
     return(
         <div>
             <div className={borderIcon({state})}>
-                <TalksIcon state={state}></TalksIcon>
+                <SettingsIcon state={state}></SettingsIcon>
             </div>
-            <h1 className={subText({state})}>HelpTalks</h1>
+            <h1 className={subText({state})}>Settings</h1>
         </div>
     )
 }
 
-export default TalksComponent
+export default SettingsComponent

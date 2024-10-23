@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
-import TalksIcon from "../../../icon/utility/navigation/talks/HelpTalks.tsx"
+import CalendarIcon from "../../../icon/utility/navigation/calendar/Calendar.tsx"
 
 const subText = cva("font-montserrat font-regular text-m text-center", {
     variants: {
@@ -27,19 +27,18 @@ const borderIcon = cva("rounded-full fit-content px-6 py-2" ,{
     }
 })
 
-type TalksIconProps = VariantProps<typeof subText> & {
+type CalendarComponentProps = VariantProps<typeof subText> & {
 };
 
-const TalksComponent: React.FC<TalksIconProps> = ({ state = "default" }: TalksIconProps) => {
-
+const CalendarComponent: React.FC<CalendarComponentProps> = ({ state = "default" }: CalendarComponentProps) => {
     return(
         <div>
             <div className={borderIcon({state})}>
-                <TalksIcon state={state}></TalksIcon>
+                <CalendarIcon state={state}></CalendarIcon>
             </div>
-            <h1 className={subText({state})}>HelpTalks</h1>
+            <h1 className={subText({state})}>Calendar</h1>
         </div>
     )
 }
 
-export default TalksComponent
+export default CalendarComponent

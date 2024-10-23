@@ -31,7 +31,6 @@ type HomeComponentProps = VariantProps<typeof subText> & {
 };
 
 const HomeComponent: React.FC<HomeComponentProps> = ({ state = "default" }: HomeComponentProps) => {
-
     return(
         <div>
             <div className={borderIcon({state})}>
