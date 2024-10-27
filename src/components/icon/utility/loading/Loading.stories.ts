@@ -12,6 +12,7 @@ const meta = {
     color: {
       control: {
         type: 'select',
+        description: 'The color of the loading spinner',
         options: ['default', 'primary'],
       },
     },
