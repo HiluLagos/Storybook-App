@@ -1,6 +1,6 @@
 import React from "react";
 
-const Delete: React.FC = () => {
+const DeletePopUpIcon: React.FC = () => {
     return (
         <svg
             className="fill-icon-red"
@@ -11,4 +11,4 @@ const Delete: React.FC = () => {
     );
 }
 
-export default Delete;
+export default DeletePopUpIcon;

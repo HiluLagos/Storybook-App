@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Delete from "./Delete";
+import DeleteIcon from "./DeleteIcon.tsx";
 
 const meta = {
   title: 'Icon/Utility/delete',
-  component: Delete,
+  component: DeleteIcon,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -12,13 +12,9 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    fill: {
-      control: 'select',
-      options: ['outlined', 'solid'],
-      description: 'The fill of the delete icon'
-    }
+
   },
-} satisfies Meta<typeof Delete>;
+} satisfies Meta<typeof DeleteIcon>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
