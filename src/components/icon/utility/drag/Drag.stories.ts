@@ -1,33 +1,33 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Loading from "./Loading.tsx";
+import Drag from "./Drag.tsx";
 
 const meta = {
-  title: 'Icon/Utility/loading',
-  component: Loading,
+  title: 'Icon/Utility/drag',
+  component: Drag,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    color: {
+    state: {
       control: 'select',
-      options: ['default', 'primary'],
-      description: 'The color of the loading spinner',
+      options: ['default', 'dragged'],
+      description: 'The state of the drag indicator'
     },
   }
-} satisfies Meta<typeof Loading>;
+} satisfies Meta<typeof Drag>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    color: 'default',
+    state: 'default',
   },
 };
 
-export const Primary: Story = {
+export const Dragged: Story = {
   args: {
-    color: 'primary',
+    state: 'dragged',
   },
 };
