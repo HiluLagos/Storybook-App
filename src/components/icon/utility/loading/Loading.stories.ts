@@ -12,9 +12,9 @@ const meta = {
     color: {
       control: {
         type: 'select',
-        description: 'The color of the loading spinner',
         options: ['default', 'primary'],
       },
+      description: 'The color of the loading spinner',
     },
   }
 } satisfies Meta<typeof Loading>;
