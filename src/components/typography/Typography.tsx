@@ -33,7 +33,7 @@ type TypographyProps = VariantProps<typeof typography> & {
 const Typography: React.FC<TypographyProps> = ({weight = "regular", size = "h1", children = "Sample Text"}: TypographyProps) => {
   return (
     <>
-      <h1 className={typography({weight, size})}>{children}</h1>
+      <h1 className={typography({weight, size})} color={"currentColor"}>{children}</h1>
     </>
   )
 };

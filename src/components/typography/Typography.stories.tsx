@@ -6,6 +6,11 @@ const meta = {
   component: Typography,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: "To manage the color of the typography, use text-[COLOR]-[INTENSITY] wherever the Typography element is contained."
+      }
+    }
   },
   tags: ['autodocs'],
   argTypes: {
@@ -22,8 +27,8 @@ const meta = {
     children: {
       control: 'text',
       description: 'The text to display',
-    }
-  }
+    },
+  },
 } satisfies Meta<typeof Typography>;
 
 export default meta;
