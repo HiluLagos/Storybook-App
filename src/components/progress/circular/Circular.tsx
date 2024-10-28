@@ -2,15 +2,35 @@ import React from "react";
 import {cva, VariantProps} from "class-variance-authority";
 
 const circular = cva(
-  "relative", {
+  "", {
     variants: {
       size: {
-        medium: "w-8 h-8",
-        large: "w-40 h-40",
+        medium: "w-16 h-16",
+        large: "w-[152px] h-[152px]",
+      },
+      activity: {
+        pills: "text-yellow-300",
+        salad: "text-green-300",
+        steps: "text-orange-300",
+        water: "text-blue-300"
       }
     },
     defaultVariants: {
       size: "medium",
+      activity: "pills"
+    }
+  }
+)
+
+const innerCircle = cva(
+  "", {
+    variants: {
+      activity: {
+        pills: "text-yellow-100",
+        salad: "text-green-100",
+        steps: "text-orange-100",
+        water: "text-blue-100"
+      }
     }
   }
 )
@@ -19,7 +39,7 @@ type CommentProps = VariantProps<typeof circular> & {
   percentage: number;
 };
 
-const Searcher: React.FC<CommentProps> = ({size = "medium", percentage = 0}:CommentProps) => {
+const Searcher: React.FC<CommentProps> = ({size = "medium", activity = "pills", percentage = 45}:CommentProps) => {
   const sizeClass = circular({ size });
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
@@ -29,7 +49,7 @@ const Searcher: React.FC<CommentProps> = ({size = "medium", percentage = 0}:Comm
     <div className={sizeClass}>
       <svg className="w-full h-full" viewBox="0 0 120 120">
         <circle
-          className="text-gray-300"
+          className={innerCircle({ activity })}
           strokeWidth="10"
           stroke="currentColor"
           fill="transparent"
@@ -38,7 +58,7 @@ const Searcher: React.FC<CommentProps> = ({size = "medium", percentage = 0}:Comm
           cy="60"
         />
         <circle
-          className="text-yellow-500"
+          className={circular({ activity })}
           strokeWidth="10"
           stroke="currentColor"
           fill="transparent"

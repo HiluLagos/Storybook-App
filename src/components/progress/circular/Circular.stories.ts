@@ -14,11 +14,18 @@ const meta = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['medium', 'small', 'extraSmall'],
-      description: 'The size of the comment icon',
+      options: ['medium', 'large'],
+      description: 'The size of the circular progress',
+    },
+    activity: {
+      control: 'select',
+      options: ['pills', 'salad', 'steps', 'water'],
+      description: 'The activity of the comment',
     },
     percentage: {
-      control: 'number',
+      control: { type: 'range', min: 0, max: 100},
+      min: 0,
+      max: 100,
       description: 'The percentage of the progress',
     }
   },
@@ -27,16 +34,64 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Medium: Story = {
+export const PillsMedium: Story = {
   args: {
     size: 'medium',
     percentage: 45,
   },
 }
 
-export const Large: Story = {
+export const PillsLarge: Story = {
   args: {
     size: 'large',
     percentage: 67,
+  },
+}
+
+export const SaladMedium: Story = {
+  args: {
+    size: 'medium',
+    activity: 'salad',
+    percentage: 20,
+  },
+}
+
+export const SaladLarge: Story = {
+  args: {
+    size: 'large',
+    activity: 'salad',
+    percentage: 20,
+  },
+}
+
+export const StepsMedium: Story = {
+  args: {
+    size: 'medium',
+    activity: 'steps',
+    percentage: 88,
+  },
+}
+
+export const StepsLarge: Story = {
+  args: {
+    size: 'large',
+    activity: 'steps',
+    percentage: 88,
+  },
+}
+
+export const WaterMedium: Story = {
+  args: {
+    size: 'medium',
+    activity: 'water',
+    percentage: 35,
+  },
+}
+
+export const WaterLarge: Story = {
+  args: {
+    size: 'large',
+    activity: 'water',
+    percentage: 35,
   },
 }
