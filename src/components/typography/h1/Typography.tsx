@@ -26,9 +26,9 @@ const typography = cva(
   }
 )
 
-type H1TypographyProps = VariantProps<typeof typography>;
+type TypographyProps = VariantProps<typeof typography>;
 
-const H1Typography: React.FC<H1TypographyProps> = ({weight = "regular", size = "h1"}: H1TypographyProps) => {
+const Typography: React.FC<TypographyProps> = ({weight = "regular", size = "h1"}: TypographyProps) => {
   return (
     <>
       <h1 className={typography({weight, size})}>Sample text</h1>
@@ -36,4 +36,4 @@ const H1Typography: React.FC<H1TypographyProps> = ({weight = "regular", size = "
   )
 };
 
-export default H1Typography;
+export default Typography;
