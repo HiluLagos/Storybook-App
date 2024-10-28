@@ -26,12 +26,14 @@ const typography = cva(
   }
 )
 
-type TypographyProps = VariantProps<typeof typography>;
+type TypographyProps = VariantProps<typeof typography> & {
+  children: string
+};
 
-const Typography: React.FC<TypographyProps> = ({weight = "regular", size = "h1"}: TypographyProps) => {
+const Typography: React.FC<TypographyProps> = ({weight = "regular", size = "h1", children = "Sample Text"}: TypographyProps) => {
   return (
     <>
-      <h1 className={typography({weight, size})}>Sample text</h1>
+      <h1 className={typography({weight, size})}>{children}</h1>
     </>
   )
 };
