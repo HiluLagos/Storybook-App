@@ -27,6 +27,10 @@ const meta = {
       min: 0,
       max: 100,
       description: 'The percentage of the progress',
+    },
+    children: {
+      control: 'text',
+      description: 'The children of the component',
     }
   },
 } satisfies Meta<typeof Circular>;
@@ -38,6 +42,7 @@ export const PillsMedium: Story = {
   args: {
     size: 'medium',
     percentage: 45,
+    children: '45%',
   },
 }
 
@@ -45,6 +50,7 @@ export const PillsLarge: Story = {
   args: {
     size: 'large',
     percentage: 67,
+    children: '67%',
   },
 }
 
@@ -53,6 +59,7 @@ export const SaladMedium: Story = {
     size: 'medium',
     activity: 'salad',
     percentage: 20,
+    children: '20%',
   },
 }
 
@@ -61,6 +68,7 @@ export const SaladLarge: Story = {
     size: 'large',
     activity: 'salad',
     percentage: 20,
+    children: '20%',
   },
 }
 
@@ -69,6 +77,7 @@ export const StepsMedium: Story = {
     size: 'medium',
     activity: 'steps',
     percentage: 88,
+    children: '88%',
   },
 }
 
@@ -77,6 +86,7 @@ export const StepsLarge: Story = {
     size: 'large',
     activity: 'steps',
     percentage: 88,
+    children: '88%',
   },
 }
 
@@ -85,6 +95,7 @@ export const WaterMedium: Story = {
     size: 'medium',
     activity: 'water',
     percentage: 35,
+    children: '35%',
   },
 }
 
@@ -93,5 +104,6 @@ export const WaterLarge: Story = {
     size: 'large',
     activity: 'water',
     percentage: 35,
+    children: '35%',
   },
 }

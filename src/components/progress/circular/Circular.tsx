@@ -37,19 +37,20 @@ const innerCircle = cva(
 
 type CircularProps = VariantProps<typeof circular> & {
   percentage: number;
+  children?: React.ReactNode;
 };
 
-const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills", percentage = 45}:CircularProps) => {
+const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills", percentage = 45, children}:CircularProps) => {
   const sizeClass = circular({ size });
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className={sizeClass}>
+    <div className={`${sizeClass} relative flex items-center justify-center`}>
       <svg className="w-full h-full" viewBox="0 0 120 120">
         <circle
-          className={innerCircle({ activity })}
+          className={innerCircle({activity})}
           strokeWidth="8"
           stroke="currentColor"
           fill="transparent"
@@ -58,7 +59,7 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
           cy="60"
         />
         <circle
-          className={circular({ activity })}
+          className={circular({activity})}
           strokeWidth={percentage === 100 ? 12 : 8}
           stroke="currentColor"
           fill="transparent"
@@ -71,6 +72,9 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
           transform="rotate(-90 60 60)"
         />
       </svg>
+      <div className="absolute flex items-center justify-center">
+        {children}
+      </div>
     </div>
   );
 }
