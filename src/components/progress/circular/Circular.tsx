@@ -50,7 +50,7 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
       <svg className="w-full h-full" viewBox="0 0 120 120">
         <circle
           className={innerCircle({ activity })}
-          strokeWidth="10"
+          strokeWidth="8"
           stroke="currentColor"
           fill="transparent"
           r="50"
@@ -59,7 +59,7 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
         />
         <circle
           className={circular({ activity })}
-          strokeWidth="10"
+          strokeWidth={percentage === 100 ? 12 : 8}
           stroke="currentColor"
           fill="transparent"
           r="50"
