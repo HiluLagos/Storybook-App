@@ -35,11 +35,11 @@ const innerCircle = cva(
   }
 )
 
-type CommentProps = VariantProps<typeof circular> & {
+type CircularProps = VariantProps<typeof circular> & {
   percentage: number;
 };
 
-const Searcher: React.FC<CommentProps> = ({size = "medium", activity = "pills", percentage = 45}:CommentProps) => {
+const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills", percentage = 45}:CircularProps) => {
   const sizeClass = circular({ size });
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
@@ -75,4 +75,4 @@ const Searcher: React.FC<CommentProps> = ({size = "medium", activity = "pills", 
   );
 }
 
-export default Searcher;
+export default Circular;
