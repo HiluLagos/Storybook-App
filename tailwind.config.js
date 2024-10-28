@@ -97,19 +97,19 @@ module.exports = {
       backgroundImage:{
         'blue': {
           100: 'linear-gradient(to right, #33D4ED, #1D7987)',
-          30: 'linear-gradient(to right, rgba(51, 212, 237, 0.3), rgba(29, 121, 135, 0.3))',
+          300: 'linear-gradient(to right, rgba(51, 212, 237, 0.3), rgba(29, 121, 135, 0.3))',
         },
         'green': {
           100: 'linear-gradient(to right, #28C40B, #135E05)',
-          30: 'linear-gradient(to right, rgba(40, 196, 11, 0.3), rgba(19, 94, 5, 0.3))',
+          300: 'linear-gradient(to right, rgba(40, 196, 11, 0.3), rgba(19, 94, 5, 0.3))',
         },
         'orange': {
           100: 'linear-gradient(to right, #EDB14D, #87652C)',
-          30: 'linear-gradient(to right, rgba(237, 177, 77, 0.3), rgba(135, 101, 44, 0.3))',
+          300: 'linear-gradient(to right, rgba(237, 177, 77, 0.3), rgba(135, 101, 44, 0.3))',
         },
         'yellow': {
           100: 'linear-gradient(to right, #E0E030, #7A7A1A)',
-          30: 'linear-gradient(to right, rgba(224, 224, 48, 0.3), rgba(122, 122, 26, 0.3))',
+          300: 'linear-gradient(to right, rgba(224, 224, 48, 0.3), rgba(122, 122, 26, 0.3))',
         },
       },
 
