@@ -5,19 +5,19 @@ const salad = cva(
   "", {
     variants: {
       size: {
-        small: "w-8 h-8",
-        medium: "w-16 h-16",
+        medium: "w-8 h-8",
+        large: "w-16 h-16",
       }
     },
     defaultVariants: {
-      size: "small",
+      size: "medium",
     }
   }
 )
 
 type SaladProps = VariantProps<typeof salad>;
 
-const Searcher: React.FC<SaladProps> = ({size = "small"}:SaladProps) => {
+const Searcher: React.FC<SaladProps> = ({size = "medium"}:SaladProps) => {
   return (
     <svg className={salad({size})} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9.22559 34H26.774" stroke="#28C40B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>

@@ -6,7 +6,7 @@ import Steps from "./steps/Steps.tsx";
 import Water from "./water/Water.tsx";
 
 type IconProviderProps = {
-  size: "small" | "medium";
+  size: "medium" | "large";
   activity: "pills" | "salad" | "steps" | "water";
 };
 

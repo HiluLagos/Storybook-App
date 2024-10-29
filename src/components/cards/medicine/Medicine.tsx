@@ -53,10 +53,8 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
         }
       </div>
 
-      <div className={"w-[56px] flex flex-col items-center justify-end "}>
-        <div className={"h-[56px] flex flex-col justify-end"}>
-          <DoneSquare done={complete} />
-        </div>
+      <div className={"p-0.5 flex flex-col items-center justify-end"}>
+        <DoneSquare done={complete} />
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import Circular from "../../circular/Circular.tsx";
 import ActivityIconProvider from "../../../icon/activity/ActivityIconProvider.tsx";
 
 type CircularProgressComponentProps = {
-  size: "small" | "medium";
+  size: "medium" | "large";
   percentage: number;
   activity: "water" | "pills" | "salad" | "steps";
 }
