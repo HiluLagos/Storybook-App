@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import Drag from "../../icon/utility/drag/Drag.tsx";
-import ActivityIconProvider from "../../icon/activity/ActivityIconProvider.tsx";
+import IconProvider from "../../icon/IconProvider.tsx";
 import Typography from "../../typography/Typography.tsx";
 
 const preference = cva(
@@ -34,7 +34,7 @@ const Preference: React.FC<PreferenceProps> = ({state = "default", activity = "p
     <div className={preference({state})}>
       <Drag state={state} />
       <div className={"px-2.5"}>
-        <ActivityIconProvider size={"medium"} activity={activity} />
+        <IconProvider size={"medium"} activity={activity} />
       </div>
       <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
     </div>

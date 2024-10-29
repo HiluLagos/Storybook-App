@@ -1,4 +1,4 @@
-// src/components/icon/activity/ActivityIconProvider.ts
+// src/components/icon/activity/IconProvider.ts
 import React from "react";
 import LogOut from "../../icon/settings/drawer/icons/logout/LogOut.tsx";
 import Notifications from "../../icon/settings/drawer/icons/notifications/Notifications.tsx";
