@@ -34,19 +34,21 @@ const notificationShade = cva(
 
 type NotificationProps = VariantProps<typeof notificationBackground> & {
   icon: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities";
+  description: string;
+  date: string;
 };
 
-const Notification: React.FC<NotificationProps> = ({color = "default", icon = "pills"}: NotificationProps) => {
+const Notification: React.FC<NotificationProps> = ({color = "default", icon = "pills", description = "This is a description", date = "23:00 18/11/1987"}: NotificationProps) => {
   return (
     <div className={notificationBackground({color})}>
       <div className={notificationShade({color})}></div>
       <div className={"px-4 flex items-center"}>
         <IconProvider size={"medium"} activity={icon} />
       </div>
-      <div className={"pl-4 pt-4 pr-2 pb-2 flex flex-col justify-between"}>
-        <Typography size={"p"} weight={"regular"}>sape</Typography>
-        <div className={"text-text-description-bright bg"}>
-          <Typography size={"p"} weight={"regular"}>anti sape</Typography>
+      <div className={"pl-4 pt-4 pr-2 pb-2 w-[220px] flex flex-col"}>
+        <Typography size={"p"} weight={"regular"}>{description}</Typography>
+        <div className={"pt-4 text-text-description-bright flex flex-row justify-end"}>
+          <Typography size={"p"} weight={"regular"}>{date}</Typography>
         </div>
       </div>
     </div>
