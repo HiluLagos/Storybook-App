@@ -5,8 +5,8 @@ const user = cva(
   "", {
     variants: {
       size: {
-        small: "w-[20px] h-[20px]",
-        medium: "w-[24px] h-[24px]",
+        extraSmall: "w-6 h-6",
+        small: "w-8 h-8",
       }
     }
   }
@@ -14,7 +14,7 @@ const user = cva(
 
 type UserProps = VariantProps<typeof user>;
 
-const User: React.FC<UserProps> = ({size = "small"}: UserProps) => {
+const User: React.FC<UserProps> = ({size = "extraSmall"}: UserProps) => {
   return (
     <svg className={user({size})} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd"
