@@ -3,10 +3,10 @@ import Typography from "../../typography/Typography.tsx";
 
 type BarProps = {
   percentage: number;
-  children: string;
+  text: string;
 };
 
-const Bar: React.FC<BarProps> = ({percentage = 45, children = "Sample Text"}:BarProps) => {
+const Bar: React.FC<BarProps> = ({percentage = 45, text = "Sample Text"}:BarProps) => {
 
   return (
     <div
@@ -15,7 +15,7 @@ const Bar: React.FC<BarProps> = ({percentage = 45, children = "Sample Text"}:Bar
            style={{width: `${percentage}%`, height: '100%'}}></div>
       <div className="absolute inset-0 flex items-center justify-between px-4">
         <div>
-          <Typography size="p" weight={"semiBold"}>{children}</Typography>
+          <Typography size="p" weight={"semiBold"}>{text}</Typography>
         </div>
         <div>
           <Typography size="p" weight={"semiBold"}>{percentage.toString() + "%"}</Typography>

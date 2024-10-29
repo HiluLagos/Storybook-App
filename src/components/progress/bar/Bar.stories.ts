@@ -18,7 +18,7 @@ const meta = {
       max: 100,
       description: 'The percentage of the progress',
     },
-    children: {
+    text: {
       control: 'text',
       description: 'The text to display',
     }
@@ -31,6 +31,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     percentage: 45,
-    children: "Sample Text",
+    text: "Sample Text",
   },
 }
