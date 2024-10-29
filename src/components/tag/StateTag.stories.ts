@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Tag from "./Tag.tsx";
+import StateTag from "./StateTag.tsx";
 
 const meta = {
   title: 'Tag/tag',
-  component: Tag,
+  component: StateTag,
   parameters: {
     layout: 'centered',
   },
@@ -18,7 +18,7 @@ const meta = {
       description: 'The text to display in the tag',
     }
   }
-} satisfies Meta;
+} satisfies Meta<typeof StateTag>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

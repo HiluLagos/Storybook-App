@@ -2,8 +2,8 @@ import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import Typography from "../typography/Typography.tsx";
 
-const tag = cva(
-  "rounded-3xl px-[8px] py-[4px]", {
+const stateTag = cva(
+  "rounded-3xl px-[8px] py-[4px] w-fit h-fit", {
     variants: {
       state: {
         green: "bg-bg-colorful-lightgreen text-text-dark-green",
@@ -18,13 +18,13 @@ const tag = cva(
   }
 )
 
-type TagProps = VariantProps<typeof tag> & {
+type StateTagProps = VariantProps<typeof stateTag> & {
   children: string
 };
 
-const Tag: React.FC<TagProps> = ({state = "green", children}: TagProps) => {
+const Tag: React.FC<StateTagProps> = ({state = "green", children}: StateTagProps) => {
   return (
-    <div className={tag({state})}>
+    <div className={stateTag({state})}>
       <Typography weight={"semiBold"} size={"m"}>{children}</Typography>
     </div>
   )
