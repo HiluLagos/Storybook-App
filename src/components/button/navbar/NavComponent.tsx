@@ -1,15 +1,12 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
+import { StateType } from "../../../../types.ts";
 
 const subText = cva("font-montserrat font-regular text-m text-center", {
     variants: {
         state: {
-            default: [
-                "text-black"
-            ],
-            selected: [
-                "text-primary-500 font-semibold"
-            ]
+            default: ["text-black"],
+            selected: ["text-primary-500 font-semibold"]
         },
     },
     defaultVariants: {
@@ -34,14 +31,15 @@ const borderIcon = cva("rounded-full fit-content", {
 });
 
 type IconWrapperProps = VariantProps<typeof subText> & {
-    IconComponent: React.FC<{ state: string }>;
+    IconComponent: React.FC<{ state: StateType }>;
     label: string;
     size?: "default" | "small";
+    onClick: () => void;
 };
 
-const IconWrapper: React.FC<IconWrapperProps> = ({ state = "default", IconComponent, label, size = "default" }: IconWrapperProps) => {
+const IconWrapper: React.FC<IconWrapperProps> = ({ state = "default", IconComponent, label, size = "default", onClick }: IconWrapperProps) => {
     return (
-        <div>
+        <div onClick={onClick}>
             <div className={borderIcon({ state, size })}>
                 <IconComponent state={state || "default"} />
             </div>
