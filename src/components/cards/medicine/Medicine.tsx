@@ -3,6 +3,7 @@ import React from "react";
 import StateTag from "../../tag/StateTag.tsx";
 import Typography from "../../typography/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
+import Clock from "../../icon/utility/clock/Clock.tsx";
 
 const medicine = cva(
   "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between", {
@@ -36,7 +37,10 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
       <div className={"flex flex-col w-[216px]"}>
         <StateTag state={"lightBlue"}>Info</StateTag>
         <Typography weight={"extraBold"} size={"h5"}>{name}</Typography>
-        <Typography weight={"semiBold"} size={"p"}>{schedule + "hs"}</Typography>
+        <div className={"flex items-center"}>
+          <Clock />
+          <Typography weight={"semiBold"} size={"p"}>{schedule + "hs"}</Typography>
+        </div>
 
         <div className={"text-text-description-dark"}>
           <Typography weight={"regular"} size={"m"}>{description}</Typography>
