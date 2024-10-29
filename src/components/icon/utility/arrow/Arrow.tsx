@@ -5,8 +5,8 @@ const arrow = cva(
   "transform transition-transform", {
     variants: {
       state: {
-        default: "text-utility-border",
-        pressed: "text-tertiary-700",
+        default: "text-icon-black",
+        pressed: "text-secondary-700",
       },
       orientation: {
         left: "rotate-0",

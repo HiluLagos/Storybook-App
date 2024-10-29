@@ -5,7 +5,7 @@ const loading = cva(
   "", {
     variants: {
       color: {
-        default: "text-utility-border",
+        default: "text-icon-black",
         primary: "text-primary-900",
       }
     }
