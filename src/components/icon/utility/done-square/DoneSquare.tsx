@@ -2,7 +2,7 @@ import React from "react";
 import {cva, VariantProps} from "class-variance-authority";
 
 const doneSquare = cva(
-  "", {
+  "rounded-[4px]", {
     variants: {
       done: {
         false: "",
