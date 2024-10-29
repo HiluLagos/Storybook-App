@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import StateTag from "./StateTag.tsx";
 
 const meta = {
-  title: 'Tag/tag',
+  title: 'StateTag/stateTag',
   component: StateTag,
   parameters: {
     layout: 'centered',
@@ -15,7 +15,7 @@ const meta = {
     },
     children: {
       control: 'text',
-      description: 'The text to display in the tag',
+      description: 'The text to display in the stateTag',
     }
   }
 } satisfies Meta<typeof StateTag>;

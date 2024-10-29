@@ -42,7 +42,6 @@ export const PillsMedium: Story = {
   args: {
     size: 'small',
     percentage: 45,
-    children: '45%',
   },
 }
 
@@ -50,7 +49,6 @@ export const PillsLarge: Story = {
   args: {
     size: 'medium',
     percentage: 67,
-    children: '67%',
   },
 }
 
@@ -59,7 +57,6 @@ export const SaladMedium: Story = {
     size: 'small',
     activity: 'salad',
     percentage: 20,
-    children: '20%',
   },
 }
 
@@ -68,7 +65,6 @@ export const SaladLarge: Story = {
     size: 'medium',
     activity: 'salad',
     percentage: 20,
-    children: '20%',
   },
 }
 
@@ -77,7 +73,6 @@ export const StepsMedium: Story = {
     size: 'small',
     activity: 'steps',
     percentage: 88,
-    children: '88%',
   },
 }
 
@@ -86,7 +81,6 @@ export const StepsLarge: Story = {
     size: 'medium',
     activity: 'steps',
     percentage: 88,
-    children: '88%',
   },
 }
 
@@ -95,7 +89,6 @@ export const WaterMedium: Story = {
     size: 'small',
     activity: 'water',
     percentage: 35,
-    children: '35%',
   },
 }
 
@@ -104,6 +97,5 @@ export const WaterLarge: Story = {
     size: 'medium',
     activity: 'water',
     percentage: 35,
-    children: '35%',
   },
 }

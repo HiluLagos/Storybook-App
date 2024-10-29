@@ -1,6 +1,6 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
-import StateTag from "../../tag/StateTag.tsx";
+import StateTag from "../../stateTag/StateTag.tsx";
 import Typography from "../../typography/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
 import Clock from "../../icon/utility/clock/Clock.tsx";
@@ -35,7 +35,7 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
   return (
     <div className={medicine({complete})}>
       <div className={"flex flex-col w-[216px]"}>
-        <StateTag state={"lightBlue"}>Info</StateTag>
+        <StateTag state={"lightBlue"}>Night</StateTag>
         <Typography weight={"extraBold"} size={"h5"}>{name}</Typography>
         <div className={"flex items-center"}>
           <Clock />
