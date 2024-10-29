@@ -1,5 +1,5 @@
 import LogButton from "../LogButton.tsx";
-import LockIcon from "../../../icon/tech/log/LockIcon.tsx";
+import LockIcon from "../../../icon/tech/log/lock/LockIcon.tsx";
 import React from "react";
 
 type RecordButtonProperties = {
