@@ -14,7 +14,7 @@ const icons: Record<FaceState, string> = {
 };
 
 
-const faceIconStyle = cva("w-32 h-32", {
+const faceIconStyle = cva("w-8 h-8", {
     variants: {
         color: {
             red: "text-red-500",
