@@ -47,11 +47,11 @@ const NavBar = () => {
     };
 
     return (
-        <div className="">
-            <Home state={homeState} onClick={handleHomeClick} />
-            <Talks state={talksState} onClick={handleTalksClick} />
-            <Calendar state={calendarState} onClick={handleCalendarClick} />
-            <Settings state={settingsState} onClick={handleSettingsClick} />
+        <div className={`flex flex-row justify-center items-center gap-3 bg-gray-200 w-[360px] h-[92px]`}>
+            <Home state={homeState} onClick={handleHomeClick}/>
+            <Talks state={talksState} onClick={handleTalksClick}/>
+            <Calendar state={calendarState} onClick={handleCalendarClick}/>
+            <Settings state={settingsState} onClick={handleSettingsClick}/>
         </div>
     );
 };
