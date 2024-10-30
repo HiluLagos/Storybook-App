@@ -5,8 +5,8 @@ import { StateType } from "../../../../types.ts";
 const subText = cva("font-montserrat font-regular text-m text-center", {
     variants: {
         state: {
-            default: ["text-black"],
-            selected: ["text-primary-500 font-semibold"]
+            default: [],
+            selected: ["text-primary-900 font-semibold"]
         },
     },
     defaultVariants: {
@@ -18,7 +18,7 @@ const borderIcon = cva("rounded-full fit-content", {
     variants: {
         state: {
             default: "",
-            selected: "bg-primary-500"
+            selected: "bg-primary-100"
         },
         size: {
             default: "px-6 py-2",

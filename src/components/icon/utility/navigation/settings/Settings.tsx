@@ -10,7 +10,7 @@ const settingsIcon = cva("", {
 
             ],
             selected: [
-
+                "fill-primary-900", "stroke-primary-900"
             ]
         },
     },
@@ -26,7 +26,7 @@ const SettingsIconComponent: React.FC<SettingsIconProps> = ({ state = "default" 
     const IconComponent = state === "selected" ? SettingsIcon : SettingsOutlinedIcon;
 
     return (
-        <IconComponent className={settingsIcon({ state })} />
+        <IconComponent className={settingsIcon({ state })} style={{ color: 'black' }} />
     );
 };
 

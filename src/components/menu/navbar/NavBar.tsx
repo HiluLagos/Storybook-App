@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Home from "../../button/navbar/Home.tsx";
 import Talks from "../../button/navbar/Talks.tsx";
 import Calendar from "../../button/navbar/Calendar.tsx";
 import Settings from "../../button/navbar/Settings.tsx";
-import {StateType} from "../../../../types.ts";
+import { StateType } from "../../../../types.ts";
 
 const NavBar = () => {
     const [homeState, setHomeState] = useState<StateType>("default");
@@ -11,11 +12,14 @@ const NavBar = () => {
     const [settingsState, setSettingsState] = useState<StateType>("default");
     const [talksState, setTalksState] = useState<StateType>("default");
 
+    const navigate = useNavigate();
+
     const handleHomeClick = () => {
         setHomeState("selected");
         setCalendarState("default");
         setSettingsState("default");
         setTalksState("default");
+        navigate('/home');
     };
 
     const handleCalendarClick = () => {
@@ -23,6 +27,7 @@ const NavBar = () => {
         setCalendarState("selected");
         setSettingsState("default");
         setTalksState("default");
+        navigate('/calendar');
     };
 
     const handleSettingsClick = () => {
@@ -30,6 +35,7 @@ const NavBar = () => {
         setCalendarState("default");
         setSettingsState("selected");
         setTalksState("default");
+        navigate('/settings');
     };
 
     const handleTalksClick = () => {
@@ -37,8 +43,8 @@ const NavBar = () => {
         setCalendarState("default");
         setSettingsState("default");
         setTalksState("selected");
+        navigate('/talks');
     };
-
 
     return (
         <div className="">
