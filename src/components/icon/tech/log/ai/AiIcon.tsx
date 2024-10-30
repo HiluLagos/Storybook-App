@@ -2,7 +2,7 @@ import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const audioIconStyles = cva(
-    "flex justify-center items-center w-[28px] h-[28px]", {
+    "flex justify-center items-center w-[24px] h-[24px]", {
         variants: {
             pressed: {
                 true: "",
