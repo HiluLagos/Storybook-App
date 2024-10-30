@@ -15,7 +15,8 @@ const meta = {
       description: 'The facial expression'
     },
     color: {
-      control: 'color',
+      control: 'select',
+      options: ['red', 'yellow', 'green', 'grey'],
       description: 'The color of the face'
     }
   },
@@ -28,20 +29,20 @@ type Story = StoryObj<typeof meta>;
 export const Happy: Story = {
   args: {
     state: 'happy',
-    color: 'secondary-700',
+    color: 'green',
   },
 }
 
 export const Neutral: Story = {
   args: {
     state: 'neutral',
-    color: 'secondary-700',
+    color: 'yellow',
   },
 }
 
 export const Sad: Story = {
   args: {
     state: 'sad',
-    color: 'secondary-700',
+    color: 'red',
   },
 }
