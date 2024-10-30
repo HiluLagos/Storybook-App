@@ -11,12 +11,14 @@ type SoundWaveIconProps = VariantProps<typeof soundWaveIconStyles> & {
 
 // Helper function to generate paths with random heights
 const generatePath = (index: number) => {
-    const randomHeight = Math.floor(Math.random() * 24) + 4; // Random height between 4 and 28
+    const halfHeight = Math.floor(Math.random() * 12) + 2; // Random half-height between 2 and 14
     const xPosition = 4 + index * 6; // Calculate x position based on index
-    return `M${xPosition} 16V${randomHeight}`; // Return path string
+
+    // Path starts from (x, 16 - halfHeight) and goes to (x, 16 + halfHeight)
+    return `M${xPosition} ${16 - halfHeight} V${16 + halfHeight}`;
 };
 
-const StaticSoundWaveIcon: React.FC<SoundWaveIconProps> = ({ wavesNumber }) => {
+const StaticSoundWaveIcon: React.FC<SoundWaveIconProps> = ({ wavesNumber = 6 }) => {
     // Create SVG paths based on the wavesNumber
     const paths = Array.from({ length: wavesNumber }).map((_, idx) => (
         <path

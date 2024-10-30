@@ -22,6 +22,6 @@ export const ShortWave: Story = {
 
 export const LongWave: Story = {
     args:{
-        wavesNumber: 12,
+        wavesNumber: 48,
     }
 }

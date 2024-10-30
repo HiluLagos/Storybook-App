@@ -11,39 +11,33 @@ type StaticSoundWaveIconProps = VariantProps<typeof staticSoundWaveStyles> & {
     lineLimit: number;     // Maximum number of lines to display
 };
 
-// Helper function to generate a single random height
 const generateRandomHeight = () => {
-    return Math.floor(Math.random() * 24) + 4; // Random height between 4 and 28
+    return Math.floor(Math.random() * 12) + 2; // Random half-height between 2 and 14
 };
 
 const DynamicSoundWaveIcon: React.FC<StaticSoundWaveIconProps> = ({ wavesNumber, lineSpacing = 6, lineLimit }) => {
     const [heights, setHeights] = useState<number[]>([]);
 
-    // Effect to manage paths based on wavesNumber
     useEffect(() => {
         if (wavesNumber > heights.length) {
             setHeights((prevHeights) => {
-                // Create a new height for the new path
                 const newHeight = generateRandomHeight();
                 const updatedHeights = [...prevHeights, newHeight];
 
-                // Check if we exceed the line limit
                 if (updatedHeights.length > lineLimit) {
-                    updatedHeights.shift(); // Remove the oldest height if limit exceeded
+                    updatedHeights.shift();
                 }
-
                 return updatedHeights;
             });
         }
-    }, [wavesNumber, lineLimit]); // Only depends on wavesNumber and lineLimit
+    }, [wavesNumber, lineLimit]);
 
-    // Update heights to shift them left on new wave addition
     const paths = heights.map((height, index) => {
-        const xPosition = 4 + index * lineSpacing; // Calculate x position
-        return `M${xPosition} 28V${height}`; // Create the path string
+        const xPosition = 4 + index * lineSpacing;
+        const halfHeight = height; // Using the same value for up and down growth
+        return `M${xPosition} ${16 - halfHeight} V${16 + halfHeight}`; // Grow both up and down from the center (y = 16)
     });
 
-    // Update SVG width dynamically based on the number of paths
     const svgWidth = 4 + paths.length * lineSpacing;
 
     return (
@@ -51,7 +45,7 @@ const DynamicSoundWaveIcon: React.FC<StaticSoundWaveIconProps> = ({ wavesNumber,
             <svg
                 width={svgWidth}
                 height="32"
-                viewBox={`0 0 ${svgWidth} 32`} // Adapt viewBox to match dynamic width
+                viewBox={`0 0 ${svgWidth} 32`}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
