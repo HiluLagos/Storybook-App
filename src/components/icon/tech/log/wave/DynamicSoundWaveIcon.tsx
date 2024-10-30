@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const staticSoundWaveStyles = cva("flex justify-start items-center", {
+const dynamicSoundWaveStyles = cva("flex justify-start items-center", {
     variants: {},
 });
 
-type StaticSoundWaveIconProps = VariantProps<typeof staticSoundWaveStyles> & {
+type DynamicSoundWaveIconProps = VariantProps<typeof dynamicSoundWaveStyles> & {
     wavesNumber: number;
     lineSpacing?: number; // Optional prop for spacing between lines
     lineLimit: number;     // Maximum number of lines to display
@@ -15,7 +15,7 @@ const generateRandomHeight = () => {
     return Math.floor(Math.random() * 12) + 2; // Random half-height between 2 and 14
 };
 
-const DynamicSoundWaveIcon: React.FC<StaticSoundWaveIconProps> = ({ wavesNumber, lineSpacing = 6, lineLimit }) => {
+const DynamicSoundWaveIcon: React.FC<DynamicSoundWaveIconProps> = ({ wavesNumber, lineSpacing = 6, lineLimit }) => {
     const [heights, setHeights] = useState<number[]>([]);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const DynamicSoundWaveIcon: React.FC<StaticSoundWaveIconProps> = ({ wavesNumber,
     const svgWidth = 4 + paths.length * lineSpacing;
 
     return (
-        <div className={staticSoundWaveStyles() && ""}>
+        <div className={dynamicSoundWaveStyles()}>
             <svg
                 width={svgWidth}
                 height="32"
