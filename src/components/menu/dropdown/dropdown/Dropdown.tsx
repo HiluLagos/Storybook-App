@@ -33,11 +33,11 @@ export const Dropdown: React.FC<DropdownProps> = ({ checkLists, title, dropped, 
             {isOpen && checkLists.length > 0 && (
                 <>
                     <div className="w-[308px]">
-                        <div className="border-b-2 border-primary-700 my-2"/>
+                        <div className="border-b-2 border-primary-700 mt-2"/>
                     </div>
                     <div className="flex flex-col items-center">
                         {checkLists.map((checkList, index) => (
-                            <div key={index} className={`${index !== checkLists.length - 1 ? 'mb-2' : ''} w-fit`}>
+                            <div key={index} className={"mt-2 w-fit"}>
                                 <CheckList {...checkList} />
                             </div>
                         ))}
