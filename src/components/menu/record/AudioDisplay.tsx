@@ -13,9 +13,9 @@ const AudioDisplayStyle = cva("", {
     }
 });
 
-
 const AudioDisplay = () => {
     const [showMore, setShowMore] = useState(false);
+    const [isRecording, setIsRecording] = useState(true);
 
     const [wavesNumber, setWavesNumber] = useState(0);
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
@@ -42,7 +42,16 @@ const AudioDisplay = () => {
 
 
     return (
-        (showMore ?
+        (isRecording ?
+            <div className="inline-flex items-center justify-center flex-col space-y-1 border-2 border-primary-500 rounded-3xl p-4">
+                <div className="inline-flex items-center ">
+                    <div className="flex justify-end w-[222px] h-8 overflow-hidden">
+                        <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6}/> {/* Set maxWaves limit */}
+                    </div>
+                    <span>{formattedTime}</span>
+                </div>
+            </div>
+            : (showMore ?
                 <div className="inline-flex items-center justify-center flex-col space-y-1 border-2 border-primary-500 rounded-3xl p-4">
                     <div className="inline-flex items-center space-x-[8px] w-[260px] h-8">
                         <div className="flex justify-end w-[190px] h-8 overflow-hidden">
@@ -61,14 +70,15 @@ const AudioDisplay = () => {
                 <div
                     className="inline-flex items-center justify-center flex-col space-y-1 border-2 border-primary-500 rounded-3xl p-4">
                     <div className="inline-flex items-center space-x-[8px] w-[260px] h-8">
-                        <div className="flex justify-end w-[190px] h-8 overflow-hidden">
+                        <AiIcon />
+                        <div className="flex justify-end w-[182px] h-8 overflow-hidden">
                             <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6}/> {/* Set maxWaves limit */}
                         </div>
                         <span>{formattedTime}</span>
                         <Arrow orientation={"left"} onToggleAction={() => setShowMore(true)}/>
                     </div>
                 </div>
-        )
+        ))
     );
 }
 
