@@ -7,7 +7,6 @@ import StaticSoundWaveIcon from "../../icon/tech/log/wave/StaticSoundWaveIcon.ts
 import PlayIcon from "../../icon/tech/log/play/PlayIcon.tsx";
 import DeleteIcon from "../../icon/utility/delete/DeleteIcon.tsx";
 
-// Styles for the inner section that changes layout based on state
 const innerContainerStyles = cva("inline-flex items-center", {
     variants: {
         state: {
@@ -18,38 +17,57 @@ const innerContainerStyles = cva("inline-flex items-center", {
     },
 });
 
-// Types for `AudioDisplayProps` with the extracted variant options
 type AudioDisplayProps = VariantProps<typeof innerContainerStyles> & {
     time?: string;
     isRecording?: boolean;
 };
 
-const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "1:08", isRecording = false }) => {
+const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording = false }) => {
     const [showMore, setShowMore] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
-
     const [wavesNumber, setWavesNumber] = useState(0);
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
+    const [playbackTime, setPlaybackTime] = useState(0);
 
-    // Increment wavesNumber every 100 milliseconds to add new wave
+    const totalSeconds = parseInt(time.split(":")[0]) * 60 + parseInt(time.split(":")[1]);
+
     useEffect(() => {
-        const waveInterval = setInterval(() => {
-            setWavesNumber((prev) => prev + 1);
-        }, 100);
-        return () => clearInterval(waveInterval);
-    }, []);
+        if (isRecording) {
+            const waveInterval = setInterval(() => {
+                setWavesNumber((prev) => prev + 1);
+            }, 100);
+            return () => clearInterval(waveInterval);
+        }
+    }, [isRecording]);
 
-    // Increment elapsedSeconds every second for timer display
     useEffect(() => {
-        const timerInterval = setInterval(() => {
-            setElapsedSeconds((prev) => prev + 1);
-        }, 1000);
-        return () => clearInterval(timerInterval);
-    }, []);
+        if (isRecording) {
+            const timerInterval = setInterval(() => {
+                setElapsedSeconds((prev) => prev + 1);
+            }, 1000);
+            return () => clearInterval(timerInterval);
+        }
+    }, [isRecording]);
 
-    const formattedTime = `${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60)
-        .toString()
-        .padStart(2, "0")}`;
+    useEffect(() => {
+        if (!isPaused && playbackTime < totalSeconds) {
+            const playbackInterval = setInterval(() => {
+                setPlaybackTime((prev) => {
+                    if (prev + 1 >= totalSeconds) {
+                        setIsPaused(true);
+                        return totalSeconds;
+                    }
+                    return prev + 1;
+                });
+            }, 1000);
+            return () => clearInterval(playbackInterval);
+        } else if (playbackTime >= totalSeconds) {
+            setPlaybackTime(0);
+        }
+    }, [isPaused, playbackTime, totalSeconds]);
+
+    const displayTime = isPaused ? time : `${Math.floor(playbackTime / 60)}:${(playbackTime % 60).toString().padStart(2, "0")}`;
+    const playbackProgress = (playbackTime / totalSeconds) * 100;
 
     return (
         <div className="inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
@@ -58,20 +76,36 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "1:08", isRecording 
                     <div className="flex justify-end w-[222px] h-8 overflow-hidden">
                         <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6} />
                     </div>
-                    <text>{formattedTime}</text>
+                    <span>{`${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`}</span>
                 </div>
             ) : showMore ? (
                 <>
                     <div className={innerContainerStyles({ state: "expanded" })}>
-                        <div className="flex justify-end w-[190px] h-8 overflow-hidden">
-                            <StaticSoundWaveIcon wavesNumber={36} />
+                        <div className="w-[190px] h-8 overflow-hidden relative">
+                            <div
+                                className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
+                                style={{
+                                    clipPath: isPaused
+                                        ? "none"
+                                        : `inset(0 ${100 - playbackProgress}% 0 0)`,
+                                }}
+                            >
+                                <StaticSoundWaveIcon wavesNumber={36} />
+                            </div>
                         </div>
-                        <text>{time}</text>
+                        <span>{displayTime}</span>
                         <Arrow orientation="down" onToggleAction={() => setShowMore(false)} />
                     </div>
                     <div className="inline-flex items-center justify-between w-[260px] h-6 mt-2">
                         <AiIcon pressed={false} />
-                        <button onClick={() => setIsPaused(!isPaused)}>
+                        <button
+                            onClick={() => {
+                                setIsPaused(!isPaused);
+                                if (!isPaused && playbackTime >= totalSeconds) {
+                                    setPlaybackTime(0);
+                                }
+                            }}
+                        >
                             <PlayIcon paused={isPaused} />
                         </button>
                         <DeleteIcon />
@@ -83,14 +117,26 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "1:08", isRecording 
                         onClick={() => {
                             setIsPaused(!isPaused);
                             setShowMore(true);
+                            if (!isPaused && playbackTime >= totalSeconds) {
+                                setPlaybackTime(0);
+                            }
                         }}
                     >
                         <PlayIcon paused={isPaused} />
                     </button>
-                    <div className="flex justify-end w-[182px] h-8 overflow-hidden">
-                        <StaticSoundWaveIcon wavesNumber={36} />
+                    <div className="w-[182px] h-8 overflow-hidden relative">
+                        <div
+                            className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
+                            style={{
+                                clipPath: isPaused
+                                    ? "none"
+                                    : `inset(0 ${100 - playbackProgress}% 0 0)`,
+                            }}
+                        >
+                            <StaticSoundWaveIcon wavesNumber={36} />
+                        </div>
                     </div>
-                    <text>{time}</text>
+                    <span>{displayTime}</span>
                     <Arrow orientation="left" onToggleAction={() => setShowMore(true)} />
                 </div>
             )}
