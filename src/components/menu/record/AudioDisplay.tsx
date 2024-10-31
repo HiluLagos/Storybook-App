@@ -28,6 +28,7 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
     const [wavesNumber, setWavesNumber] = useState(0);
     const [elapsedSeconds, setElapsedSeconds] = useState(0);
     const [playbackTime, setPlaybackTime] = useState(0);
+    const [showSummary, setShowSummary] = useState(false);
 
     const totalSeconds = parseInt(time.split(":")[0]) * 60 + parseInt(time.split(":")[1]);
 
@@ -70,18 +71,64 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
     const playbackProgress = (playbackTime / totalSeconds) * 100;
 
     return (
-        <div className="inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
-            {isRecording ? (
-                <div className={innerContainerStyles({ state: "recording" })}>
-                    <div className="flex justify-end w-[222px] h-8 overflow-hidden">
-                        <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6} />
+        <div className="space-y-4">
+            <div className="inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
+                {isRecording ? (
+                    <div className={innerContainerStyles({ state: "recording" })}>
+                        <div className="flex justify-end w-[222px] h-8 overflow-hidden">
+                            <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6} />
+                        </div>
+                        <span>{`${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`}</span>
                     </div>
-                    <span>{`${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`}</span>
-                </div>
-            ) : showMore ? (
-                <>
-                    <div className={innerContainerStyles({ state: "expanded" })}>
-                        <div className="w-[190px] h-8 overflow-hidden relative">
+                ) : showMore ? (
+                    <>
+                        <div className={innerContainerStyles({ state: "expanded" })}>
+                            <div className="w-[190px] h-8 overflow-hidden relative">
+                                <div
+                                    className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
+                                    style={{
+                                        clipPath: isPaused
+                                            ? "none"
+                                            : `inset(0 ${100 - playbackProgress}% 0 0)`,
+                                    }}
+                                >
+                                    <StaticSoundWaveIcon wavesNumber={36} />
+                                </div>
+                            </div>
+                            <span>{displayTime}</span>
+                            <Arrow orientation="down" onToggleAction={() => setShowMore(false)} />
+                        </div>
+                        <div className="inline-flex items-center justify-between w-[260px] h-6 mt-2">
+                            <button onClick={() => setShowSummary(!showSummary)}>
+                                <AiIcon pressed={false} />
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsPaused(!isPaused);
+                                    if (!isPaused && playbackTime >= totalSeconds) {
+                                        setPlaybackTime(0);
+                                    }
+                                }}
+                            >
+                                <PlayIcon paused={isPaused} />
+                            </button>
+                            <DeleteIcon />
+                        </div>
+                    </>
+                ) : (
+                    <div className={innerContainerStyles({ state: "collapsed" })}>
+                        <button
+                            onClick={() => {
+                                setIsPaused(!isPaused);
+                                setShowMore(true);
+                                if (!isPaused && playbackTime >= totalSeconds) {
+                                    setPlaybackTime(0);
+                                }
+                            }}
+                        >
+                            <PlayIcon paused={isPaused} />
+                        </button>
+                        <div className="w-[182px] h-8 overflow-hidden relative">
                             <div
                                 className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
                                 style={{
@@ -94,52 +141,17 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
                             </div>
                         </div>
                         <span>{displayTime}</span>
-                        <Arrow orientation="down" onToggleAction={() => setShowMore(false)} />
+                        <Arrow orientation="left" onToggleAction={() => setShowMore(true)} />
                     </div>
-                    <div className="inline-flex items-center justify-between w-[260px] h-6 mt-2">
-                        <AiIcon pressed={false} />
-                        <button
-                            onClick={() => {
-                                setIsPaused(!isPaused);
-                                if (!isPaused && playbackTime >= totalSeconds) {
-                                    setPlaybackTime(0);
-                                }
-                            }}
-                        >
-                            <PlayIcon paused={isPaused} />
-                        </button>
-                        <DeleteIcon />
-                    </div>
-                </>
-            ) : (
-                <div className={innerContainerStyles({ state: "collapsed" })}>
-                    <button
-                        onClick={() => {
-                            setIsPaused(!isPaused);
-                            setShowMore(true);
-                            if (!isPaused && playbackTime >= totalSeconds) {
-                                setPlaybackTime(0);
-                            }
-                        }}
-                    >
-                        <PlayIcon paused={isPaused} />
-                    </button>
-                    <div className="w-[182px] h-8 overflow-hidden relative">
-                        <div
-                            className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
-                            style={{
-                                clipPath: isPaused
-                                    ? "none"
-                                    : `inset(0 ${100 - playbackProgress}% 0 0)`,
-                            }}
-                        >
-                            <StaticSoundWaveIcon wavesNumber={36} />
-                        </div>
-                    </div>
-                    <span>{displayTime}</span>
-                    <Arrow orientation="left" onToggleAction={() => setShowMore(true)} />
-                </div>
-            )}
+                )}
+            </div>
+            {showSummary &&
+                <ul className="flex flex-col justify-center bg-primary-100 w-[296px] rounded-2xl space-y-4 p-4 list-disc pl-9">
+                    <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+                    <li>Urna senectus</li>
+                    <li>Lorem ipsum dolor</li>
+                </ul>
+            }
         </div>
     );
 };
