@@ -15,4 +15,13 @@ export default meta;
 type Story = StoryObj<typeof AudioDisplay>;
 
 export const Default: Story = {
+    args: {
+        isRecording: false
+    }
+};
+
+export const Recording: Story = {
+    args: {
+        isRecording: true
+    }
 };

@@ -1,13 +1,13 @@
-import { cva } from "class-variance-authority";
+import {cva, VariantProps} from "class-variance-authority";
 import Arrow from "../../icon/utility/arrow/Arrow.tsx";
 import AiIcon from "../../icon/tech/log/ai/AiIcon.tsx";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import DynamicSoundWaveIcon from "../../icon/tech/log/wave/DynamicSoundWaveIcon.tsx";
 import StaticSoundWaveIcon from "../../icon/tech/log/wave/StaticSoundWaveIcon.tsx";
 import PlayIcon from "../../icon/tech/log/play/PlayIcon.tsx";
 import DeleteIcon from "../../icon/utility/delete/DeleteIcon.tsx";
 
-const AudioDisplayStyle = cva("", {
+const audioDisplayStyle = cva("", {
     variants: {
         size: {
             small: "",
@@ -16,9 +16,13 @@ const AudioDisplayStyle = cva("", {
     }
 });
 
-const AudioDisplay = ({time = "1:08"}) => {
+type AudioDisplayProps = VariantProps<typeof audioDisplayStyle> & {
+    time?: string;
+    isRecording?: boolean;
+}
+
+const AudioDisplay: React.FC<AudioDisplayProps> = ({time = "1:08", isRecording = false}: AudioDisplayProps) => {
     const [showMore, setShowMore] = useState(false);
-    const [isRecording, setIsRecording] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
 
     const [wavesNumber, setWavesNumber] = useState(0);
