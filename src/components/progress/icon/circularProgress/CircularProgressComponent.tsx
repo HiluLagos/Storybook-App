@@ -1,6 +1,6 @@
 import React from "react";
 import Circular from "../../circular/Circular.tsx";
-import ActivityIconProvider from "../../../icon/activity/ActivityIconProvider.tsx";
+import IconProvider from "../../../icon/IconProvider.tsx";
 
 type CircularProgressComponentProps = {
   size: "medium" | "large";
@@ -11,7 +11,7 @@ type CircularProgressComponentProps = {
 const CircularProgressComponent: React.FC<CircularProgressComponentProps> = ({size = "medium", percentage = 45, activity = "water"}: CircularProgressComponentProps) => {
   return (
     <Circular size={size} activity={activity} percentage={percentage}>
-      <ActivityIconProvider size={size} activity={activity} />
+      <IconProvider size={size} activity={activity} />
     </Circular>
   )
 }
