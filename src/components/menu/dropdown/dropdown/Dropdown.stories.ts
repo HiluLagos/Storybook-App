@@ -20,25 +20,27 @@ type Story = StoryObj<typeof meta>;
 export const Closed: Story = {
   args: {
     dropped: false,
-    title: "Mis Checklists",
+    title: "Main",
     checkLists: [
       { intent: "default", title: "Tarea 1" },
       { intent: "loading", title: "Tarea 2" },
       { intent: "pressed", title: "Tarea 3" },
       { intent: "done", title: "Tarea 4" },
     ],
+    topRightText: "Date",
   },
 };
 
 export const Opened: Story = {
   args: {
     dropped: true,
-    title: "Mis Checklists",
+    title: "Main",
     checkLists: [
       { intent: "default", title: "Tarea 1" },
       { intent: "loading", title: "Tarea 2" },
       { intent: "pressed", title: "Tarea 3" },
       { intent: "done", title: "Tarea 4" },
     ],
+    topRightText: "Date",
   },
 };
