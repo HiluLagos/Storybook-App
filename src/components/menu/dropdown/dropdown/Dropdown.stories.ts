@@ -23,7 +23,6 @@ export const Closed: Story = {
     title: "Main",
     checkLists: [
       { intent: "default", title: "Tarea 1" },
-      { intent: "loading", title: "Tarea 2" },
       { intent: "pressed", title: "Tarea 3" },
       { intent: "done", title: "Tarea 4" },
     ],
@@ -37,7 +36,6 @@ export const Opened: Story = {
     title: "Main",
     checkLists: [
       { intent: "default", title: "Tarea 1" },
-      { intent: "loading", title: "Tarea 2" },
       { intent: "pressed", title: "Tarea 3" },
       { intent: "done", title: "Tarea 4" },
     ],
