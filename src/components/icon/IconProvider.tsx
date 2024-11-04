@@ -7,10 +7,12 @@ import Water from "./activity/water/Water.tsx";
 import Task from "./menu/Task/Task.tsx";
 import Log from "./menu/Log/Log.tsx";
 import Activities from "./menu/Activities/Activities.tsx";
+import Mail from "./utility/mail/Mail.tsx";
+import Lock from "./utility/lock/Lock.tsx";
 
-type IconProviderProps = {
+export type IconInterface = {
   size: "medium" | "large";
-  activity: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities";
+  variant: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "mail" | "lock";
 };
 
 const iconMap = {
@@ -21,10 +23,12 @@ const iconMap = {
   task: Task,
   log: Log,
   activities: Activities,
+  mail: Mail,
+  lock: Lock
 };
 
-const IconProvider: React.FC<IconProviderProps> = ({ size, activity }: IconProviderProps) => {
-  const IconComponent = iconMap[activity];
+const IconProvider: React.FC<IconInterface> = ({ size, variant }: IconInterface) => {
+  const IconComponent = iconMap[variant];
   return IconComponent ? <IconComponent size={size} /> : null;
 };
 
