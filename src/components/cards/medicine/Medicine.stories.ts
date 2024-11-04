@@ -24,6 +24,10 @@ const meta = {
     schedule: {
       control: 'text',
       description: 'The schedule of the medicine',
+    },
+    completeTime: {
+      control: 'text',
+      description: 'The time the medicine was taken',
     }
   }
 } satisfies Meta<typeof Medicine>;
@@ -37,6 +41,7 @@ export const Incomplete: Story = {
     name: 'Cloroplatino',
     description: 'medicine hehe yeah',
     schedule: "23:00",
+    completeTime: "00:17",
   }
 };
 
@@ -46,5 +51,6 @@ export const Complete: Story = {
     name: 'Cloroplatino',
     description: 'medicine hehe yeah',
     schedule: "19:00",
+    completeTime: "19:17",
   }
 };

@@ -6,11 +6,11 @@ import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
 import Clock from "../../icon/utility/clock/Clock.tsx";
 
 const medicine = cva(
-  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between", {
+  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow", {
     variants: {
       complete: {
-        false: "border-primary-500",
-        true: "bg-primary-100 border-primary-900",
+        false: "",
+        true: "bg-bg-light-yellow",
       }
     },
     defaultVariants: {
@@ -19,17 +19,29 @@ const medicine = cva(
   }
 )
 
+const takenText = cva(
+  "pt-4", {
+    variants: {
+      complete: {
+        false: "opacity-0",
+        true: "text-text-description-dark",
+      }
+    }
+  }
+)
+
 type MedicineProps = VariantProps<typeof medicine> & {
   name: string;
   description: string;
   schedule: string;
+  completeTime: string;
 };
 
 // function getScheduleHour(schedule: Date) {
 //   return schedule.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false});
 // }
 
-const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00"}: MedicineProps) => {
+const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
   // const scheduleHour = getScheduleHour(schedule);
 
   return (
@@ -46,11 +58,9 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
           <Typography weight={"regular"} size={"m"}>{description}</Typography>
         </div>
 
-        {complete &&
-            <div className={"pt-4 text-text-description-dark"}>
-                <Typography weight={"regular"} size={"m"}>{"Taken at 00:17"}</Typography>
-            </div>
-        }
+        <div className={takenText({complete})}>
+          <Typography weight={"regular"} size={"m"}>{"Taken at " + completeTime}</Typography>
+        </div>
       </div>
 
       <div className={"p-0.5 flex flex-col items-center justify-end"}>
