@@ -18,17 +18,21 @@ const meta = {
     pxHeight: {
       control: 'number',
       description: 'The maximum height of the drawer in pixels'
+    },
+    isOpen: {
+      control: 'boolean',
+      description: 'Changing it restarts the drawer position'
     }
   },
 } satisfies Meta<typeof Drawer>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
   render: () => (
-    <div className={"h-[500px] w-[330px] bg-teal-300 flex flex-col justify-end"}>
-      <Drawer pxHeight={300}>
+    <div className={"h-[500px] w-[330px] overflow-hidden bg-teal-300 flex flex-col justify-end"}>
+      <Drawer pxHeight={300} isOpen={true}>
         <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
           <p>Drawer content</p>
         </div>
