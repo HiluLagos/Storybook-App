@@ -34,7 +34,7 @@ const Preference: React.FC<PreferenceProps> = ({state = "default", activity = "p
     <div className={preference({state})}>
       <Drag state={state} />
       <div className={"px-2.5"}>
-        <IconProvider size={"medium"} activity={activity} />
+        <IconProvider size={"medium"} variant={activity} />
       </div>
       <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
     </div>

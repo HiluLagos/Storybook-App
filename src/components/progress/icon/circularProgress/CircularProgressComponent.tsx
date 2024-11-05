@@ -11,7 +11,7 @@ type CircularProgressComponentProps = {
 const CircularProgressComponent: React.FC<CircularProgressComponentProps> = ({size = "medium", percentage = 45, activity = "water"}: CircularProgressComponentProps) => {
   return (
     <Circular size={size} activity={activity} percentage={percentage}>
-      <IconProvider size={size} activity={activity} />
+      <IconProvider size={size} variant={activity} />
     </Circular>
   )
 }

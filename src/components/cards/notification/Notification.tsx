@@ -43,7 +43,7 @@ const Notification: React.FC<NotificationProps> = ({color = "default", icon = "p
     <div className={notificationBackground({color})}>
       <div className={notificationShade({color})}></div>
       <div className={"px-4 flex items-center"}>
-        <IconProvider size={"medium"} activity={icon} />
+        <IconProvider size={"medium"} variant={icon} />
       </div>
       <div className={"pl-4 pt-4 pr-2 pb-2 w-[220px] flex flex-col"}>
         <Typography size={"p"} weight={"regular"}>{description}</Typography>
