@@ -10,6 +10,15 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    backgrounds: {
+      default: 'celeste',
+      values: [
+        {
+          name: 'celeste',
+          value: '#66ff00', // Color celeste
+        },
+      ],
+    },
   },
 };
 
