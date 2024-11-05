@@ -20,7 +20,7 @@ const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", 
     return (
       <div className="flex flex-col relative">
           <Typography size={size} weight={weight}>
-              {expanded ? children : children.slice(0, limit)}
+              {expanded ? children : children.slice(0, limit) + "..."}
           </Typography>
           {hasReadMore &&
               <div className="flex justify-end items-end flex-grow">
