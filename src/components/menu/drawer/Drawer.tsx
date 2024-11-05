@@ -4,23 +4,28 @@ import Draggable from 'react-draggable';
 
 interface DrawerProps {
   children?: React.ReactNode;
-  maxPxHeight?: number;
+  pxHeight?: number;
 }
 
-const Drawer: React.FC<DrawerProps> = ({children, maxPxHeight = 200}) => {
+const Drawer: React.FC<DrawerProps> = ({children, pxHeight = 200}) => {
+  const handleStop = () => {
+
+  }
+
   return (
     <Draggable
       axis={"y"}
-      onStop={() => {
-
-      }}
+      position={{x: 0, y: 0}}
+      onStop={handleStop}
     >
       <div className={`w-full rounded-t-lg flex flex-col items-center justify-around bg-secondary-100`}
-           style={{maxHeight: `${maxPxHeight}px`}}>
+           style={{height: `${pxHeight}px`}}>
         <div className={"w-full pt-4 pb-2 flex justify-center"}>
           <TopNotch/>
         </div>
-        {children}
+        <div className={'overflow-scroll'} style={{msOverflowStyle: 'none', scrollbarWidth: 'none', overflow: 'hidden'}}>
+          {children}
+        </div>
       </div>
     </Draggable>
   )

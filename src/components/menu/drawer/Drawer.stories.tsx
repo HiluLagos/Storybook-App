@@ -15,7 +15,7 @@ const meta = {
     children: {
       description: 'The children to display inside the drawer'
     },
-    maxPxHeight: {
+    pxHeight: {
       control: 'number',
       description: 'The maximum height of the drawer in pixels'
     }
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <div className={"h-[500px] w-[330px] bg-teal-300 flex flex-col justify-end"}>
-      <Drawer maxPxHeight={300}>
+      <Drawer pxHeight={300}>
         <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
           <p>Drawer content</p>
         </div>
