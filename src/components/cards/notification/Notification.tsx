@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import IconProvider from "../../icon/IconProvider.tsx";
-import Typography from "../../typography/Typography.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const notificationBackground = cva(
   "rounded-2xl border-2 w-[296px] min-h-[100px] flex flex-row overflow-hidden", {

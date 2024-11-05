@@ -1,6 +1,6 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
-import Typography from "../typography/Typography.tsx";
+import Typography from "../typography/basic/Typography.tsx";
 
 const stateTag = cva(
   "rounded-3xl px-[8px] py-[4px] w-fit h-fit", {

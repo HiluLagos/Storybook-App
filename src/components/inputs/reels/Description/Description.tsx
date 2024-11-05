@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "../../../typography/Typography.tsx";
+import Typography from "../../../typography/basic/Typography.tsx";
 
 type DescriptionProps = {
     tag: string

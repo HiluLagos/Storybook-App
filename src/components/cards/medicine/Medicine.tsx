@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import StateTag from "../../stateTag/StateTag.tsx";
-import Typography from "../../typography/Typography.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
 import Clock from "../../icon/utility/clock/Clock.tsx";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import DayView from "../DayView/DayView.tsx";
-import Typography from "../../../typography/Typography.tsx";
+import Typography from "../../../typography/basic/Typography.tsx";
 
 type DayViewProps = {
     header: string,

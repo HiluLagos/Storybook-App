@@ -1,6 +1,6 @@
 import {cva} from "class-variance-authority";
 import React, {ReactNode} from "react";
-import Typography from "../../../typography/Typography.tsx";
+import Typography from "../../../typography/basic/Typography.tsx";
 import StateTag from "../../../stateTag/StateTag.tsx";
 import ActivitiesIcon from "../../../icon/menu/Activities/Activities.tsx";
 import LogIcon from "../../../icon/menu/Log/Log.tsx";

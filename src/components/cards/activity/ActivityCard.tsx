@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import CircularProgressComponent from "../../progress/icon/circularProgress/CircularProgressComponent.tsx";
-import Typography from "../../typography/Typography.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const activityCard = cva(
   "w-[152px] h-[152px] rounded-2xl border-[3px] flex flex-col items-center justify-center", {

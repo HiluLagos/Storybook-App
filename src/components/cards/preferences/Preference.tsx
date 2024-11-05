@@ -2,7 +2,7 @@ import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import Drag from "../../icon/utility/drag/Drag.tsx";
 import IconProvider from "../../icon/IconProvider.tsx";
-import Typography from "../../typography/Typography.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const preference = cva(
   "rounded-lg flex flex-row items-center py-3 px-3", {

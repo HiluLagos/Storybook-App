@@ -1,5 +1,5 @@
 import User from "../../../icon/settings/drawer/icons/user/User.tsx";
-import Typography from "../../../typography/Typography.tsx";
+import Typography from "../../../typography/basic/Typography.tsx";
 import React from "react";
 
 type DrawerHeaderProps = {
