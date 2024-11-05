@@ -1,5 +1,5 @@
 import LogButton from "../LogButton.tsx";
-import SendIcon from "../../../icon/tech/log/SendIcon.tsx";
+import SendIcon from "../../../icon/tech/log/send/SendIcon.tsx";
 import React from "react";
 
 type RecordButtonProperties = {

@@ -5,7 +5,7 @@ const drag = cva(
   "", {
     variants: {
       state: {
-        default: "text-utility-border",
+        default: "text-icon-black",
         dragged: "text-secondary-700",
       }
     }

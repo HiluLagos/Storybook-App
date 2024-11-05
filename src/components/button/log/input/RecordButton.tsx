@@ -1,5 +1,5 @@
 import LogButton from "../LogButton.tsx";
-import AudioIcon from "../../../icon/tech/log/Audio.tsx";
+import MicroIcon from "../../../icon/tech/log/micro/Micro.tsx";
 import React from "react";
 
 type RecordButtonProperties = {
@@ -8,7 +8,7 @@ type RecordButtonProperties = {
 
 const RecordButton: React.FC<RecordButtonProperties> = ({pressed}: RecordButtonProperties) => {
     return (
-        <LogButton pressed={pressed} icon={AudioIcon}/>
+        <LogButton pressed={pressed} icon={MicroIcon}/>
     )
 }
 

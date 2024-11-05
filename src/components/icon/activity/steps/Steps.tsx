@@ -5,19 +5,19 @@ const steps = cva(
   "", {
     variants: {
       size: {
-        small: "w-8 h-8",
-        medium: "w-16 h-16",
+        medium: "w-8 h-8",
+        large: "w-16 h-16",
       }
     },
     defaultVariants: {
-      size: "small",
+      size: "medium",
     }
   }
 )
 
 type StepsProps = VariantProps<typeof steps>;
 
-const Searcher: React.FC<StepsProps> = ({size = "small"}:StepsProps) => {
+const Searcher: React.FC<StepsProps> = ({size = "medium"}:StepsProps) => {
   return (
     <svg className={steps({size})} viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

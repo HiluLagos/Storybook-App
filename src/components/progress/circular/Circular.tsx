@@ -5,8 +5,8 @@ const circular = cva(
   "", {
     variants: {
       size: {
-        small: "w-16 h-16",
-        medium: "w-[152px] h-[152px]",
+        medium: "w-16 h-16",
+        large: "w-[152px] h-[152px]",
       },
       activity: {
         pills: "text-yellow-300",

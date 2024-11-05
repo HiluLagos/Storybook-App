@@ -1,7 +1,7 @@
 import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import CircularProgressComponent from "../../progress/icon/circularProgress/CircularProgressComponent.tsx";
-import Typography from "../../typography/Typography.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const activityCard = cva(
   "w-[152px] h-[152px] rounded-2xl border-[3px] flex flex-col items-center justify-center", {
@@ -38,7 +38,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({activity = "water", progress
 
   return (
     <div className={activityCard({activity})}>
-      <CircularProgressComponent activity={activity} size={"small"} percentage={finalPercentage} />
+      <CircularProgressComponent activity={activity} size={"medium"} percentage={finalPercentage} />
       <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
       <div className={"text-text-description-bright"}>
         <Typography weight={"semiBold"} size={"p"}>{progress.toString() + (activity === "water" ? "L" : "")}</Typography>

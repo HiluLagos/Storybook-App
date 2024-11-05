@@ -14,7 +14,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['small', 'medium'],
+      options: ['medium', 'large'],
       description: 'The size of the steps icon',
     },
   },
@@ -23,14 +23,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
-  args: {
-    size: 'small',
-  },
-}
-
 export const Medium: Story = {
   args: {
     size: 'medium',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    size: 'large',
   },
 }

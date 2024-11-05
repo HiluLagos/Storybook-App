@@ -8,6 +8,18 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    argTypes: {
+        size: {
+            control: 'select',
+            options: ['small', 'medium'],
+            description: 'Size of the icon',
+        },
+        intent: {
+            control: 'select',
+            options: ['selected', 'unselected'],
+            description: 'Intent of the icon',
+        }
+    }
 } satisfies Meta<typeof HeartIcon>;
 
 export default meta;
