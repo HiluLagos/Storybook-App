@@ -5,7 +5,7 @@ import {Button} from "../../button/utility/button/Button.tsx";
 import DeletePopUpIcon from "../../icon/popUps/delete/DeletePopUpIcon.tsx";
 import AlertPopUpIcon from "../../icon/popUps/alert/AlertPopUpIcon.tsx";
 
-const LogoutLogPopUp: React.FC = () => {
+const LogoutPopUp: React.FC = () => {
     return (
         <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-6 bg-bg-default text-center"}>
             <div className={"self-end"}>
@@ -25,4 +25,4 @@ const LogoutLogPopUp: React.FC = () => {
     );
 }
 
-export default LogoutLogPopUp;
+export default LogoutPopUp;

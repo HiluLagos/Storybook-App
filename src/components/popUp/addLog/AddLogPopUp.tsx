@@ -6,7 +6,7 @@ import {Button} from "../../button/utility/button/Button.tsx";
 
 const AddLogPopUp: React.FC = () => {
     return (
-        <div className={"flex flex-col w-[288px] h-[271px] rounded-2xl p-5 space-y-6 bg-bg-default"}>
+        <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-6 bg-bg-default text-center"}>
             <div className={"self-end"}>
                 <Cross/>
             </div>

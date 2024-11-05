@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import WellDoneLogPopUp from "./WellDoneLogPopUp.tsx";
 
 const meta = {
-  title: 'PopUp/Delete Log',
+  title: 'PopUp/Well done survey Log',
   component: WellDoneLogPopUp,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

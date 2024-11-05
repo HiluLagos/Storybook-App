@@ -5,37 +5,52 @@ const confetti = cva(
     "", {
         variants: {
             size: {
-                medium: "w-8 h-8",
+                medium: "w-8 h-8 ",
                 xLarge: "w-20 h-20",
             },
         },
         defaultVariants: {
-            size: "medium",
+            size: "xLarge",
         }
     }
 )
 
-type ConfettiProps = VariantProps<typeof confetti>;
+const stroke = cva(
+    "", {
+        variants: {
+            width: {
+                medium: "stroke-2",
+                xLarge: "stroke-[1.5px]",
+            },
+        },
+        defaultVariants: {
+            width: "xLarge",
+
+        }
+    }
+);
+
+type ConfettiProps = VariantProps<typeof confetti> & VariantProps<typeof stroke>;
 
 
-const Confetti: React.FC<ConfettiProps> = ({size = "medium"}: ConfettiProps) => {
+const Confetti: React.FC<ConfettiProps> = ({size = "xLarge", width = "xLarge"}: ConfettiProps) => {
     return (
             <svg className={confetti({size})} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M3.48183 21.43L5.95312 14.0161C7.07361 10.6547 7.63386 8.97394 8.95947 8.661C10.2851 8.34806 11.5378 9.6008 14.0433 12.1063L18.9859 17.0488C21.4913 19.5544 22.7442 20.8071 22.4311 22.1327C22.1183 23.4583 20.4376 24.0185 17.076 25.1391L9.66217 27.6104C5.61709 28.9588 3.59453 29.633 2.52691 28.5653C1.45928 27.4976 2.13346 25.4751 3.48183 21.43Z"
-                    stroke="#28C40B" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linecap="round"/>
                 <path
                     d="M15.5102 25.2105C15.5102 25.2105 14.4011 21.8739 14.4011 19.6656C14.4011 17.4571 15.5102 14.1204 15.5102 14.1204M9.41058 26.8741C9.41058 26.8741 8.47394 22.8488 8.30156 20.2201C8.01676 15.8768 9.41058 9.12988 9.41058 9.12988"
-                    stroke="#28C40B" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linecap="round"/>
                 <path
                     d="M18.8369 13.0111L19.0475 11.9579C19.2602 10.8947 20.0263 10.0269 21.0549 9.68397C22.0836 9.34109 22.8497 8.47329 23.0623 7.41002L23.273 6.35693"
-                    stroke="#28C40B" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linecap="round"/>
                 <path
                     d="M23.3125 17.7612L23.6239 17.9409C24.5851 18.4959 25.7936 18.3735 26.624 17.6371C27.376 16.9702 28.4469 16.8012 29.3678 17.2038L29.7942 17.3902"
-                    stroke="#28C40B" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linecap="round"/>
                 <path
                     d="M11.9414 2.43994C11.4478 3.24746 11.5715 4.28803 12.2407 4.95728L12.3839 5.10045C12.959 5.67555 13.1711 6.5204 12.9358 7.29892"
-                    stroke="#28C40B" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linecap="round"/>
                 <path
                     d="M7.74689 4.13898C8.05329 3.83258 8.55005 3.83258 8.85646 4.13898C9.16286 4.44538 9.16286 4.94216 8.85646 5.24856C8.55005 5.55496 8.05329 5.55496 7.74689 5.24856C7.44049 4.94216 7.44049 4.44538 7.74689 4.13898Z"
                     fill="#28C40B"/>
@@ -50,10 +65,10 @@ const Confetti: React.FC<ConfettiProps> = ({size = "medium"}: ConfettiProps) => 
                     fill="#28C40B"/>
                 <path
                     d="M25.9344 9.65856C24.9539 10.639 25.6575 13.4816 25.6575 13.4816C25.6575 13.4816 28.5002 14.1852 29.4806 13.2047C30.519 12.1664 29.9315 10.8035 28.3314 10.8077C28.3358 9.20773 26.9728 8.62017 25.9344 9.65856Z"
-                    stroke="#28C40B" stroke-width="2" stroke-linejoin="round"/>
+                    stroke="#28C40B" className={stroke({width})} stroke-linejoin="round"/>
                 <path
                     d="M19.8293 3.37349L19.7891 3.51554C19.7446 3.67157 19.7226 3.74958 19.7331 3.82617C19.7435 3.90276 19.7855 3.96924 19.8694 4.10221L19.9458 4.22329C20.2411 4.69123 20.3887 4.92521 20.2881 5.1166C20.1876 5.30797 19.9053 5.33 19.3409 5.37406L19.1949 5.38547C19.0345 5.39799 18.9543 5.40425 18.8843 5.44109C18.8142 5.47794 18.7621 5.5412 18.6578 5.66772L18.563 5.78291C18.1965 6.22814 18.0132 6.45075 17.8042 6.42213C17.5951 6.3935 17.4987 6.13259 17.306 5.61077L17.2561 5.47576C17.2012 5.32748 17.1739 5.25334 17.12 5.19952C17.0662 5.14571 16.992 5.11832 16.8437 5.06353L16.7087 5.01365C16.187 4.82086 15.926 4.72447 15.8975 4.51541C15.8688 4.30634 16.0914 4.12306 16.5367 3.7565L16.6518 3.66165C16.7783 3.55749 16.8417 3.5054 16.8784 3.43531C16.9153 3.3652 16.9215 3.28501 16.9341 3.12463L16.9455 2.97862C16.9896 2.41424 17.0115 2.13204 17.203 2.03147C17.3943 1.93087 17.6283 2.07851 18.0963 2.37378L18.2174 2.45018C18.3504 2.53408 18.4168 2.57603 18.4934 2.58652C18.5699 2.59701 18.648 2.57483 18.804 2.5305L18.946 2.49014C19.4951 2.33412 19.7697 2.25611 19.9165 2.40302C20.0634 2.54992 19.9854 2.82445 19.8293 3.37349Z"
-                    stroke="#28C40B" stroke-width="2"/>
+                    stroke="#28C40B" className={stroke({width})}/>
             </svg>
     );
 }
