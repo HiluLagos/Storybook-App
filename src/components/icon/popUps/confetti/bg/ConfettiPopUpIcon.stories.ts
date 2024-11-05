@@ -1,37 +1,21 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Confetti from "./Confetti.tsx";
+import ConfettiDisplay from "./ConfettiDisplay.tsx";
 
 const meta = {
-  title: 'Icon/PopUps/Confetti',
-  component: Confetti,
+  title: 'Icon/PopUps/Confetti background',
+  component: ConfettiDisplay,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['medium', 'xLarge'],
-      description: 'The size of the confetti icon',
-    },
-  },
-} satisfies Meta<typeof Confetti>;
+} satisfies Meta<typeof ConfettiDisplay>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-export const Medium: Story = {
-  args: {
-    size: 'medium',
-  },
-}
+export const Icon: Story = {
 
-export const ExtraLarge: Story = {
-  args: {
-    size: 'xLarge',
-  },
 }
