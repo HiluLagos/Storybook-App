@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Searcher from "./Searcher.tsx";
+import SearchIcon from "./SearchIcon.tsx";
 
 const meta = {
   title: 'Icon/Utility/searcher',
-  component: Searcher,
+  component: SearchIcon,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -18,7 +18,7 @@ const meta = {
       description: 'The size of the searcher',
     },
   },
-} satisfies Meta<typeof Searcher>;
+} satisfies Meta<typeof SearchIcon>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
