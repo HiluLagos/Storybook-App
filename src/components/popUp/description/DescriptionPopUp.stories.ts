@@ -26,12 +26,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-export const Default: Story = {args: {
+export const InfoComplete: Story = {args: {
   intent: "default",
   title: "Title of tasks",
-  description: "Description of tasks"}};
+  description: "Description of tasks",
+  variant: "info"}};
 
-export const Incomplete: Story = {args: {
+export const InfoIncomplete: Story = {args: {
   intent: "incomplete",
   title: "Title of tasks",
-  description: "Description of tasks"}};
+  description: "Description of tasks",
+  variant: "info"}};
+
+export const QrComplete: Story = {args: {
+    intent: "default",
+    title: "Title of tasks",
+    description: "Description of tasks",
+    variant: "recipe"}};
+
+export const QrIncomplete: Story = {args: {
+    intent: "incomplete",
+    title: "Title of tasks",
+    description: "Description of tasks",
+    variant: "recipe"}};
