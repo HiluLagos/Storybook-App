@@ -27,6 +27,10 @@ const meta = {
       max: 100,
       description: 'The percentage of the progress',
     },
+    isCounter: {
+      control: 'boolean',
+      description: 'Whether to display the count or not'
+    }
   },
 } satisfies Meta<typeof ActivityCore>;
 
@@ -37,22 +41,25 @@ export const Water: Story = {
   args: {
     activity: 'water',
     count: 159,
-    percentage: 45
+    percentage: 45,
+    isCounter: true
   },
 }
 
 export const Steps: Story = {
   args: {
     activity: 'steps',
-    count: 159,
-    percentage: 45
+    count: 241,
+    percentage: 68,
+    isCounter: false
   },
 }
 
 export const Pills: Story = {
   args: {
     activity: 'pills',
-    count: 159,
-    percentage: 45
+    count: 137,
+    percentage: 17,
+    isCounter: false
   },
 }

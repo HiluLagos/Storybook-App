@@ -1,20 +1,7 @@
-import {cva, VariantProps} from "class-variance-authority";
 import React from "react";
 import Typography from "../../../typography/basic/Typography.tsx";
 import CircularProgressComponent from "../../../progress/icon/circularProgress/CircularProgressComponent.tsx";
 import Accumulator from "../accumulator/Accumulator.tsx";
-
-const activityCore = cva(
-  "rounded-full h-fit w-fit", {
-    variants: {
-      activity: {
-        water: "bg-bg-light-lightblue",
-        steps: "bg-bg-light-orange",
-        pills: "bg-bg-light-yellow"
-      }
-    }
-  }
-);
 
 const textMap = {
   water: "Water",
@@ -22,20 +9,21 @@ const textMap = {
   pills: "Medicine"
 }
 
-type ActivityCoreProps = VariantProps<typeof activityCore> & {
+interface ActivityCoreProps {
   activity: "water" | "steps" | "pills";
   count: number;
   percentage: number;
-};
+  isCounter: boolean;
+}
 
-const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, percentage = 45}) => {
+const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, percentage = 45, isCounter= true}) => {
   return (
-    <div>
-      <Typography size={"h3"} weight={"regular"}>{textMap[activity]}</Typography>
-      <div className={activityCore({activity})}>
+    <div className={"flex flex-col items-center"}>
+      <Typography size={"h3"} weight={"semiBold"}>{textMap[activity]}</Typography>
+      <div className={"mb-2"}>
         <CircularProgressComponent activity={activity} size={"large"} percentage={percentage}/>
       </div>
-      <Accumulator activity={activity} count={count} isCounter={true}/>
+      <Accumulator activity={activity} count={count} isCounter={isCounter}/>
     </div>
   );
 };
