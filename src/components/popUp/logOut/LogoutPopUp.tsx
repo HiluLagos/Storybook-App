@@ -2,7 +2,6 @@ import React from "react";
 import Cross from "../../icon/utility/cross/Cross.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import {Button} from "../../button/utility/button/Button.tsx";
-import DeletePopUpIcon from "../../icon/popUps/delete/DeletePopUpIcon.tsx";
 import AlertPopUpIcon from "../../icon/popUps/alert/AlertPopUpIcon.tsx";
 
 const LogoutPopUp: React.FC = () => {
