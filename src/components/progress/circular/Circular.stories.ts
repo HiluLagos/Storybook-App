@@ -14,7 +14,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['small', 'medium'],
+      options: ['medium', 'large'],
       description: 'The size of the circular progress',
     },
     activity: {
@@ -38,61 +38,61 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PillsMedium: Story = {
+export const PillsLarge: Story = {
   args: {
-    size: 'small',
+    size: 'large',
     percentage: 45,
   },
 }
 
-export const PillsLarge: Story = {
+export const PillsMedium: Story = {
   args: {
     size: 'medium',
     percentage: 67,
   },
 }
 
-export const SaladMedium: Story = {
+export const SaladLarge: Story = {
   args: {
-    size: 'small',
+    size: 'large',
     activity: 'salad',
     percentage: 20,
   },
 }
 
-export const SaladLarge: Story = {
+export const SaladMedium: Story = {
   args: {
     size: 'medium',
     activity: 'salad',
     percentage: 20,
-  },
-}
-
-export const StepsMedium: Story = {
-  args: {
-    size: 'small',
-    activity: 'steps',
-    percentage: 88,
   },
 }
 
 export const StepsLarge: Story = {
   args: {
+    size: 'large',
+    activity: 'steps',
+    percentage: 88,
+  },
+}
+
+export const StepsMedium: Story = {
+  args: {
     size: 'medium',
     activity: 'steps',
     percentage: 88,
   },
 }
 
-export const WaterMedium: Story = {
+export const WaterLarge: Story = {
   args: {
-    size: 'small',
+    size: 'large',
     activity: 'water',
     percentage: 35,
   },
 }
 
-export const WaterLarge: Story = {
+export const WaterMedium: Story = {
   args: {
     size: 'medium',
     activity: 'water',
