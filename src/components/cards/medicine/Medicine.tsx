@@ -4,6 +4,7 @@ import StateTag from "../../stateTag/StateTag.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
 import Clock from "../../icon/utility/clock/Clock.tsx";
+import ExpandTypography from "../../typography/expandable/ExpandTypography.tsx";
 
 const medicine = cva(
   "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow", {
@@ -55,7 +56,7 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
         </div>
 
         <div className={"text-text-description-dark"}>
-          <Typography weight={"regular"} size={"m"}>{description}</Typography>
+          <ExpandTypography weight={"regular"} size={"m"}>{description}</ExpandTypography>
         </div>
 
         <div className={takenText({complete})}>
