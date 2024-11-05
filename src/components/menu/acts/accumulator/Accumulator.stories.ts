@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Accumulator from "./Accumulator";
+import Accumulator from "./Accumulator.tsx";
 
 const meta = {
   title: 'Menu/Utilities/Accumulator',
@@ -12,9 +12,9 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    background: {
+    activity: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['water', 'steps', 'pills'],
       description: 'The variant to display'
     },
     count: {
@@ -31,25 +31,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Water: Story = {
   args: {
-    background: 'primary',
+    activity: 'water',
     count: 159,
     isCounter: true
   },
 }
 
-export const Secondary: Story = {
+export const Steps: Story = {
   args: {
-    background: 'secondary',
+    activity: 'steps',
     count: 159,
     isCounter: true
   },
 }
 
-export const Tertiary: Story = {
+export const Pills: Story = {
   args: {
-    background: 'tertiary',
+    activity: 'pills',
     count: 159,
     isCounter: true
   },
@@ -57,7 +57,7 @@ export const Tertiary: Story = {
 
 export const NoCounter: Story = {
   args: {
-    background: 'primary',
+    activity: 'water',
     count: 159,
     isCounter: false
   },
