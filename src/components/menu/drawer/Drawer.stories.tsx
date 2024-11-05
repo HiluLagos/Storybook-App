@@ -19,7 +19,7 @@ const meta = {
       control: 'number',
       description: 'The maximum height of the drawer in pixels'
     },
-    isOpen: {
+    restart: {
       control: 'boolean',
       description: 'Changing it restarts the drawer position'
     }
@@ -32,7 +32,7 @@ type Story = StoryObj<typeof Drawer>;
 export const Default: Story = {
   render: () => (
     <div className={"h-[500px] w-[330px] overflow-hidden bg-teal-300 flex flex-col justify-end"}>
-      <Drawer pxHeight={300} isOpen={true}>
+      <Drawer pxHeight={300} restart={true}>
         <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
           <p>Drawer content</p>
         </div>
