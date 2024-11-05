@@ -5,27 +5,29 @@ interface ExpandTypographyProps {
   weight: "regular" | "semiBold" | "extraBold";
   size: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "m";
   children: string;
+  expanded?: boolean;
 }
 
-const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", size = "p", children = "Sample text"}) => {
-  const [expanded, setExpanded] = useState(false);
+const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", size = "p", children = "Sample text", expanded = false}) => {
+  const [isExpanded, setIsExpanded] = useState(expanded);
 
   const changeExpanded = () => {
-    setExpanded(!expanded);
+    setIsExpanded(!isExpanded);
   }
 
   const limit: number = 56;
   const hasReadMore: boolean = children.length > limit;
+  const displayedChildren: string = hasReadMore ? isExpanded ? children : children.slice(0, limit) + "..." : children;
 
-    return (
+  return (
       <div className="flex flex-col relative">
           <Typography size={size} weight={weight}>
-              {expanded ? children : children.slice(0, limit) + "..."}
+              {displayedChildren}
           </Typography>
           {hasReadMore &&
               <div className="flex justify-end items-end flex-grow">
                   <button className="text-text-description-dark text-m" onClick={changeExpanded}>
-                      {expanded ? "Hide text" : "Read more"}
+                      {isExpanded ? "Hide text" : "Read more"}
                   </button>
               </div>
           }
