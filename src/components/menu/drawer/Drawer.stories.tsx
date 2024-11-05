@@ -14,6 +14,10 @@ const meta = {
   argTypes: {
     children: {
       description: 'The children to display inside the drawer'
+    },
+    maxPxHeight: {
+      control: 'number',
+      description: 'The maximum height of the drawer in pixels'
     }
   },
 } satisfies Meta<typeof Drawer>;
@@ -23,8 +27,62 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <div className={"w-[330px]"}>
-      <Drawer>
+    <div className={"h-[500px] w-[330px] bg-teal-300 flex flex-col justify-end"}>
+      <Drawer maxPxHeight={300}>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
+        <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
+          <p>Drawer content</p>
+        </div>
         <div className={"w-48 bg-teal-300 rounded-lg flex flex-col items-center"}>
           <p>Drawer content</p>
         </div>
