@@ -14,7 +14,7 @@ const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", 
     setExpanded(!expanded);
   }
 
-  const limit: number = 124;
+  const limit: number = 58;
   const hasReadMore: boolean = children.length > limit;
 
     return (
