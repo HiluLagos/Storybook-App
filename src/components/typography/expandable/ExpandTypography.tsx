@@ -24,7 +24,7 @@ const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", 
           </Typography>
           {hasReadMore &&
               <div className="flex justify-end items-end flex-grow">
-                  <button className="bg-transparent text-text-description-dark" onClick={changeExpanded}>
+                  <button className="text-text-description-dark text-m" onClick={changeExpanded}>
                       {expanded ? "Hide text" : "Read more"}
                   </button>
               </div>
