@@ -31,15 +31,7 @@ export const Primary: Story = {
 
 export const Pressed: Story = {
   args: {
-    intent: "default",
-    size: "medium",
-    value: "Click me",
-  },
-};
-
-export const Loading: Story = {
-  args: {
-    intent: "loading",
+    intent: "pressed",
     size: "medium",
     value: "Click me",
   },
