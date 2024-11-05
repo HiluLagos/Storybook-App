@@ -14,15 +14,22 @@ const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", 
     setExpanded(!expanded);
   }
 
-  return (
-    <>
-      <Typography size={size} weight={weight}>
-        {expanded ? children : children.slice(0, 100)}
-      </Typography>
-      <button className={"bg-transparent text-text-description-dark"} onClick={changeExpanded}>
-        {expanded ? "Read Less" : "Read More"}
-      </button>
-    </>
+  const limit: number = 124;
+  const hasReadMore: boolean = children.length > limit;
+
+    return (
+      <div className="flex flex-col relative">
+          <Typography size={size} weight={weight}>
+              {expanded ? children : children.slice(0, limit)}
+          </Typography>
+          {hasReadMore &&
+              <div className="flex justify-end items-end flex-grow">
+                  <button className="bg-transparent text-text-description-dark" onClick={changeExpanded}>
+                      {expanded ? "Read Less" : "Read More"}
+                  </button>
+              </div>
+          }
+      </div>
   )
 }
 
