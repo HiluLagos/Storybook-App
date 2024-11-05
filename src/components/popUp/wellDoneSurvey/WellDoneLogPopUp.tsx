@@ -2,7 +2,7 @@ import React from "react";
 import Cross from "../../icon/utility/cross/Cross.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import {Button} from "../../button/utility/button/Button.tsx";
-import DeletePopUpIcon from "../../icon/popUps/delete/DeletePopUpIcon.tsx";
+import Confetti from "../../icon/popUps/confetti/Confetti.tsx";
 
 const WellDoneLogPopUp: React.FC = () => {
     return (
@@ -11,7 +11,7 @@ const WellDoneLogPopUp: React.FC = () => {
                 <Cross/>
             </div>
             <div className={"flex flex-col items-center justify-center space-y-2"}>
-                <DeletePopUpIcon/>
+                <Confetti/>
                 <Typography weight={"semiBold"} size={"h5"}>Well done Homer!</Typography>
                 <div className={"text-text-description-bright text-center space-y-2"}>
                     <Typography weight={"regular"} size={"h5"}>You’ve accomplished today’s activities.</Typography>

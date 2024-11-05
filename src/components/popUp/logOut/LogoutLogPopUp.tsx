@@ -3,6 +3,7 @@ import Cross from "../../icon/utility/cross/Cross.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import {Button} from "../../button/utility/button/Button.tsx";
 import DeletePopUpIcon from "../../icon/popUps/delete/DeletePopUpIcon.tsx";
+import AlertPopUpIcon from "../../icon/popUps/alert/AlertPopUpIcon.tsx";
 
 const LogoutLogPopUp: React.FC = () => {
     return (
@@ -11,7 +12,7 @@ const LogoutLogPopUp: React.FC = () => {
                 <Cross/>
             </div>
             <div className={"flex flex-col items-center justify-center space-y-2"}>
-                <DeletePopUpIcon/>
+                <AlertPopUpIcon/>
                 <Typography weight={"extraBold"} size={"p"}>You are attempting to log out of TrackMyAnt.</Typography>
                 <div className={"text-text-description-bright text-center space-y-2"}>
                     <Typography weight={"semiBold"} size={"m"}>Are you sure?</Typography>
