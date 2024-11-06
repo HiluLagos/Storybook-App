@@ -31,6 +31,6 @@ export const Medium: Story = {
 
 export const Large: Story = {
   args: {
-    size: 'medium',
+    size: 'large',
   },
 }
