@@ -44,10 +44,10 @@ const DraggableDrawer: React.FC<DrawerProps> = ({ children, pxHeight = 300, isOp
         bounds={{ top: 0, bottom: pxHeight }}
       >
         <div
-          className="w-full rounded-t-lg flex flex-col items-center justify-around bg-secondary-100 transition duration-200 ease-in-out"
+          className="w-full rounded-t-lg flex flex-col items-center bg-secondary-100 transition duration-200 ease-in-out"
           style={{ height: `${pxHeight}px` }}
         >
-          <div className="handle w-full pt-4 pb-2 flex justify-center">
+          <div className="handle w-full pt-4 pb-2 flex justify-center h-auto">
             <TopNotch />
           </div>
           <div className="overflow-scroll" style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}>
