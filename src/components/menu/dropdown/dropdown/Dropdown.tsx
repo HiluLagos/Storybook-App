@@ -21,7 +21,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ checkLists, title, dropped, 
     };
 
     return (
-        <div className={`w-[328px] border-2 border-primary-100 rounded-2xl p-2 h-fit transition-all`}>
+        <div className={`w-[328px] border-2 border-primary-100 rounded-2xl p-2 h-fit transition-all bg-bg-default`}>
             <div className="flex justify-between items-center w-[308px] h-[24px] p-2 cursor-pointer">
                 <div className="flex items-center h-full">
                     <Arrow orientation={isOpen ? 'down' : 'right'} state="default" onToggleAction={toggleDropdown}/>
