@@ -1,6 +1,7 @@
 import React from 'react';
 import { cva } from "class-variance-authority";
 import IconProvider from "../../icon/IconProvider.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const card = cva(
     "w-[156px] h-[240px] rounded-2xl border-[3px] flex flex-col items-center justify-center", {
@@ -18,8 +19,10 @@ const card = cva(
     }
 );
 
+type HomeCardType = "task" | "log" | "saved" | "survey";
+
 type HomeCardProps = {
-    type: "task" | "log" | "saved" | "survey";
+    type: HomeCardType;
     progress: number;
 };
 
@@ -30,15 +33,33 @@ const iconMap = {
     survey: IconProvider({variant: "survey", size: "large"}),
 }
 
-const HomeCard: React.FC<HomeCardProps> = ({type}) => {
+const messageMap: { [key in HomeCardType]: (progress: number) => string } = {
+    task: (progress) => `${progress} pending`,
+    log: (progress) => `${progress} recorded`,
+    saved: (progress) => `${progress} saved`,
+    survey: (progress) => `${progress} left`,
+};
+
+const colourMap: { [key in HomeCardType]: string } = {
+    task: "#FFA500",
+    log: "#8A2BE2",
+    saved: "#FFFF00",
+    survey: "#00BFFF",
+};
+
+const HomeCard: React.FC<HomeCardProps> = ({type, progress}) => {
+
+    const message = messageMap[type](progress);
+    const colour = colourMap[type];
 
     return (
-        <div>
-            <div className={card({type})}>
-                <div className={"mt-[16px] ml-[16px] mr-[16px] bg-"}>
-                    <div className={"left-0"}>
-                        {iconMap[type]}
-                    </div>
+        <div className={card({type})}>
+            <div className={"w-[124px] h-[137px]"}>
+                <div className={"left-0"}>
+                    {iconMap[type]}
+                </div>
+                <div style={{color: colour}}>
+                    <Typography size={"m"}>{message}</Typography>
                 </div>
             </div>
         </div>
