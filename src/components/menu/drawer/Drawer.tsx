@@ -1,48 +1,62 @@
-import React, {useEffect} from "react";
+import React from "react";
+import { SwipeableDrawer } from "@mui/material";
+import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import TopNotch from "../../icon/settings/drawer/topNotch/TopNotch.tsx";
-import Draggable, {DraggableData, DraggableEvent} from 'react-draggable';
 
 interface DrawerProps {
   children?: React.ReactNode;
   pxHeight?: number;
-  restart: boolean;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
 }
 
-const Drawer: React.FC<DrawerProps> = ({children, pxHeight = 200, restart}) => {
+const DraggableDrawer: React.FC<DrawerProps> = ({ children, pxHeight = 300, isOpen, setIsOpen }) => {
   const [position, setPosition] = React.useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    setPosition({ x: 0, y: 0 });
-  }, [restart]);
+  const toggleDrawer = (open: boolean) => () => {
+    setIsOpen(open);
+  };
 
-  const handleStop = (_e: DraggableEvent, data: DraggableData) => {
-    console.log(data);
-    if (data.y > 0) {
-      setPosition({ x: 0, y: pxHeight });
+  const handleStop = (_: DraggableEvent, data: DraggableData) => {
+    if (data.y > pxHeight / 5) {
+      // Close if dragged halfway down or more
+      setIsOpen(false);
     } else {
+      // Reset to open position
       setPosition({ x: 0, y: 0 });
     }
-  }
+  };
 
   return (
-    <Draggable
-      handle={".handle"}
-      axis={"y"}
-      position={position}
-      onStop={handleStop}
-      bounds={{top: 0, bottom: pxHeight}}
+    <SwipeableDrawer
+      anchor="bottom"
+      open={isOpen}
+      onClose={toggleDrawer(false)}
+      onOpen={toggleDrawer(true)}
+      PaperProps={{
+        style: { height: `${pxHeight}px`, overflow: "hidden", backgroundColor: "transparent", boxShadow: "none" },
+      }}
     >
-      <div className={`w-full rounded-t-lg flex flex-col items-center justify-around bg-secondary-100 transition duration-200 ease-in-out`}
-           style={{height: `${pxHeight}px`}}>
-        <div className={"handle w-full pt-4 pb-2 flex justify-center"}>
-          <TopNotch/>
+      <Draggable
+        axis="y"
+        position={position}
+        onStop={handleStop}
+        bounds={{ top: 0, bottom: pxHeight }}
+      >
+        <div
+          className="w-full rounded-t-lg flex flex-col items-center justify-around bg-secondary-100 transition duration-200 ease-in-out"
+          style={{ height: `${pxHeight}px` }}
+        >
+          <div className="handle w-full pt-4 pb-2 flex justify-center">
+            <TopNotch />
+          </div>
+          <div className="overflow-scroll" style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}>
+            {children}
+          </div>
         </div>
-        <div className={'overflow-scroll'} style={{msOverflowStyle: 'none', scrollbarWidth: 'none', overflow: 'hidden'}}>
-          {children}
-        </div>
-      </div>
-    </Draggable>
-  )
-}
+      </Draggable>
+    </SwipeableDrawer>
+  );
+};
 
-export default Drawer;
+export default DraggableDrawer;
