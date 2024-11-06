@@ -2,11 +2,11 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 import { StateType } from "../../../../types.ts";
 
-const subText = cva("font-montserrat font-regular text-m text-center", {
+const subText = cva("font-montserrat font-semibold text-m text-center", {
     variants: {
         state: {
-            default: [],
-            selected: ["text-primary-900 font-semibold"]
+            default: ["text-text-description-dark"],
+            selected: ["text-primary-900"]
         },
     },
     defaultVariants: {
