@@ -1,6 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const helpTalksIcon = cva("", {
     variants: {
         state: {
