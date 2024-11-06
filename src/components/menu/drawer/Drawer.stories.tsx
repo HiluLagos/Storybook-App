@@ -27,17 +27,37 @@ type Story = StoryObj<typeof Drawer>;
 
 import React, { useState } from "react";
 import DraggableDrawer from "./Drawer.tsx";
+import DrawerHeader from "../../button/settings/DrawerHeader/DrawerHeader.tsx";
+import DrawerButton from "../../button/settings/DrawerButton/DrawerButton.tsx";
 
 const ParentComponent: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div>
-      <button onClick={() => setIsDrawerOpen(true)}>Open Drawer from Parent</button>
-      <DraggableDrawer isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} pxHeight={300}>
-        <div className="w-48 bg-teal-300 rounded-lg flex flex-col items-center">
-          <p>Drawer content</p>
-        </div>
+    <div className={"flex flex-col justify-items-center"}>
+      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Parent</button>
+      <DraggableDrawer isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} pxHeight={500}>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
+        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"notification"}/>
+        <DrawerButton variant={"logout"}/>
       </DraggableDrawer>
     </div>
   );
@@ -45,8 +65,6 @@ const ParentComponent: React.FC = () => {
 
 export const Default: Story = {
   render: () => (
-    <div className={"h-[500px] w-[330px] overflow-hidden bg-teal-300 flex flex-col justify-end"}>
-      <ParentComponent />
-    </div>
+    <ParentComponent />
   )
 }
