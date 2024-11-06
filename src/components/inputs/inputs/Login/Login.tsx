@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React, { FC } from "react";
 import { IconInterface } from "../../../icon/IconProvider.tsx";
-import EditableTypography from "../../../typography/input/TypographyInput.tsx";
+import TypographyInput from "../../../typography/input/TypographyInput.tsx";
 import Typography from "../../../typography/basic/Typography.tsx";
 
 const loginInput = cva("rounded-xl flex flex-row p-3 items-center gap-4 w-[288px]", {
@@ -32,7 +32,7 @@ export const Login: React.FC<LoginInputProps> = ({ color, icon: Icon, variant, p
                 {isDisabled ? (
                     <Typography size={"p"} weight={"regular"}>{placeholder}</Typography>
                 ) : (
-                    <EditableTypography
+                    <TypographyInput
                         size="p"
                         weight="regular"
                         placeholder={placeholder}
