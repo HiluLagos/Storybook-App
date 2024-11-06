@@ -30,13 +30,13 @@ export const Login: React.FC<LoginInputProps> = ({ color, icon: Icon, variant, p
             </div>
             <div className="overflow-scroll scrollbar-hide flex-grow">
                 {isDisabled ? (
-                    <Typography size={"p"} weight={"regular"}>{placeholder}</Typography> // Show a simple span when disabled
+                    <Typography size={"p"} weight={"regular"}>{placeholder}</Typography>
                 ) : (
                     <EditableTypography
                         size="p"
                         weight="regular"
                         placeholder={placeholder}
-                        isPassword={variant === "lock"} // Pass isPassword based on variant
+                        isPassword={variant === "lock"}
                     />
                 )}
             </div>
