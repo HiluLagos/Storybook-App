@@ -14,10 +14,6 @@ const meta = {
             options: ['missed', 'done', 'info'],
             description: 'The tag of the day view',
         },
-        children: {
-            control: 'text',
-            description: 'The children of the day view',
-        },
         header: {
             control: 'text',
             description: 'The header of the day view',
@@ -25,6 +21,10 @@ const meta = {
         time:{
             control: 'text',
             description: 'The time of the day view'
+        },
+        audioLength:{
+            control: 'text',
+            description: 'The length of the audio'
         }
     }
 } satisfies Meta<typeof LogDayView>;
@@ -35,9 +35,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Activity: Story = {
     args: {
-        children: "Today you have to do the following activities: \n - Go to the gym \n - Study for the exam",
         header: "Activity",
         tag: "info",
-        time: "10:00"
+        time: "10:00",
+        audioLength: "00:30"
     },
 }
