@@ -40,11 +40,23 @@ const iconMap = {
     survey: IconProvider({variant: "survey",    size: "large"}),
 }
 
+function formatNumber(num: number): string {
+    if (num >= 1e9) {
+        return "ꝏ";
+    } else if (num >= 1e6) {
+        return (num / 1e6).toFixed(1) + 'M';
+    } else if (num >= 1e3) {
+        return (num / 1e3).toFixed(1) + 'k';
+    } else {
+        return num.toString();
+    }
+}
+
 const messageMap: { [key in HomeCardType]: (progress: number) => string } = {
-    task:   (progress) => `${progress} pending`,
-    log:    (progress) => `${progress} recorded`,
-    saved:  (progress) => `${progress} saved`,
-    survey: (progress) => `${progress} left`,
+    task:   (progress) => `${formatNumber(progress)} pending`,
+    log:    (progress) => `${formatNumber(progress)} recorded`,
+    saved:  (progress) => `${formatNumber(progress)} saved`,
+    survey: (progress) => `${formatNumber(progress)} left`,
 };
 
 const colourTextMap: { [key in HomeCardType]: string } = {
@@ -64,12 +76,12 @@ const mapTitle: { [key in HomeCardType]: string } = {
 const center: string =  "flex items-center justify-center";
 const left: string =    "flex items-center justify-start";
 
-const measure: { [key in HomeCardType]: [string, string, string] } = {
-    // [icon, title, message]
-    task:   ["w-[124px] h-[149px]", `w-[80px]   h-[34px]`,                  `w-[72px]`],
-    log:    ["w-[124px] h-[149px]", `w-[55px]   h-[34px]`,                  `w-[75px]`],
-    saved:  ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`,    `w-[62px]`],
-    survey: ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`,    `w-[40px]`],
+const measure: { [key in HomeCardType]: [string, string] } = {
+    // [icon, title]
+    task:   ["w-[124px] h-[149px]", `w-[80px]   h-[34px]`],
+    log:    ["w-[124px] h-[149px]", `w-[55px]   h-[34px]`],
+    saved:  ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`],
+    survey: ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`],
 };
 
 const HomeCard: React.FC<HomeCardProps> = ({type, progress}) => {
@@ -77,7 +89,7 @@ const HomeCard: React.FC<HomeCardProps> = ({type, progress}) => {
     const title = mapTitle[type];
     const textColour = colourTextMap[type];
     const message = messageMap[type](progress);
-    const [iconStyle, titleStyle, messageStyle] = measure[type];
+    const [iconStyle, titleStyle] = measure[type];
 
     return (
         <div className={card({type})}>
@@ -94,7 +106,7 @@ const HomeCard: React.FC<HomeCardProps> = ({type, progress}) => {
                     </Typography>
                 </div>
 
-                <div className={`${messageStyle} ${left} h-[17px] flex-grow`}>
+                <div className={`${left} h-[17px] flex-grow max-w-[150px] overflow-hidden text-ellipsis whitespace-nowrap`}>
                     <Typography size={"m"}>
                         {message}
                     </Typography>
