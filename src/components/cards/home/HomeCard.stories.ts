@@ -24,28 +24,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Task: Story = {
   args: {
-    progress: 45,
+    progress: 5,
     type: 'task',
   },
 };
 
 export const Log: Story = {
   args: {
-    progress: 45,
+    progress: 3,
     type: 'log',
   },
 };
 
 export const Saved: Story = {
   args: {
-    progress: 45,
+    progress: 54,
     type: 'saved',
   },
 };
 
 export const Survey: Story = {
   args: {
-    progress: 45,
+    progress: 13,
     type: 'survey',
   },
 };
