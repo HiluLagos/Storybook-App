@@ -6,7 +6,7 @@ import {HeartIcon} from "../../../icon/tech/heart/HeartIcon.tsx";
 const tag = cva("rounded-full outline text-primary-900 font-semibold flex items-center justify-center gap-4 ps-4 pe-4 py-2 fit-content max-w-xs", {
     variants: {
         intent: {
-            unselected: "outline-primary-300",
+            unselected: "outline-primary-300 bg-white",
             selected: "outline-primary-500 bg-primary-100",
         },
         size: {

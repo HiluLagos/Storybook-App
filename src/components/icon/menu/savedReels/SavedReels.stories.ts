@@ -2,7 +2,7 @@ import SavedReels from "./SavedReels.tsx";
 import {Meta, StoryObj} from "@storybook/react";
 
 const meta = {
-    title: 'Icon/Menu/Saved Reels',
+    title: 'Icon/Menu/SavedReels',
     component: SavedReels,
     parameters: {
         layout: 'centered',

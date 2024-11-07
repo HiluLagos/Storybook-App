@@ -9,7 +9,7 @@ type DrawerHeaderProps = {
 
 const DrawerHeader: React.FC<DrawerHeaderProps> = ({clientName = "Client", doctorName = "Doctor"}) => {
     return (
-        <div className="flex flex-row bg-secondary-500 rounded-lg align-middle items-center gap-2 w-[328px]">
+        <div className="flex flex-row bg-white rounded-lg p-1 align-middle items-center gap-2 w-[328px]">
             <User/>
             <div>
                 <Typography size={"h4"} weight={"semiBold"}>{clientName}</Typography>

@@ -8,6 +8,18 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    argTypes: {
+        intent: {
+            control: 'select',
+            options: ['unselected', 'selected'],
+            description: 'The way the component is displayed'
+        },
+        size: {
+            control: 'select',
+            options: ['small', 'medium'],
+            description: 'The size of the component'
+        },
+    },
 } satisfies Meta<typeof Tag>;
 
 export default meta;
