@@ -10,7 +10,7 @@ const medicine = cva(
   "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow", {
     variants: {
       complete: {
-        false: "",
+        false: "bg-bg-default",
         true: "bg-bg-light-yellow",
       }
     },
