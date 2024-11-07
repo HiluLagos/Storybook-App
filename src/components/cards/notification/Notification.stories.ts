@@ -16,7 +16,7 @@ const meta = {
     },
     icon: {
       control: 'select',
-      options: ['pills', 'salad', 'steps', 'water', 'task', 'log', 'activities', 'confetti'],
+      options: ['pills', 'salad', 'steps', 'water', 'task', 'confetti'],
       description: 'The icon of the notification',
     },
     description: {
