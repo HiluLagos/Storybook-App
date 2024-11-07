@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const Email: Story = {
     args: {
         color: 'default',
-        text: 'Email',
+        placeholder: 'Email',
         variant: 'mail',
         icon: IconProvider,
     },
@@ -34,7 +34,7 @@ export const Email: Story = {
 export const Password: Story = {
     args: {
         color: 'default',
-        text: 'Password',
+        placeholder: 'Password',
         variant: 'lock',
         icon: IconProvider,
     },
@@ -43,7 +43,7 @@ export const Password: Story = {
 export const ErrorMail: Story = {
     args: {
         color: 'error',
-        text: 'Error',
+        placeholder: 'Error',
         variant: 'mail',
         icon: IconProvider,
     },
@@ -52,7 +52,7 @@ export const ErrorMail: Story = {
 export const ErrorPassword: Story = {
     args: {
         color: 'error',
-        text: 'Error',
+        placeholder: 'Error',
         variant: 'lock',
         icon: IconProvider,
     },
@@ -61,7 +61,7 @@ export const ErrorPassword: Story = {
 export const DisabledMail: Story = {
     args: {
         color: 'disabled',
-        text: 'Disabled',
+        placeholder: 'Disabled',
         variant: 'mail',
         icon: IconProvider,
     },
@@ -70,7 +70,7 @@ export const DisabledMail: Story = {
 export const DisabledPassword: Story = {
     args: {
         color: 'disabled',
-        text: 'Disabled',
+        placeholder: 'Disabled',
         variant: 'lock',
         icon: IconProvider,
     },

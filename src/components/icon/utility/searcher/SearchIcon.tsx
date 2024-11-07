@@ -17,7 +17,7 @@ const searcher = cva(
 
 type SearcherProps = VariantProps<typeof searcher>;
 
-const Searcher: React.FC<SearcherProps> = ({size = "small"}:SearcherProps) => {
+const SearchIcon: React.FC<SearcherProps> = ({size = "small"}:SearcherProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"
          className={searcher({size})}>
@@ -28,4 +28,4 @@ const Searcher: React.FC<SearcherProps> = ({size = "small"}:SearcherProps) => {
   )
 }
 
-export default Searcher;
+export default SearchIcon;
