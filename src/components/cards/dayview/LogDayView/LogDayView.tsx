@@ -6,12 +6,11 @@ import Typography from "../../../typography/basic/Typography.tsx";
 
 type DayViewProps = {
     header: string,
-    tag:  "info",
     time: string,
     audioLength: string
 }
 
-const LogDayView: React.FC<DayViewProps> = ({header, tag, time, audioLength}: DayViewProps) => {
+const LogDayView: React.FC<DayViewProps> = ({header, time, audioLength}: DayViewProps) => {
     const [isPaused, setIsPaused] = useState(true);
     const totalSeconds = parseInt(audioLength.split(":")[0]) * 60 + parseInt(audioLength.split(":")[1]);
     const [playbackTime, setPlaybackTime] = useState(0);
@@ -40,10 +39,10 @@ const LogDayView: React.FC<DayViewProps> = ({header, tag, time, audioLength}: Da
     const displayTime = isPaused ? audioLength : `${Math.floor(playbackTime / 60)}:${(playbackTime % 60).toString().padStart(2, "0")}`;
 
     return(
-        <DayView type={"log"} time={time} header={header} tag={tag}>
+        <DayView type={"log"} time={time} header={header} tag={"info"}>
             <div className={"flex flex-row items-center gap-2"} onClick={handlePlay}>
                 <PlayIcon paused={isPaused}/>
-                <div className="w-[182px] h-8 overflow-hidden relative">
+                <div className="w-full h-8 overflow-hidden relative">
                     <div
                         className="absolute top-0 left-0 h-full transition-all duration-500 ease-in-out"
                         style={{
