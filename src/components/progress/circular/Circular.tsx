@@ -50,10 +50,10 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
     <div className={`${sizeClass} relative flex items-center justify-center`}>
       <svg className="w-full h-full" viewBox="0 0 120 120">
         <circle
-          className={innerCircle({activity})}
+          className={innerCircle({activity}) + " fill-secondary-100"}
           strokeWidth="8"
           stroke="currentColor"
-          fill="transparent"
+          fill="secondary-100"
           r="50"
           cx="60"
           cy="60"
