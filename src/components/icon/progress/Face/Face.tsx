@@ -17,10 +17,10 @@ const icons: Record<FaceState, string> = {
 const faceIconStyle = cva("w-8 h-8", {
     variants: {
         color: {
-            red: "text-red-500",
-            yellow: "text-yellow-500",
-            green: "text-green-500",
-            grey: "text-gray-300",
+            red: "text-icon-red",
+            yellow: "text-icon-yellow",
+            green: "text-icon-green",
+            grey: "text-secondary-500",
         },
         state: {
             happy: "fill-current",

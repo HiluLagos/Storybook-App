@@ -6,10 +6,10 @@ type SliderType = "default" | "happy" | "neutral" | "sad";
 const background = cva("rounded-full p-2 flex flex-row justify-between items-center", {
     variants: {
         color: {
-            default: "",
-            happy: "bg-green-200",
-            neutral: "bg-yellow-200",
-            sad: "bg-red-200",
+            default: "bg-bg-default",
+            happy: "bg-bg-bright-green",
+            neutral: "bg-bg-bright-yellow",
+            sad: "bg-bg-bright-red",
         }
     },
     defaultVariants: {
