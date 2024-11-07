@@ -41,7 +41,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({activity = "water", progress
       <CircularProgressComponent activity={activity} size={"medium"} percentage={finalPercentage} />
       <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
       <div className={"text-text-description-bright"}>
-        <Typography weight={"semiBold"} size={"p"}>{progress.toString() + (activity === "water" ? "L" : "")}</Typography>
+        <Typography weight={"semiBold"} size={"p"}>{progress.toString() + (activity === "water" ? "L" : "") +  " / " + (maxProgress) + (activity === "water" ? "L" : "")}</Typography>
       </div>
     </div>
   )
