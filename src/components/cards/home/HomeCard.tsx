@@ -44,9 +44,9 @@ function formatNumber(num: number): string {
     if (num >= 1e9) {
         return "ꝏ";
     } else if (num >= 1e6) {
-        return (num / 1e6).toFixed(1) + 'M';
+        return Math.floor(num / 1e6) + 'M';
     } else if (num >= 1e3) {
-        return (num / 1e3).toFixed(1) + 'k';
+        return Math.floor(num / 1e3) + 'k';
     } else {
         return num.toString();
     }
