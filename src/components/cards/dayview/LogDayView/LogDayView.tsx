@@ -7,7 +7,7 @@ import Typography from "../../../typography/basic/Typography.tsx";
 
 type DayViewProps = {
     header: string,
-    tag: "missed" | "done" | "info",
+    tag:  "info",
     time: string,
     audioLength: string
 }
