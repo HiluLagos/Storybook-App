@@ -19,13 +19,6 @@ export const Default = {
     },
 };
 
-export const Loading = {
-    args: {
-        intent: "loading",
-        title: "Checklist",
-    },
-};
-
 export const Pressed = {
     args: {
         intent: "pressed",

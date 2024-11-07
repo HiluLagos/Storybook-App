@@ -2,7 +2,7 @@ import DayView from "./DayView.tsx";
 import {Meta, StoryObj} from "@storybook/react";
 
 const meta = {
-    title: 'Cards/DayView/GenericDayView',
+    title: 'Cards/DayView/Generic',
     component: DayView,
     parameters: {
         layout: 'centered',

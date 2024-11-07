@@ -6,8 +6,7 @@ const checkListIcon = cva("p-3.5 rounded-lg fit-content", {
     variants: {
         intent: {
             default: "bg-primary-500 text-black",
-            loading: "bg-primary-900 text-black",
-            pressed: "bg-primary-100 text-primary-900",
+            pressed: "bg-primary-900 text-black shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)]",
             done: "bg-primary-700 text-black",
         }
     }
@@ -17,8 +16,7 @@ const checkListText = cva("flex flex-row flex-justify items-center rounded-lg p-
     variants: {
         intent: {
             default: "bg-primary-500 text-black",
-            loading: "bg-primary-900 text-black",
-            pressed: "bg-primary-100 text-primary-900",
+            pressed: "bg-primary-900 text-black shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)]",
             done: "bg-primary-700 text-black",
         }
     }
@@ -29,11 +27,33 @@ export interface CheckListProps
         VariantProps<typeof checkListText>, VariantProps<typeof checkListIcon>  {}
 
 export const CheckList: React.FC<CheckListProps> = ({ intent, title, ...props }) => {
+    const [currentIntent, setCurrentIntent] = React.useState(intent);
+    const [previousIntent, setPreviousIntent] = React.useState(currentIntent);
+
+    const handleMouseDown = () => {
+        setPreviousIntent(currentIntent);
+        setCurrentIntent("pressed");
+    }
+
+    const handleMouseUp = () => {
+        if (previousIntent === "done") {
+            setCurrentIntent("default");
+        } else {
+            setCurrentIntent("done");
+        }
+    }
+
     return <div className={"flex flex-row flex-justify items-center gap-4"} {...props}>
-        <div className={checkListIcon({intent})}>
-            <Tick state={intent === 'done' ? 'tick' : 'untick'} />
+        <div className={checkListIcon({intent: currentIntent})}
+            onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}
+        >
+            <Tick state={
+              currentIntent === 'default' ? 'untick' :
+              currentIntent === 'done' ? 'tick' :
+              previousIntent === 'done' ? 'tick' : 'untick'
+            } />
         </div>
-        <div className={checkListText({ intent })}>
+        <div className={checkListText({ intent: currentIntent })}>
             {title}
         </div>
     </div>;

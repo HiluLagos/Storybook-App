@@ -5,7 +5,7 @@ import { Button } from "../../button/utility/button/Button.tsx";
 import QrRecipe from "../../cards/qr/QrRecipe.tsx";
 
 type DescriptionPopUpProps = {
-    intent: "incomplete" | "default";
+    intent: "incomplete" | "complete";
     title: string;
     description: string;
     variant: "info" | "recipe";
@@ -15,7 +15,7 @@ const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, title = "Ti
     const [currentIntent, setCurrentIntent] = useState(intent);
 
     const toggleIntent = () => {
-        setCurrentIntent(prevIntent => (prevIntent === "incomplete" ? "default" : "incomplete"));
+        setCurrentIntent(prevIntent => (prevIntent === "incomplete" ? "complete" : "incomplete"));
     };
 
     const value = currentIntent === "incomplete" ? "To do" : "Done";

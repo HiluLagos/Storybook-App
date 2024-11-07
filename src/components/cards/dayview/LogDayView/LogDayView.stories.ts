@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import LogDayView from "./LogDayView.tsx";
 
 const meta = {
-    title: 'Cards/DayView/LogDayView',
+    title: 'Cards/DayView/Log',
     component: LogDayView,
     parameters: {
         layout: 'centered',

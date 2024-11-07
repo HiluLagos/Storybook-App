@@ -7,7 +7,7 @@ import Typography from "../../../typography/basic/Typography.tsx";
 
 type DayViewProps = {
     header: string,
-    tag: "missed" | "done" | "info",
+    tag:  "info",
     time: string,
     audioLength: string
 }
@@ -43,7 +43,7 @@ const LogDayView: React.FC<DayViewProps> = ({header, tag, time, audioLength}: Da
             setCurrentAudioTime(audioLength);
         }
         return () => clearInterval(interval);
-    }, [paused, audioLength]);
+    }, [paused, audioLength, currentAudioTime]);
 
     return(
         <DayView type={"log"} time={time} header={header} tag={tag}>
