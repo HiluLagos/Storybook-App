@@ -10,11 +10,12 @@ import Saved from "./menu/Saved/Saved.tsx";
 import Survey from "./menu/Survey/Survey.tsx";
 import Activities from "./menu/Activities/Activities.tsx";
 import Mail from "./utility/mail/Mail.tsx";
+import Confetti from "./popUps/confetti/Confetti.tsx";
 //import Lock from "./tech/log/lock/LockIcon.tsx";
 
 export type IconInterface = {
   size: "medium" | "large";
-  variant: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "mail" | "saved" | "survey"; //lock
+  variant: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "mail" | "saved" | "survey" | "confetti"; //lock
 };
 
 const iconMap = {
@@ -28,6 +29,7 @@ const iconMap = {
   survey: Survey,
   activities: Activities,
   mail: Mail,
+  confetti: Confetti,
   //lock: Lock
 };
 

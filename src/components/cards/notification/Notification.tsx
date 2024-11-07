@@ -33,7 +33,7 @@ const notificationShade = cva(
 );
 
 type NotificationProps = VariantProps<typeof notificationBackground> & {
-  icon: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities";
+  icon: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "confetti";
   description: string;
   date: string;
 };

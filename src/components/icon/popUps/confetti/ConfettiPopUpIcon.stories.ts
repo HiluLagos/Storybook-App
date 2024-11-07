@@ -14,7 +14,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['medium', 'xLarge'],
+      options: ['medium', 'large'],
       description: 'The size of the confetti icon',
     },
   },
@@ -32,6 +32,6 @@ export const Medium: Story = {
 
 export const ExtraLarge: Story = {
   args: {
-    size: 'xLarge',
+    size: 'large',
   },
 }
