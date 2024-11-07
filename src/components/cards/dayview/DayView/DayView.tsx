@@ -72,7 +72,7 @@ const DayView: React.FC<DayViewProps> = ({type, header, children, tag, time}) =>
                 {children}
                 {stateTag[tag]}
             </div>
-            <div className={"basis-1/4 flex flex-col justify-between items-end p-2 pt-3 pr-3"}>
+            <div className={"basis-1/4 flex flex-col justify-between items-end pr-3 pt-3 pb-2"}>
                 <IconComponent size={"medium"}/>
                 <Typography size={"m"} weight={"semiBold"}>
                     {time == "" ? "---" : time + "hs."}
