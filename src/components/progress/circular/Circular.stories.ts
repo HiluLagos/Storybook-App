@@ -29,7 +29,7 @@ const meta = {
       description: 'The percentage of the progress',
     },
     children: {
-      control: 'text',
+      control: false,
       description: 'The children of the component',
     }
   },
