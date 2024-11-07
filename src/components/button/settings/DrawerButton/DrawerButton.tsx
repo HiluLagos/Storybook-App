@@ -4,17 +4,18 @@ import Typography from "../../../typography/basic/Typography.tsx";
 
 type DrawerButtonProps = {
 
-    variant: "logout" | "notification",
+    variant: "logout" | "notification" | "information",
 }
 
 const variantText = {
     logout: "Log out",
     notification: "Notification",
+    information: "Information",
 }
 
 const DrawerButton: React.FC<DrawerButtonProps> = ({variant}) => {
   return (
-      <div className="flex flex-row bg-secondary-300 rounded-lg align-middle items-center p-2 gap-4 w-[328px]">
+      <div className="flex flex-row bg-white border-2 border-secondary-300 rounded-lg align-middle items-center p-2 gap-4 w-[328px]">
         <SettingsIconProvider icon={variant}/>
         <Typography size={"p"} weight={"semiBold"}>{variantText[variant]}</Typography>
       </div>
