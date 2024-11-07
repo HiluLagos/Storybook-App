@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 
 
 export const InfoComplete: Story = {args: {
-  intent: "default",
+  intent: "complete",
   title: "Title of tasks",
   description: "Description of tasks",
   variant: "info"}};
@@ -39,7 +39,7 @@ export const InfoIncomplete: Story = {args: {
   variant: "info"}};
 
 export const QrComplete: Story = {args: {
-    intent: "default",
+    intent: "complete",
     title: "Title of tasks",
     description: "Description of tasks",
     variant: "recipe"}};
