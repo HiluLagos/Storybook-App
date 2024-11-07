@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const logButtonStyles = cva(
@@ -32,15 +32,22 @@ const iconStyles = cva(
 );
 
 type LogButtonProperties = VariantProps<typeof logButtonStyles> & {
-    pressed: boolean;
+    pressed?: boolean;
     icon?: React.FC<{pressed: boolean}>;
 };
 
-const LogButton: React.FC<LogButtonProperties> = ({ pressed, icon: Icon, size = "default" }: LogButtonProperties) => {
+const LogButton: React.FC<LogButtonProperties> = ({ pressed = false, icon: Icon, size = "default" }: LogButtonProperties) => {
+    const [isPressed, setIsPressed] = useState(pressed);
+
+    const handleClick = () => {
+        if(isPressed) setIsPressed(false);
+        else setIsPressed(true);
+    };
+
     return (
-        <button className={logButtonStyles({ pressed, size })}>
-            <div className={iconStyles({ pressed, size })}>
-                {Icon && <Icon pressed={pressed}/>}
+        <button className={logButtonStyles({ pressed: isPressed, size })} onClick={handleClick}>
+            <div className={iconStyles({ pressed: isPressed, size })}>
+                {Icon && <Icon pressed={isPressed}/>}
             </div>
         </button>
     );
