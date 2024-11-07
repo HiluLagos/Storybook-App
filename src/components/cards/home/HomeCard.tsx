@@ -41,7 +41,9 @@ const iconMap = {
 }
 
 function formatNumber(num: number): string {
-    if (num >= 1e9) {
+    if (num < 0) {
+        return "0";
+    } else if (num >= 1e9) {
         return "ꝏ";
     } else if (num >= 1e6) {
         return Math.floor(num / 1e6) + 'M';
