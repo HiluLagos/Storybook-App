@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {HeartIcon} from "./HeartIcon.tsx";
+import {SavedReelsIcon} from "./SavedReelsIcon.tsx";
 
 const meta = {
-    title: 'Icon/Tech/Heart',
-    component: HeartIcon,
+    title: 'Icon/Tech/SavedReels',
+    component: SavedReelsIcon,
     parameters: {
         layout: 'centered',
     },
@@ -11,59 +11,52 @@ const meta = {
     argTypes: {
         size: {
             control: 'select',
-            options: ['small', 'medium'],
+            options: ['small', 'medium', 'large'],
             description: 'Size of the icon',
         },
-        intent: {
-            control: 'select',
-            options: ['selected', 'unselected'],
+        pressed: {
+            control: 'boolean',
             description: 'Intent of the icon',
         }
     }
-} satisfies Meta<typeof HeartIcon>;
+} satisfies Meta<typeof SavedReelsIcon>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-        size: "medium",
-        intent: "unselected",
-    },
 };
 
 export const Selected: Story = {
     args: {
-        size: "medium",
-        intent: "selected",
+        pressed: true
     },
 };
 
 export const Small: Story = {
     args: {
         size: "small",
-        intent: "unselected",
+        pressed: false
     }
 };
 
 export const SmallSelected: Story = {
     args: {
         size: "small",
-        intent: "selected",
+        pressed: true
     }
 };
 
 export const Large: Story = {
     args: {
         size: "large",
-        intent: "unselected",
     }
 };
 
 export const LargeSelected: Story = {
     args: {
         size: "large",
-        intent: "selected",
+        pressed: true
     }
 };
