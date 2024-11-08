@@ -12,7 +12,7 @@ const meta = {
     argTypes: {
         variant: {
             control: 'select',
-            options: ['logout', 'notification', 'information'],
+            options: ['logout', 'helpCenter', 'information'],
             description: 'The variant of the drawer button',
         }
     }

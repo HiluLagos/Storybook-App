@@ -4,12 +4,12 @@ import Typography from "../../../typography/basic/Typography.tsx";
 
 type DrawerButtonProps = {
 
-    variant: "logout" | "notification" | "information",
+    variant: "logout" | "helpCenter" | "information",
 }
 
 const variantText = {
     logout: "Log out",
-    notification: "Notification",
+    helpCenter: "Help Center",
     information: "Information",
 }
 
