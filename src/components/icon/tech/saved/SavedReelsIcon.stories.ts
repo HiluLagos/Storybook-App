@@ -14,8 +14,9 @@ const meta = {
             options: ['small', 'medium', 'large'],
             description: 'Size of the icon',
         },
-        pressed: {
-            control: 'boolean',
+        intent: {
+            control: 'select',
+            options: ['selected', 'unselected'],
             description: 'Intent of the icon',
         }
     }
@@ -23,40 +24,52 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
 export const Default: Story = {
-};
-
-export const Selected: Story = {
     args: {
-        pressed: true
+        size: "medium",
+        intent: "unselected",
     },
 };
 
-export const Small: Story = {
+type Story = StoryObj<typeof meta>;
+
+export const ExtraSmallUnselected: Story = {
+    args: {
+        size: "extraSmall",
+        intent: "unselected"
+    }
+};
+
+export const ExtraSmallSelected: Story = {
+    args: {
+        size: "extraSmall",
+        intent: "selected"
+    }
+};
+
+export const SmallUnselected: Story = {
     args: {
         size: "small",
-        pressed: false
-    }
+        intent: "unselected"
+    },
 };
 
 export const SmallSelected: Story = {
     args: {
         size: "small",
-        pressed: true
+        intent: "selected"
+    },
+};
+
+export const MediumUnselected: Story = {
+    args: {
+        intent: "unselected"
     }
 };
 
-export const Large: Story = {
+export const MediumSelected: Story = {
     args: {
-        size: "large",
+        intent: "selected"
     }
 };
 
-export const LargeSelected: Story = {
-    args: {
-        size: "large",
-        pressed: true
-    }
-};

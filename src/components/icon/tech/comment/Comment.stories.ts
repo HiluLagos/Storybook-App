@@ -17,9 +17,9 @@ const meta = {
       options: ['medium', 'small', 'extraSmall'],
       description: 'The size of the comment icon',
     },
-    fill: {
+    intent: {
       control: 'select',
-      options: ['outlined', 'solid'],
+      options: ['selected', 'unselected'],
       description: 'The fill of the comment icon',
     },
   },
@@ -31,33 +31,33 @@ type Story = StoryObj<typeof meta>;
 export const MediumOutlined: Story = {
   args: {
     size: 'medium',
-    fill: 'outlined',
+    intent: 'unselected',
   },
 }
 
 export const MediumSolid: Story = {
   args: {
     size: 'medium',
-    fill: 'solid',
+    intent: 'selected',
   },
 }
 export const SmallOutlined: Story = {
   args: {
     size: 'small',
-    fill: 'outlined',
+    intent: 'unselected',
   },
 }
 
 export const SmallSolid: Story = {
   args: {
     size: 'small',
-    fill: 'solid',
+    intent: 'selected',
   },
 }
 
 export const ExtraSmallOutlined: Story = {
   args: {
-    fill: 'outlined',
+    intent: 'unselected',
     size: 'extraSmall',
 
   },
@@ -66,6 +66,6 @@ export const ExtraSmallOutlined: Story = {
 export const ExtraSmallSolid: Story = {
   args: {
     size: 'extraSmall',
-    fill: 'solid',
+    intent: 'selected',
   },
 }
