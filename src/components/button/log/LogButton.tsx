@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const logButtonStyles = cva(
@@ -32,22 +32,35 @@ const iconStyles = cva(
 );
 
 type LogButtonProperties = VariantProps<typeof logButtonStyles> & {
-    pressed?: boolean;
+    pressed: boolean;
     icon?: React.FC<{pressed: boolean}>;
 };
 
-const LogButton: React.FC<LogButtonProperties> = ({ pressed = false, icon: Icon, size = "default" }: LogButtonProperties) => {
-    const [isPressed, setIsPressed] = useState(pressed);
+const LogButton: React.FC<LogButtonProperties> = ({icon: Icon, size = "default", pressed }: LogButtonProperties) => {
+    const [currentIntent, setCurrentIntent] = useState(pressed ? "pressed" : "default");
+    const [previousIntent, setPreviousIntent] = useState(currentIntent);
 
-    const handleClick = () => {
-        if(isPressed) setIsPressed(false);
-        else setIsPressed(true);
+    useEffect(() => {
+        setCurrentIntent(pressed ? "pressed" : "default");
+    }, [pressed]);
+
+    const handleMouseDown = () => {
+        setPreviousIntent(currentIntent);
+        setCurrentIntent("pressed");
+    };
+
+    const handleMouseUp = () => {
+        if (previousIntent === "done") {
+            setCurrentIntent("default");
+        } else {
+            setCurrentIntent("done");
+        }
     };
 
     return (
-        <button className={logButtonStyles({ pressed: isPressed, size })} onClick={handleClick}>
-            <div className={iconStyles({ pressed: isPressed, size })}>
-                {Icon && <Icon pressed={isPressed}/>}
+        <button className={logButtonStyles({ size, pressed: currentIntent === "pressed" })} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+            <div className={iconStyles({ size, pressed: currentIntent === "pressed" })}>
+                {Icon && <Icon pressed={currentIntent === "pressed"} />}
             </div>
         </button>
     );

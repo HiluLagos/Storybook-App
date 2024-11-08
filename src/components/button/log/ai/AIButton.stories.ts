@@ -14,13 +14,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultButton: Story = {
+export const Default: Story = {
     args: {
         pressed: false,
     }
 };
 
-export const PressedButton: Story = {
+export const Pressed: Story = {
     args: {
         pressed: true,
     }
