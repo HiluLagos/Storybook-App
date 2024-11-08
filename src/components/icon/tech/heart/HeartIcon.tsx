@@ -4,9 +4,9 @@ import React from "react";
 const icon = cva("", {
     variants: {
         size: {
-            small: "w-4 h-4",
-            medium: "w-6 h-6",
-            large: "w-8 h-8",
+            extraSmall: "w-4 h-4",
+            small: "w-6 h-6",
+            medium: "w-8 h-8",
         },
         intent: {
             selected: "",
