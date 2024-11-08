@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Mail from "./Mail.tsx";
 
 const meta = {
-  title: 'Icon/Utility/mail',
+  title: 'Icon/Utility/Mail',
   component: Mail,
   parameters: {
     layout: 'centered',

@@ -1,8 +1,8 @@
 // src/components/icon/activity/IconProvider.ts
 import React from "react";
-import LogOut from "../../icon/settings/drawer/icons/logout/LogOut.tsx";
-import Information from "../../icon/settings/drawer/icons/information/InformationIcon.tsx";
-import HelpIcon from "../../icon/settings/drawer/icons/help/HelpIcon.tsx";
+import LogOut from "../../icon/settings/drawer/logout/LogOut.tsx";
+import Information from "../../icon/settings/drawer/information/InformationIcon.tsx";
+import HelpIcon from "../../icon/settings/drawer/help/HelpIcon.tsx";
 
 type IconProviderProps = {
     icon: "logout" | "helpCenter" | "information",

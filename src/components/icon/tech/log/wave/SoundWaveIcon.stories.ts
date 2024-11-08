@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SoundWaveIcon from "./StaticSoundWaveIcon.tsx";
 
 const meta = {
-    title: 'Icon/Tech/Log/Wave',
+    title: 'Icon/Tech/Log/Wave Audio',
     component: SoundWaveIcon,
     parameters: {
         layout: 'centered',

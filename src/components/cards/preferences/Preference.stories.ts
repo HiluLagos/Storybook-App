@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Preference from "./Preference.tsx";
 
 const meta = {
-  title: 'Cards/Preferences',
+  title: 'Cards/Drag Preferences',
   component: Preference,
   parameters: {
     layout: 'centered',

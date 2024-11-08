@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import CircularProgressComponent from "./CircularProgressComponent.tsx";
 
 const meta = {
-  title: 'Progress/Icon/CircularProgressComponent',
+  title: 'Progress/Icon/Circular Component',
   component: CircularProgressComponent,
   parameters: {
     layout: 'centered',

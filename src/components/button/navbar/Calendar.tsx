@@ -1,5 +1,5 @@
 import React from "react";
-import Calendar from "../../icon/utility/navigation/calendar/Calendar.tsx";
+import Calendar from "../../icon/nav/calendar/Calendar.tsx";
 import IconWrapper from "./NavComponent.tsx";
 import { StateType } from "../../../../types.ts";
 

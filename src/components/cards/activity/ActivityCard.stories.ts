@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import ActivityCard from "./ActivityCard.tsx";
 
 const meta = {
-  title: 'Cards/Activity/ActivityCard',
+  title: 'Cards/Activity/Activities',
   component: ActivityCard,
   parameters: {
     layout: 'centered',

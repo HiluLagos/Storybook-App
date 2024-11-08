@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Notifications from "./Notifications.tsx";
 
 const meta = {
-  title: 'Icon/Settings/notifications',
+  title: 'Icon/Tech/Notifications',
   component: Notifications,
   parameters: {
     layout: 'centered',

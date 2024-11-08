@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Drag from "./Drag.tsx";
 
 const meta = {
-  title: 'Icon/Utility/drag',
+  title: 'Icon/Utility/Drag',
   component: Drag,
   parameters: {
     layout: 'centered',

@@ -2,7 +2,7 @@ import EmotionalSlider from "./EmotionalSliderSt.tsx";
 import {StoryObj} from "@storybook/react";
 
 const meta = {
-    title: 'Progress/EmotionalSlider',
+    title: 'Progress/Emotional Slider',
     component: EmotionalSlider,
     parameters: {
         layout: 'centered',

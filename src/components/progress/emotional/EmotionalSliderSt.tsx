@@ -1,5 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
-import Face from "../../icon/progress/Face/Face.tsx";
+import Face from "../../icon/utility/Face/Face.tsx";
 
 type SliderType = "default" | "happy" | "neutral" | "sad";
 

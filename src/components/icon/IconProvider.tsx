@@ -7,7 +7,6 @@ import Water from "./activity/water/Water.tsx";
 import Task from "./menu/Task/Task.tsx";
 import Log from "./menu/Log/Log.tsx";
 import Saved from "./menu/Saved/Saved.tsx";
-import Survey from "./menu/Survey/Survey.tsx";
 import Activities from "./menu/Activities/Activities.tsx";
 import Mail from "./utility/mail/Mail.tsx";
 import Confetti from "./popUps/confetti/Confetti.tsx";
@@ -15,7 +14,7 @@ import Confetti from "./popUps/confetti/Confetti.tsx";
 
 export type IconInterface = {
   size: "medium" | "large";
-  variant: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "mail" | "saved" | "survey" | "confetti"; //lock
+  variant: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities" | "mail" | "saved" | "confetti"; //lock
 };
 
 const iconMap = {
@@ -26,7 +25,6 @@ const iconMap = {
   task: Task,
   log: Log,
   saved: Saved,
-  survey: Survey,
   activities: Activities,
   mail: Mail,
   confetti: Confetti,

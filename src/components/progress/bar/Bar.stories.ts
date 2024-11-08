@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Bar from "./Bar.tsx";
 
 const meta = {
-  title: 'Progress/bar',
+  title: 'Progress/Bar',
   component: Bar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

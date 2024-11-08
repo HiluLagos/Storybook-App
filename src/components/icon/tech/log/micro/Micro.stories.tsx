@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Micro from "./Micro.tsx";
 
 const meta = {
-    title: 'Icon/Tech/Log/Micro',
+    title: 'Icon/Tech/Log/Microphone',
     component: Micro,
     parameters: {
         layout: 'centered',

@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Key from "./Key.tsx";
 
 const meta = {
-  title: 'Icon/Utility/key',
+  title: 'Icon/Utility/Key',
   component: Key,
   parameters: {
     layout: 'centered',

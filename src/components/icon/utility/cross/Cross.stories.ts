@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Cross from "./Cross.tsx";
 
 const meta = {
-  title: 'Icon/Utility/cross',
+  title: 'Icon/Utility/Cross',
   component: Cross,
   parameters: {
     layout: 'centered',

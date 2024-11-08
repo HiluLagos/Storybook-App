@@ -2,7 +2,7 @@ import SendButton from "./SendButton.tsx";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    title: 'Button/Log/SendButton',
+    title: 'Button/Log/Send',
     component: SendButton,
     parameters: {
         layout: 'centered',

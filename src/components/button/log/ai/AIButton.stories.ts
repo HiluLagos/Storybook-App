@@ -2,7 +2,7 @@ import AIButton from "./AIButton.tsx";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    title: 'Button/Log/AIButton',
+    title: 'Button/Log/AI',
     component: AIButton,
     parameters: {
         layout: 'centered',

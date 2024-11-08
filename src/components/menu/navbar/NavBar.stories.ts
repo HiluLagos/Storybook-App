@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import NavBarSt from "./NavBarSt.tsx";
 
 const meta: Meta = {
-    title: 'Menu/navbar/NavBar',
+    title: 'Menu/NavBar',
     component: NavBarSt,
     parameters: {
         layout: 'centered',

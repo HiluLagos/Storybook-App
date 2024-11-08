@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {SavedReelsIcon} from "./SavedReelsIcon.tsx";
 
 const meta = {
-    title: 'Icon/Tech/SavedReels',
+    title: 'Icon/Tech/Saved',
     component: SavedReelsIcon,
     parameters: {
         layout: 'centered',

@@ -2,7 +2,7 @@ import Saved from "./Saved.tsx";
 import {Meta, StoryObj} from "@storybook/react";
 
 const meta: Meta = {
-    title: 'Saved Icon',
+    title: 'Icon/Menu/Saved',
     component: Saved,
     parameters: {
         layout: 'centered',

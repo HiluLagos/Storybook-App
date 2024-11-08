@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import StateTag from "./StateTag.tsx";
 
 const meta = {
-  title: 'StateTag/stateTag',
+  title: 'Tag/State',
   component: StateTag,
   parameters: {
     layout: 'centered',

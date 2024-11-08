@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Pills from "./Pills.tsx";
 
 const meta = {
-  title: 'Icon/Activities/pills',
+  title: 'Icon/Activities/Pills',
   component: Pills,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

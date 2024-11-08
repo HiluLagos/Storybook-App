@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Salad from "./Salad.tsx";
 
 const meta = {
-  title: 'Icon/Activities/salad',
+  title: 'Icon/Activities/Salad',
   component: Salad,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

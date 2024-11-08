@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import DeletePopUpIcon from "./DeletePopUpIcon.tsx";
 
 const meta = {
-  title: 'Icon/PopUps/Deleted',
+  title: 'Icon/PopUps/Delete',
   component: DeletePopUpIcon,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

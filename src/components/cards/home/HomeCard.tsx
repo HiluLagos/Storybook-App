@@ -7,7 +7,7 @@ const border_bg_colours: { [key in HomeCardType]: string } = {
     task:   "border-bg-colorful-orange bg-bg-bright-orange",
     log:    "border-bg-colorful-violet bg-bg-bright-violet",
     saved:  "border-bg-colorful-yellow bg-bg-bright-yellow",
-    survey: "border-bg-colorful-lightblue bg-bg-bright-blue",
+    activities: "border-bg-colorful-lightblue bg-bg-bright-blue",
 };
 
 const card = cva(
@@ -17,7 +17,7 @@ const card = cva(
                 task:   border_bg_colours.task,
                 log:    border_bg_colours.log,
                 saved:  border_bg_colours.saved,
-                survey: border_bg_colours.survey,
+                activities: border_bg_colours.activities,
             }
         },
         defaultVariants: {
@@ -26,7 +26,7 @@ const card = cva(
     }
 );
 
-type HomeCardType = "task" | "log" | "saved" | "survey";
+type HomeCardType = "task" | "log" | "saved" | "activities";
 
 type HomeCardProps = {
     type: HomeCardType;
@@ -37,7 +37,7 @@ const iconMap = {
     task:   IconProvider({variant: "task",      size: "large"}),
     log:    IconProvider({variant: "log",       size: "large"}),
     saved:  IconProvider({variant: "saved",     size: "large"}),
-    survey: IconProvider({variant: "survey",    size: "large"}),
+    activities: IconProvider({variant: "activities",    size: "large"}),
 }
 
 function formatNumber(num: number): string {
@@ -58,21 +58,21 @@ const messageMap: { [key in HomeCardType]: (progress: number) => string } = {
     task:   (progress) => `${formatNumber(progress)} pending`,
     log:    (progress) => `${formatNumber(progress)} recorded`,
     saved:  (progress) => `${formatNumber(progress)} saved`,
-    survey: (progress) => `${formatNumber(progress)} left`,
+    activities: (progress) => `${formatNumber(progress)} left`,
 };
 
 const colourTextMap: { [key in HomeCardType]: string } = {
     task:   "text-text-dark-orange",
     log:    "text-text-dark-violet",
     saved:  "text-text-dark-yellow",
-    survey: "text-text-dark-blue",
+    activities: "text-text-dark-blue",
 };
 
 const mapTitle: { [key in HomeCardType]: string } = {
     task:   "Tasks",
     log:    "Log",
     saved:  "Saved Reels",
-    survey: "Daily Survey",
+    activities: "Daily Survey",
 };
 
 const center: string =  "flex items-center justify-center";
@@ -83,7 +83,7 @@ const measure: { [key in HomeCardType]: [string, string] } = {
     task:   ["w-[124px] h-[149px]", `w-[80px]   h-[34px]`],
     log:    ["w-[124px] h-[149px]", `w-[55px]   h-[34px]`],
     saved:  ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`],
-    survey: ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`],
+    activities: ["w-[124px] h-[115px]", `w-[124px]  h-[68px] leading-[1.1]`],
 };
 
 const HomeCard: React.FC<HomeCardProps> = ({type, progress}) => {

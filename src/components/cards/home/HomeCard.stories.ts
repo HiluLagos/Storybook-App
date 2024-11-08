@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import HomeCard from './HomeCard.tsx';
 
 const meta = {
-  title: 'Cards/Home/HomeCard',
+  title: 'Cards/Home/Home Card',
   component: HomeCard,
   parameters: {
     layout: 'centered',
