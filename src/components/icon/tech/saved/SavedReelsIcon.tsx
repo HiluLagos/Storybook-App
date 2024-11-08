@@ -9,8 +9,8 @@ const icon = cva("", {
             medium: "w-8 h-8",
         },
         intent: {
-            selected: "fill-black stroke-black",
-            unselected: "fill-none stroke-black",
+            selected: "fill-black stroke-current",
+            unselected: "fill-none stroke-current",
         }
     }
 });

@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Comment from "./Comment.tsx";
+import Comment from "./CommentIcon.tsx";
 
 const meta = {
   title: 'Icon/Tech/comment',
