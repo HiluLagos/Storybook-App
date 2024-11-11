@@ -17,7 +17,7 @@ const steps = cva(
 
 type StepsProps = VariantProps<typeof steps>;
 
-const Searcher: React.FC<StepsProps> = ({size = "medium"}:StepsProps) => {
+const Steps: React.FC<StepsProps> = ({size = "medium"}:StepsProps) => {
   return (
     <svg className={steps({size})} viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -28,4 +28,4 @@ const Searcher: React.FC<StepsProps> = ({size = "medium"}:StepsProps) => {
   )
 }
 
-export default Searcher;
+export default Steps;
