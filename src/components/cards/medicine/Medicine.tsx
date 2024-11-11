@@ -36,15 +36,25 @@ type MedicineProps = VariantProps<typeof medicine> & {
   description: string;
   schedule: string;
   completeTime: string;
+  onCompletion: () => void;
+  onDecompletion: () => void;
 };
 
-const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
+const defaultOperation = () => {}
+
+const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17", onCompletion = defaultOperation, onDecompletion = defaultOperation}: MedicineProps) => {
   const [complete, setComplete] = useState(taken);
   const [takenHour, setTakenHour] = useState(completeTime);
 
   const manageTaken = () => {
-    setComplete(!complete);
-    setTakenHour(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false}));
+    const newComplete = !complete;
+    setComplete(newComplete);
+    if (newComplete) {
+      onCompletion();
+      setTakenHour(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false}));
+    } else {
+      onDecompletion();
+    }
   };
 
   return (
