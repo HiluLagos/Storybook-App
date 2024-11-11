@@ -42,6 +42,7 @@ const DraggableDrawer: React.FC<DrawerProps> = ({ children, pxHeight = 300, isOp
         position={position}
         onStop={handleStop}
         bounds={{ top: 0, bottom: pxHeight }}
+        handle=".handle"
       >
         <div
           className="w-full rounded-t-lg flex flex-col items-center bg-secondary-100 transition duration-200 ease-in-out"
