@@ -7,7 +7,7 @@ import Clock from "../../icon/utility/clock/Clock.tsx";
 import ExpandTypography from "../../typography/expandable/ExpandTypography.tsx";
 
 const medicine = cva(
-  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow", {
+  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow shadow-[0_4px_6px_rgba(0,0,0,0.3)]", {
     variants: {
       complete: {
         false: "bg-bg-default",
