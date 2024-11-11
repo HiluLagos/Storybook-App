@@ -22,11 +22,9 @@ const meta = {
       control: 'number',
       description: 'The count to display'
     },
-    percentage: {
-      control: { type: 'range', min: 0, max: 100},
-      min: 0,
-      max: 100,
-      description: 'The percentage of the progress',
+    max: {
+      control: 'number',
+      description: 'The maximum count',
     },
     isCounter: {
       control: 'boolean',
@@ -42,7 +40,7 @@ export const Water: Story = {
   args: {
     activity: 'water',
     count: 159,
-    percentage: 45,
+    max: 45,
     isCounter: true
   },
 }
@@ -51,14 +49,14 @@ export const Steps: Story = {
   args: {
     activity: 'steps',
     count: 241,
-    percentage: 68,
+    max: 68,
     isCounter: false
   },
 }
 
 export const Pills: StoryObj<typeof ActivityCore> = {
   render: () => (
-    <ActivityCore activity="pills" count={3} percentage={100} isCounter={false}>
+    <ActivityCore activity="pills" count={3} max={100} isCounter={false}>
       <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
       <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
       <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />

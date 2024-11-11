@@ -12,17 +12,19 @@ const textMap = {
 interface ActivityCoreProps {
   activity: "water" | "steps" | "pills";
   count: number;
-  percentage: number;
+  max: number;
   isCounter: boolean;
   children?: React.ReactNode;
 }
 
-const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, percentage = 45, isCounter= true, children}) => {
+const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, max = 571, isCounter= true, children}) => {
+  const perTemp = (count * 100) / max;
+
   return (
     <div className={"flex flex-col items-center"}>
       <Typography size={"h3"} weight={"semiBold"}>{textMap[activity]}</Typography>
       <div className={"max-h-[571px] flex flex-col items-center overflow-scroll space-y-4"} style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}>
-        <CircularProgressComponent activity={activity} size={"large"} percentage={percentage}/>
+        <CircularProgressComponent activity={activity} size={"large"} percentage={perTemp}/>
         {children}
       </div>
       <div className={"pt-2"}>
