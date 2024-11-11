@@ -1,9 +1,9 @@
-import {cva, VariantProps} from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 import Typography from "../../typography/basic/Typography.tsx";
 
-const summary = cva("w-[328px] h-fit border", {
-    variants : {
+const background = cva("w-[328px] h-fit border-2 rounded-2xl p-4", {
+    variants: {
         intent: {
             pills: "bg-bg-light-yellow border-bg-colorful-yellow",
             acts: "bg-bg-light-orange border-bg-colorful-orange",
@@ -12,7 +12,7 @@ const summary = cva("w-[328px] h-fit border", {
             happy: "bg-bg-light-green border-bg-colorful-green",
         }
     }
-})
+});
 
 const text = cva("", {
     variants: {
@@ -25,30 +25,34 @@ const text = cva("", {
             text: "text-text-default"
         }
     }
-})
+});
 
-type SummaryProps = VariantProps<typeof summary> & {
+type SummaryProps = VariantProps<typeof background> & {
     title: string,
     description: string,
     observation: string
-}
+};
 
-const Summary: React.FC<SummaryProps> = ({intent, title, description, observation}) => {
+const Summary: React.FC<SummaryProps> = ({ intent, title, description, observation }) => {
     return (
-        <div className={summary({intent})}>
-            <div className={"flex flex-row"}>
+        <div className={`flex flex-col gap-4 ${background({intent})}`}>
+            <div className={`flex flex-row ${text({intent})}`}>
                 <Typography size={"h5"} weight={"semiBold"}>{title}</Typography>
             </div>
-            <div>
+            <div className={text({intent})}>
                 <Typography size={"p"} weight={"semiBold"}>Description:</Typography>
+            </div>
+            <div>
                 <Typography size={"p"} weight={"regular"}>{description}</Typography>
             </div>
-            <div>
+            <div className={text({intent})}>
                 <Typography size={"p"} weight={"semiBold"}>Recorded Observation:</Typography>
+            </div>
+            <div>
                 <Typography size={"p"} weight={"regular"}>{observation}</Typography>
             </div>
-        </div>
-    )
-}
+            </div>
+    );
+};
 
 export default Summary;
