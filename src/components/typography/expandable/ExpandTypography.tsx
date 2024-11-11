@@ -6,16 +6,16 @@ interface ExpandTypographyProps {
   size: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "m";
   children: string;
   expanded?: boolean;
+  limit?: number;
 }
 
-const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", size = "p", children = "Sample text", expanded = false}) => {
+const ExpandTypography: React.FC<ExpandTypographyProps> = ({weight = "regular", size = "p", children = "Sample text", expanded = false, limit = 56}) => {
   const [isExpanded, setIsExpanded] = useState(expanded);
 
   const changeExpanded = () => {
     setIsExpanded(!isExpanded);
   }
 
-  const limit: number = 56;
   const hasReadMore: boolean = children.length > limit;
   const displayedChildren: string = hasReadMore ? isExpanded ? children : children.slice(0, limit) + "..." : children;
 
