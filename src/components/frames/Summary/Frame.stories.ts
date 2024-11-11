@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Summary from "./Summary";
 
 const meta = {
@@ -14,10 +14,6 @@ const meta = {
             options: ['pills', 'acts', 'meditation', 'sad', 'happy'],
             description: 'The intent of the summary',
         },
-        title: {
-            control: 'text',
-            description: 'The title of the summary',
-        },
         description: {
             control: 'text',
             description: 'The description of the summary',
@@ -32,11 +28,42 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Pills: Story = {
     args: {
         intent: 'pills',
-        title: 'Sample Title',
-        description: 'This is a sample description.',
-        observation: 'This is a sample observation.',
+        description: 'This is a sample description for pills.',
+        observation: 'This is a sample observation for pills.',
+    },
+};
+
+export const Acts: Story = {
+    args: {
+        intent: 'acts',
+        description: 'This is a sample description for acts.',
+        observation: 'This is a sample observation for acts.',
+    },
+};
+
+export const Meditation: Story = {
+    args: {
+        intent: 'meditation',
+        description: 'This is a sample description for meditation.',
+        observation: 'This is a sample observation for meditation.',
+    },
+};
+
+export const Sad: Story = {
+    args: {
+        intent: 'sad',
+        description: 'This is a sample description for sad.',
+        observation: 'This is a sample observation for sad.',
+    },
+};
+
+export const Happy: Story = {
+    args: {
+        intent: 'happy',
+        description: 'This is a sample description for happy.',
+        observation: 'This is a sample observation for happy.',
     },
 };
