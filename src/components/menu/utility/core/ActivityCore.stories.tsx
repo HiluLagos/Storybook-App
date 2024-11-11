@@ -1,5 +1,6 @@
 import {Meta, StoryObj} from "@storybook/react";
 import ActivityCore from "./ActivityCore.tsx";
+import Medicine from "../../../cards/medicine/Medicine.tsx";
 
 const meta = {
   title: 'Menu/Utility/Core',
@@ -55,11 +56,15 @@ export const Steps: Story = {
   },
 }
 
-export const Pills: Story = {
-  args: {
-    activity: 'pills',
-    count: 137,
-    percentage: 17,
-    isCounter: false
-  },
+export const Pills: StoryObj<typeof ActivityCore> = {
+  render: () => (
+    <ActivityCore activity="pills" count={3} percentage={100} isCounter={false}>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
+    </ActivityCore>
+  )
 }
