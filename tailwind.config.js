@@ -83,6 +83,7 @@ module.exports = {
             'green': '#135E05',
             'violet': '#880071',
             'yellow': '#7A7A1A',
+            'red': '#880002',
           },
           'primary': {
             100: '#D0F2B5',
