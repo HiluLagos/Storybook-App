@@ -10,7 +10,7 @@ const notificationBackground = cva(
         default: "bg-secondary-100 border-secondary-700",
         danger: "bg-bg-bright-red border-bg-colorful-red",
         success: "bg-bg-bright-green border-bg-colorful-lightgreen",
-        info: "bg-bg-bright-blue border-bg-colorful-lightblue"
+        info: "bg-bg-bright-orange border-bg-colorful-orange"
       }
     },
     defaultVariants: {
@@ -26,7 +26,7 @@ const notificationShade = cva(
         default: "bg-secondary-700",
         danger: "bg-bg-colorful-red",
         success: "bg-bg-colorful-lightgreen",
-        info: "bg-bg-colorful-lightblue"
+        info: "bg-bg-colorful-orange"
       }
     }
   }
