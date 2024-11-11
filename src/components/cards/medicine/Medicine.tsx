@@ -36,8 +36,8 @@ type MedicineProps = VariantProps<typeof medicine> & {
   description: string;
   schedule: string;
   completeTime: string;
-  onCompletion: () => void;
-  onDecompletion: () => void;
+  onCompletion?: () => void;
+  onDecompletion?: () => void;
 };
 
 const defaultOperation = () => {}
