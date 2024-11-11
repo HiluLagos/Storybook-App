@@ -44,7 +44,8 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
   const sizeClass = circular({ size });
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percentage / 100) * circumference;
+  const capPercentage = percentage > 100 ? 100 : (percentage < 0 ? 0 : percentage);
+  const offset = circumference - (capPercentage / 100) * circumference;
 
   return (
     <div className={`${sizeClass} relative flex items-center justify-center`}>
@@ -60,7 +61,7 @@ const Circular: React.FC<CircularProps> = ({size = "medium", activity = "pills",
         />
         <circle
           className={circular({activity})}
-          strokeWidth={percentage === 100 ? 12 : 8}
+          strokeWidth={percentage >= 100 ? 12 : 8}
           stroke="currentColor"
           fill="transparent"
           r="50"

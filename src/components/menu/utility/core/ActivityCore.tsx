@@ -12,12 +12,18 @@ const textMap = {
 interface ActivityCoreProps {
   activity: "water" | "steps" | "pills";
   count: number;
-  percentage: number;
+  max: number;
   isCounter: boolean;
+  subOperation?: () => void;
+  sumOperation?: () => void;
   children?: React.ReactNode;
 }
 
-const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, percentage = 45, isCounter= true, children}) => {
+const defaultOperation = () => {}
+
+const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 159, max = 571, isCounter= true, subOperation = defaultOperation, sumOperation = defaultOperation, children}) => {
+  const percentage = (count * 100) / max;
+
   return (
     <div className={"flex flex-col items-center"}>
       <Typography size={"h3"} weight={"semiBold"}>{textMap[activity]}</Typography>
@@ -26,7 +32,7 @@ const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 
         {children}
       </div>
       <div className={"pt-2"}>
-        <Accumulator activity={activity} count={count} isCounter={isCounter}/>
+        <Accumulator activity={activity} count={count} isCounter={isCounter} subOperation={subOperation} sumOperation={sumOperation}/>
       </div>
     </div>
   );

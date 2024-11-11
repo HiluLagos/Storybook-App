@@ -1,6 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
 import ActivityCore from "./ActivityCore.tsx";
 import Medicine from "../../../cards/medicine/Medicine.tsx";
+import React from "react";
 
 const meta = {
   title: 'Menu/Utility/Core',
@@ -22,49 +23,75 @@ const meta = {
       control: 'number',
       description: 'The count to display'
     },
-    percentage: {
-      control: { type: 'range', min: 0, max: 100},
-      min: 0,
-      max: 100,
-      description: 'The percentage of the progress',
+    max: {
+      control: 'number',
+      description: 'The maximum count',
     },
     isCounter: {
       control: 'boolean',
       description: 'Whether to display the count or not'
-    }
+    },
+    subOperation: {
+      description: 'The operation to perform on the count'
+    },
+    sumOperation: {
+      description: 'The operation to perform on the count'
+    },
   },
 } satisfies Meta<typeof ActivityCore>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Water: Story = {
-  args: {
-    activity: 'water',
-    count: 159,
-    percentage: 45,
-    isCounter: true
-  },
+const WaterComponent: React.FC = () => {
+  const [count, setCount] = React.useState(10);
+
+  const manageSubtraction = () => {
+    const newValue = count - 1;
+    setCount(newValue < 0 ? 0 : newValue);
+  };
+
+  return (
+    <div className={"flex flex-col justify-items-center"}>
+      <ActivityCore activity={"water"} count={count} max={20} isCounter={true} subOperation={manageSubtraction} sumOperation={() => setCount(count + 1)} />
+    </div>
+  );
+}
+
+export const Water: StoryObj<typeof ActivityCore> = {
+  render: () => (
+    <WaterComponent/>
+  )
 }
 
 export const Steps: Story = {
   args: {
     activity: 'steps',
     count: 241,
-    percentage: 68,
+    max: 68,
     isCounter: false
   },
 }
 
+const MedicineComponent: React.FC = () => {
+  const [count, setCount] = React.useState(6);
+
+  const decrementCount = () => setCount(count - 1);
+  const incrementCount = () => setCount(count + 1);
+  return (
+    <ActivityCore activity="pills" count={6 - count} max={6} isCounter={false}>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+    </ActivityCore>
+  )
+};
+
 export const Pills: StoryObj<typeof ActivityCore> = {
   render: () => (
-    <ActivityCore activity="pills" count={3} percentage={100} isCounter={false}>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} />
-    </ActivityCore>
+    <MedicineComponent/>
   )
 }

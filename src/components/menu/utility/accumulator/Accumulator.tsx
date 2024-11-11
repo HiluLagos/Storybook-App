@@ -25,14 +25,18 @@ const accumulator = cva(
 
 type AccumulatorProps = VariantProps<typeof accumulator> & {
   count: number;
+  subOperation?: () => void;
+  sumOperation?: () => void;
 }
 
-const Accumulator: React.FC<AccumulatorProps> = ({ count = 159, isCounter = true, activity = "water" }) => {
+const defaultOperation = () => {}
+
+const Accumulator: React.FC<AccumulatorProps> = ({ count = 159, isCounter = true, activity = "water", subOperation = defaultOperation, sumOperation = defaultOperation }) => {
   return (
     <div className={accumulator({activity, isCounter})}>
-      {isCounter ? <Math operation={"sub"}/> : null}
+      {isCounter ? <div onPointerDown={subOperation}><Math operation={"sub"}/></div> : null}
       <Typography size={"h3"} weight={"regular"}>{count.toString()}</Typography>
-      {isCounter ? <Math operation={"sum"}/> : null}
+      {isCounter ? <div onPointerDown={sumOperation}><Math operation={"sum"}/></div> : null}
     </div>
   );
 };

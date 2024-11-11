@@ -1,5 +1,6 @@
 import {Meta, StoryObj} from "@storybook/react";
 import Accumulator from "./Accumulator.tsx";
+import React from "react";
 
 const meta = {
   title: 'Menu/Utility/Accumulator',
@@ -24,19 +25,33 @@ const meta = {
     isCounter: {
       control: 'boolean',
       description: 'Whether to display the counter'
-    }
+    },
+    subOperation: {
+      description: 'The operation to perform on the count'
+    },
+    sumOperation: {
+      description: 'The operation to perform on the count'
+    },
   },
 } satisfies Meta<typeof Accumulator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Water: Story = {
-  args: {
-    activity: 'water',
-    count: 159,
-    isCounter: true
-  },
+const ParentComponent: React.FC = () => {
+  const [count, setCount] = React.useState(159);
+
+  return (
+    <div className={"flex flex-col justify-items-center"}>
+      <Accumulator activity={"water"} count={count} isCounter={true} subOperation={() => setCount(count - 1)} sumOperation={() => setCount(count + 1)} />
+    </div>
+  );
+}
+
+export const Water: StoryObj<typeof Accumulator> = {
+  render: () => (
+    <ParentComponent/>
+  )
 }
 
 export const Steps: Story = {
