@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "../../../typography/basic/Typography.tsx";
+import ExpandTypography from "../../../typography/expandable/ExpandTypography.tsx";
 
 type DescriptionProps = {
     title: string,
@@ -8,26 +8,24 @@ type DescriptionProps = {
 
 const Caption: React.FC<DescriptionProps> = ({title, description}) => {
     return (
-        <div
-            className={"bg-shadow-black-60 text-secondary-100 w-[360px] h-[165px] flex flex-col pl-6 py-2 pr-[66px] overflow-auto gap-2"}
-            style={{
-                overflowWrap: "break-word",
-                wordBreak: "break-word",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-            }}>
-            <div className="relative" >
-                <Typography size={"m"} weight={"semiBold"}>
-                    {title}
-                </Typography>
-            </div>
-            <div className="relative">
-                <Typography size={"m"} weight={"regular"}>
-                    {description}
-                </Typography>
+        <div className="relative w-[360px] min-h-28 bg-shadow-black-40 pb-2 inset-0 filter blur-4px">
+            <div className="relative h-full w-full text-secondary-100 flex flex-col pl-6 py-2 pr-[66px] gap-1.5"
+                style={{
+                    overflowWrap: "break-word",
+                    wordBreak: "break-word",
+                }}>
+                <div>
+                    <ExpandTypography size={"m"} weight={"semiBold"} limit={40}>
+                        {title}
+                    </ExpandTypography>
+                </div>
+                <div>
+                    <ExpandTypography size={"m"} weight={"regular"} limit={40}>
+                        {description}
+                    </ExpandTypography>
+                </div>
             </div>
         </div>
-
     )
 }
 
