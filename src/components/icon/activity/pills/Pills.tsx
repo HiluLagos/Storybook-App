@@ -17,7 +17,7 @@ const pills = cva(
 
 type PillsProps = VariantProps<typeof pills>;
 
-const Searcher: React.FC<PillsProps> = ({size = "medium"}:PillsProps) => {
+const Pills: React.FC<PillsProps> = ({size = "medium"}:PillsProps) => {
   return (
     <svg className={pills({size})} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -27,4 +27,4 @@ const Searcher: React.FC<PillsProps> = ({size = "medium"}:PillsProps) => {
   )
 }
 
-export default Searcher;
+export default Pills;

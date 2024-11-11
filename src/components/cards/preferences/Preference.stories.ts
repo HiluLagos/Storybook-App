@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Preference from "./Preference.tsx";
 
 const meta = {
-  title: 'Cards/Preferences',
+  title: 'Cards/Drag Preferences',
   component: Preference,
   parameters: {
     layout: 'centered',
@@ -25,16 +25,58 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const PillDefault: Story = {
   args: {
     state: "default",
     activity: "pills",
   },
 };
 
-export const Dragged: Story = {
+export const PillDragged: Story = {
   args: {
     state: "dragged",
     activity: "pills",
+  },
+};
+
+export const SaladDefault: Story = {
+  args: {
+    state: "default",
+    activity: "salad",
+  },
+};
+
+export const SaladDragged: Story = {
+  args: {
+    state: "dragged",
+    activity: "salad",
+  },
+};
+
+export const StepsDefault: Story = {
+  args: {
+    state: "default",
+    activity: "steps",
+  },
+};
+
+export const StepsDragged: Story = {
+  args: {
+    state: "dragged",
+    activity: "steps",
+  },
+};
+
+export const WaterDefault: Story = {
+  args: {
+    state: "default",
+    activity: "water",
+  },
+};
+
+export const WaterDragged: Story = {
+  args: {
+    state: "dragged",
+    activity: "water",
   },
 };

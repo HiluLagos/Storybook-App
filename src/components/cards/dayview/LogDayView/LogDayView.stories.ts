@@ -2,18 +2,13 @@ import {Meta, StoryObj} from "@storybook/react";
 import LogDayView from "./LogDayView.tsx";
 
 const meta = {
-    title: 'Cards/DayView/LogDayView',
+    title: 'Cards/DayView/Log',
     component: LogDayView,
     parameters: {
         layout: 'centered',
     },
     tags: ['autodocs'],
     argTypes: {
-        tag: {
-            control: 'select',
-            options: ['missed', 'done', 'info'],
-            description: 'The tag of the day view',
-        },
         header: {
             control: 'text',
             description: 'The header of the day view',
@@ -36,7 +31,6 @@ type Story = StoryObj<typeof meta>;
 export const Activity: Story = {
     args: {
         header: "Activity",
-        tag: "info",
         time: "10:00",
         audioLength: "00:30"
     },

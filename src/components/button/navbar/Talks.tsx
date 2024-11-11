@@ -1,5 +1,5 @@
 import React from "react";
-import TalksIcon from "../../icon/utility/navigation/talks/HelpTalks.tsx"
+import TalksIcon from "../../icon/nav/talks/HelpTalks.tsx"
 import IconWrapper from "./NavComponent.tsx";
 import { StateType } from "../../../../types.ts";
 

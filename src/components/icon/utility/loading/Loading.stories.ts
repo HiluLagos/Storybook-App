@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Loading from "./Loading.tsx";
 
 const meta = {
-  title: 'Icon/Utility/loading',
+  title: 'Icon/Utility/Loading',
   component: Loading,
   parameters: {
     layout: 'centered',

@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Homer from "./Homer.tsx";
 
 const meta = {
-  title: 'Icon/Utility/homer',
+  title: 'Icon/Utility/Homer',
   component: Homer,
   parameters: {
     layout: 'centered',

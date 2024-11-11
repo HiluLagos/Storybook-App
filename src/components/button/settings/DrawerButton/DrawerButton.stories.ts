@@ -3,7 +3,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import DrawerButton from "./DrawerButton.tsx";
 
 const meta = {
-    title: 'Button/Settings/DrawerButton',
+    title: 'Button/Settings/Drawer',
     component: DrawerButton,
     parameters: {
         layout: 'centered',
@@ -12,7 +12,7 @@ const meta = {
     argTypes: {
         variant: {
             control: 'select',
-            options: ['logout', 'notification'],
+            options: ['logout', 'helpCenter', 'information'],
             description: 'The variant of the drawer button',
         }
     }

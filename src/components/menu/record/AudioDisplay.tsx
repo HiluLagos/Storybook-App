@@ -6,6 +6,7 @@ import DynamicSoundWaveIcon from "../../icon/tech/log/wave/DynamicSoundWaveIcon.
 import StaticSoundWaveIcon from "../../icon/tech/log/wave/StaticSoundWaveIcon.tsx";
 import PlayIcon from "../../icon/tech/log/play/PlayIcon.tsx";
 import DeleteIcon from "../../icon/utility/delete/DeleteIcon.tsx";
+import Typography from "../../typography/basic/Typography.tsx";
 
 const innerContainerStyles = cva("inline-flex items-center", {
     variants: {
@@ -72,13 +73,13 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
 
     return (
         <div className="space-y-4">
-            <div className="inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
+            <div className="bg-bg-default inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
                 {isRecording ? (
                     <div className={innerContainerStyles({ state: "recording" })}>
                         <div className="flex justify-end w-[222px] h-8 overflow-hidden">
                             <DynamicSoundWaveIcon wavesNumber={wavesNumber} lineLimit={36} lineSpacing={6} />
                         </div>
-                        <span>{`${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`}</span>
+                        <Typography size={"m"} weight={"regular"}>{`${Math.floor(elapsedSeconds / 60)}:${(elapsedSeconds % 60).toString().padStart(2, '0')}`}</Typography>
                     </div>
                 ) : showMore ? (
                     <>
@@ -95,7 +96,7 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
                                     <StaticSoundWaveIcon wavesNumber={36} />
                                 </div>
                             </div>
-                            <span>{displayTime}</span>
+                            <Typography size={"m"} weight={"regular"}>{displayTime}</Typography>
                             <Arrow orientation="down" onToggleAction={() => setShowMore(false)} />
                         </div>
                         <div className="inline-flex items-center justify-between w-[260px] h-6 mt-2">
@@ -140,7 +141,7 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
                                 <StaticSoundWaveIcon wavesNumber={36} />
                             </div>
                         </div>
-                        <span>{displayTime}</span>
+                        <Typography size={"m"} weight={"regular"}>{displayTime}</Typography>
                         <Arrow orientation="left" onToggleAction={() => setShowMore(true)} />
                     </div>
                 )}

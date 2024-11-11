@@ -26,7 +26,7 @@ export const Default: Story = {
     },
 }
 
-export const Small: Story = {
+export const Medium: Story = {
     args: {
         size: 'medium',
     },

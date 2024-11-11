@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Medicine from "./Medicine.tsx";
 
 const meta = {
-  title: 'Cards/Medicine',
+  title: 'Cards/Activity/Medicine',
   component: Medicine,
   parameters: {
     layout: 'centered',

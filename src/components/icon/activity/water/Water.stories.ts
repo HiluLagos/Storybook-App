@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Water from "./Water.tsx";
 
 const meta = {
-  title: 'Icon/Activities/water',
+  title: 'Icon/Activities/Water',
   component: Water,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -31,6 +31,6 @@ export const Medium: Story = {
 
 export const Large: Story = {
   args: {
-    size: 'medium',
+    size: 'large',
   },
 }

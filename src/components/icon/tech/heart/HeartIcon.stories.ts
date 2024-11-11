@@ -25,17 +25,51 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-export const Selected: Story = {
+export const Default: Story = {
     args: {
-        size: "medium",
+        size: "small",
+        intent: "unselected",
+    }
+};
+
+export const ExtraSmallUnselected: Story = {
+    args: {
+        size: "extraSmall",
+        intent: "unselected",
+    },
+};
+
+export const ExtraSmallSelected: Story = {
+    args: {
+        size: "extraSmall",
         intent: "selected",
     },
 };
 
-export const Unselected: Story = {
+export const Small: Story = {
+    args: {
+        size: "small",
+        intent: "unselected",
+    }
+};
+
+export const SmallSelected: Story = {
+    args: {
+        size: "small",
+        intent: "selected",
+    }
+};
+
+export const MediumUnselected: Story = {
     args: {
         size: "medium",
         intent: "unselected",
-    },
+    }
+};
+
+export const MediumSelected: Story = {
+    args: {
+        size: "medium",
+        intent: "selected",
+    }
 };

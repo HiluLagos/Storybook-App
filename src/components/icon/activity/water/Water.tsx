@@ -17,7 +17,7 @@ const water = cva(
 
 type WaterProps = VariantProps<typeof water>;
 
-const Searcher: React.FC<WaterProps> = ({size = "medium"}:WaterProps) => {
+const Water: React.FC<WaterProps> = ({size = "medium"}:WaterProps) => {
   return (
     <svg className={water({size})} viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -31,4 +31,4 @@ const Searcher: React.FC<WaterProps> = ({size = "medium"}:WaterProps) => {
   )
 }
 
-export default Searcher;
+export default Water;

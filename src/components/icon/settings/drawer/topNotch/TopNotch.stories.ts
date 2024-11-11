@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import TopNotch from "./TopNotch.tsx";
 
 const meta = {
-  title: 'Icon/Settings/topNotch',
+  title: 'Icon/Settings/Top Notch',
   component: TopNotch,
   parameters: {
     layout: 'centered',

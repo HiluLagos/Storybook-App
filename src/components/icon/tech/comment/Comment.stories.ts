@@ -1,8 +1,8 @@
 import {Meta, StoryObj} from "@storybook/react";
-import Comment from "./Comment.tsx";
+import Comment from "./CommentIcon.tsx";
 
 const meta = {
-  title: 'Icon/Tech/comment',
+  title: 'Icon/Tech/Comment',
   component: Comment,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -17,9 +17,9 @@ const meta = {
       options: ['medium', 'small', 'extraSmall'],
       description: 'The size of the comment icon',
     },
-    fill: {
+    intent: {
       control: 'select',
-      options: ['outlined', 'solid'],
+      options: ['selected', 'unselected'],
       description: 'The fill of the comment icon',
     },
   },
@@ -28,44 +28,46 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const MediumOutlined: Story = {
+export const ExtraSmallUnselected: Story = {
   args: {
-    size: 'medium',
-    fill: 'outlined',
-  },
-}
-
-export const MediumSolid: Story = {
-  args: {
-    size: 'medium',
-    fill: 'solid',
-  },
-}
-export const SmallOutlined: Story = {
-  args: {
-    size: 'small',
-    fill: 'outlined',
-  },
-}
-
-export const SmallSolid: Story = {
-  args: {
-    size: 'small',
-    fill: 'solid',
-  },
-}
-
-export const ExtraSmallOutlined: Story = {
-  args: {
-    fill: 'outlined',
+    intent: 'unselected',
     size: 'extraSmall',
 
   },
 }
 
-export const ExtraSmallSolid: Story = {
+export const ExtraSmallSelected: Story = {
   args: {
     size: 'extraSmall',
-    fill: 'solid',
+    intent: 'selected',
+  },
+}
+
+
+export const SmallUnselected: Story = {
+  args: {
+    size: 'small',
+    intent: 'unselected',
+  },
+}
+
+export const SmallSelected: Story = {
+  args: {
+    size: 'small',
+    intent: 'selected',
+  },
+}
+
+export const MediumUnselected: Story = {
+  args: {
+    size: 'medium',
+    intent: 'unselected',
+  },
+}
+
+export const MediumSelected: Story = {
+  args: {
+    size: 'medium',
+    intent: 'selected',
   },
 }

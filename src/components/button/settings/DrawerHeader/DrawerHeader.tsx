@@ -1,4 +1,4 @@
-import User from "../../../icon/settings/drawer/icons/user/User.tsx";
+import User from "../../../icon/settings/drawer/user/User.tsx";
 import Typography from "../../../typography/basic/Typography.tsx";
 import React from "react";
 
@@ -9,9 +9,9 @@ type DrawerHeaderProps = {
 
 const DrawerHeader: React.FC<DrawerHeaderProps> = ({clientName = "Client", doctorName = "Doctor"}) => {
     return (
-        <div className="flex flex-row bg-secondary-500 rounded-lg align-middle items-center gap-2 w-[328px]">
+        <div className="flex flex-row bg-white rounded-lg align-middle items-center gap-2 w-[328px]">
             <User/>
-            <div>
+            <div className={"-space-y-1"}>
                 <Typography size={"h4"} weight={"semiBold"}>{clientName}</Typography>
                 <Typography size={"m"} weight={"regular"}>{"Doctor: " + doctorName}</Typography>
             </div>

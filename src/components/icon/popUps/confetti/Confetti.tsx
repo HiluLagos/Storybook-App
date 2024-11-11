@@ -6,11 +6,11 @@ const confetti = cva(
         variants: {
             size: {
                 medium: "w-8 h-8 ",
-                xLarge: "w-20 h-20",
+                large: "w-20 h-20",
             },
         },
         defaultVariants: {
-            size: "xLarge",
+            size: "large",
         }
     }
 )
@@ -20,11 +20,11 @@ const stroke = cva(
         variants: {
             width: {
                 medium: "stroke-2",
-                xLarge: "stroke-[1.5px]",
+                large: "stroke-[1.5px]",
             },
         },
         defaultVariants: {
-            width: "xLarge",
+            width: "large",
 
         }
     }
@@ -33,7 +33,7 @@ const stroke = cva(
 type ConfettiProps = VariantProps<typeof confetti> & VariantProps<typeof stroke>;
 
 
-const Confetti: React.FC<ConfettiProps> = ({size = "xLarge", width = "xLarge"}: ConfettiProps) => {
+const Confetti: React.FC<ConfettiProps> = ({size = "large", width = "large"}: ConfettiProps) => {
     return (
             <svg className={confetti({size})} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

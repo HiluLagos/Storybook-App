@@ -1,5 +1,5 @@
 import React from "react";
-import SettingsIcon from "../../icon/utility/navigation/settings/Settings.tsx";
+import SettingsIcon from "../../icon/nav/settings/Settings.tsx";
 import IconWrapper from "./NavComponent.tsx";
 import { StateType } from "../../../../types.ts";
 

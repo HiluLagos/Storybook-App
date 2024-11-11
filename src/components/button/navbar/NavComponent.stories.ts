@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import SettingsIcon from "../../icon/utility/navigation/settings/Settings";
-import HomeIcon from "../../icon/utility/navigation/home/HomeIcon";
-import TalksIcon from "../../icon/utility/navigation/talks/HelpTalks";
-import CalendarIcon from "../../icon/utility/navigation/calendar/Calendar";
+import SettingsIcon from "../../icon/nav/settings/Settings";
+import HomeIcon from "../../icon/nav/home/HomeIcon";
+import TalksIcon from "../../icon/nav/talks/HelpTalks";
+import CalendarIcon from "../../icon/nav/calendar/Calendar";
 import NavComponent from "./NavComponent.tsx";
 
 const iconComponents = {
@@ -13,7 +13,7 @@ const iconComponents = {
 };
 
 const meta: Meta = {
-    title: 'Button/NavBar/NavComponent',
+    title: 'Button/Nav/Components',
     component: NavComponent, // Default component for the meta
     parameters: {
         layout: 'centered',

@@ -1,5 +1,5 @@
 import React from "react";
-import HomeIcon from "../../icon/utility/navigation/home/HomeIcon.tsx";
+import HomeIcon from "../../icon/nav/home/HomeIcon.tsx";
 import IconWrapper from "./NavComponent.tsx";
 import { StateType } from "../../../../types.ts";
 

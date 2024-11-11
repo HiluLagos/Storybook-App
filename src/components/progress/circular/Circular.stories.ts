@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Circular from "./Circular.tsx";
 
 const meta = {
-  title: 'Progress/circular',
+  title: 'Progress/Circular',
   component: Circular,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -29,7 +29,7 @@ const meta = {
       description: 'The percentage of the progress',
     },
     children: {
-      control: 'text',
+      control: false,
       description: 'The children of the component',
     }
   },

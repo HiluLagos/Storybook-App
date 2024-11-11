@@ -4,11 +4,12 @@ import React from "react";
 const icon = cva("", {
     variants: {
         size: {
-            small: "w-5 h-5",
-            medium: "w-6 h-6",
+            extraSmall: "w-4 h-4",
+            small: "w-6 h-6",
+            medium: "w-8 h-8",
         },
         intent: {
-            selected: "",
+            selected: "fill-current",
             unselected: "fill-none",
         }
     }
@@ -16,7 +17,7 @@ const icon = cva("", {
 
 export interface IconProps extends React.SVGProps<SVGSVGElement>, VariantProps<typeof icon> {}
 
-export const HeartIcon: React.FC<IconProps> = ({size, intent, ...props}) => {
+export const HeartIcon: React.FC<IconProps> = ({size = "medium", intent ="unselected", ...props}) => {
     return (
         <svg width="24"
              height="24"
@@ -32,7 +33,7 @@ export const HeartIcon: React.FC<IconProps> = ({size, intent, ...props}) => {
                     fill="currentColor"/>
                 <path
                     d="M3.85938 14.0879L10.918 20.6777C11.2109 20.9511 11.5977 21.1035 12 21.1035C12.4023 21.1035 12.7891 20.9511 13.082 20.6777L20.1406 14.0879C21.3281 12.9824 22 11.4316 22 9.81051V9.58395C22 6.85348 20.0273 4.52536 17.3359 4.07614C15.5547 3.77926 13.7422 4.36129 12.4687 5.63473L12 6.10348L11.5312 5.63473C10.2578 4.36129 8.44531 3.77926 6.66406 4.07614C3.97266 4.52536 2 6.85348 2 9.58395V9.81051C2 11.4316 2.67188 12.9824 3.85938 14.0879Z"
-                    fill="currentColor" className={icon({intent})}/>
+                    className={icon({intent})}/>
             </svg>
 
         </svg>

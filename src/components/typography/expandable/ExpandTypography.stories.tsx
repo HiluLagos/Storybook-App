@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import ExpandTypography from "./ExpandTypography.tsx";
 
 const meta = {
-  title: 'Typography/ExpandTypography',
+  title: 'Typography/Expandable',
   component: ExpandTypography,
   parameters: {
     layout: 'centered',

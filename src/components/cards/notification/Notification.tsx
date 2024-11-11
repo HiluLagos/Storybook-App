@@ -33,9 +33,10 @@ const notificationShade = cva(
 );
 
 type NotificationProps = VariantProps<typeof notificationBackground> & {
-  icon: "pills" | "salad" | "steps" | "water" | "task" | "log" | "activities";
+  icon: "pills" | "salad" | "steps" | "water" | "task" | "confetti";
   description: string;
   date: string;
+
 };
 
 const Notification: React.FC<NotificationProps> = ({color = "default", icon = "pills", description = "This is a description", date = "23:00 18/11/1987"}: NotificationProps) => {

@@ -27,7 +27,7 @@ const title = cva("", {
     }
 })
 
-const shade = cva("w-[5px] h-auto", {
+const shade = cva("w-[5px] h-auto p-1", {
     variants: {
         type: {
             activity: "bg-bg-colorful-lightblue",
@@ -41,12 +41,12 @@ type DayViewProps = {
     header: string,
     children: ReactNode,
     tag: "missed" | "done" | "info",
-    type: "activity" | "log" | "task",
+    type: "activity" | "task" | "log",
     time: string
 }
 
 const stateTag = {
-    missed: StateTag({state: "orange", children: "Missed"}),
+    missed: StateTag({state: "yellow", children: "Missed"}),
     done: StateTag({state: "green", children: "Done"}),
     info: StateTag({state: "lightBlue", children: "Info"})
 }
@@ -66,18 +66,18 @@ const DayView: React.FC<DayViewProps> = ({type, header, children, tag, time}) =>
     return(
         <div className={card({type})}>
             <div className={shade({type})}/>
-            <div className={"flex flex-col basis-3/4 px-2 pb-2 gap-1"}>
+            <div className={"flex flex-col basis-3/4 p-2 space-y-2"}>
                 <div className={title({type})}>
-                    <Typography size={"h5"} weight={"semiBold"} >{header}</Typography></div>
-                    {children}
-                    {stateTag[tag]}
+                    <Typography size={"h5"} weight={"semiBold"}>{header}</Typography></div>
+                {children}
+                {stateTag[tag]}
             </div>
-            <div className={"basis-1/4 flex flex-col justify-between items-end pe-2 py-2"}>
+            <div className={"basis-1/4 flex flex-col justify-between items-end pr-3 pt-3 pb-2"}>
                 <IconComponent size={"medium"}/>
                 <Typography size={"m"} weight={"semiBold"}>
                     {time == "" ? "---" : time + "hs."}
                 </Typography>
-        </div>
+            </div>
         </div>
     )
 }

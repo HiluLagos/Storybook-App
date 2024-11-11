@@ -3,7 +3,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import DrawerHeader from "./DrawerHeader.tsx";
 
 const meta = {
-    title: 'Button/Settings/DrawerHeader',
+    title: 'Button/Settings/User Information',
     component: DrawerHeader,
     parameters: {
         layout: 'centered',

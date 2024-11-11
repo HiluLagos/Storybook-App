@@ -2,7 +2,7 @@ import {Meta, StoryObj} from "@storybook/react";
 import Steps from "./Steps.tsx";
 
 const meta = {
-  title: 'Icon/Activities/steps',
+  title: 'Icon/Activities/Steps',
   component: Steps,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

@@ -2,7 +2,7 @@ import AIButton from "./AIButton.tsx";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    title: 'Button/Log/AIButton',
+    title: 'Button/Log/AI',
     component: AIButton,
     parameters: {
         layout: 'centered',
@@ -14,13 +14,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultButton: Story = {
+export const Default: Story = {
     args: {
         pressed: false,
     }
 };
 
-export const PressedButton: Story = {
+export const Pressed: Story = {
     args: {
         pressed: true,
     }

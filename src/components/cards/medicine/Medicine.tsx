@@ -1,5 +1,5 @@
 import {cva, VariantProps} from "class-variance-authority";
-import React from "react";
+import React, {useState} from "react";
 import StateTag from "../../stateTag/StateTag.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
@@ -7,10 +7,10 @@ import Clock from "../../icon/utility/clock/Clock.tsx";
 import ExpandTypography from "../../typography/expandable/ExpandTypography.tsx";
 
 const medicine = cva(
-  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow", {
+  "rounded-lg border-4 flex flex-row w-[328px] h-fit p-4 justify-between border-bg-colorful-yellow shadow-[0_4px_6px_rgba(0,0,0,0.3)]", {
     variants: {
       complete: {
-        false: "",
+        false: "bg-bg-default",
         true: "bg-bg-light-yellow",
       }
     },
@@ -38,12 +38,14 @@ type MedicineProps = VariantProps<typeof medicine> & {
   completeTime: string;
 };
 
-// function getScheduleHour(schedule: Date) {
-//   return schedule.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false});
-// }
+const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
+  const [complete, setComplete] = useState(taken);
+  const [takenHour, setTakenHour] = useState(completeTime);
 
-const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
-  // const scheduleHour = getScheduleHour(schedule);
+  const manageTaken = () => {
+    setComplete(!complete);
+    setTakenHour(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false}));
+  };
 
   return (
     <div className={medicine({complete})}>
@@ -60,11 +62,11 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
         </div>
 
         <div className={takenText({complete})}>
-          <Typography weight={"regular"} size={"m"}>{"Taken at " + completeTime}</Typography>
+          <Typography weight={"regular"} size={"m"}>{"Taken at " + takenHour + "hs"}</Typography>
         </div>
       </div>
 
-      <div className={"p-0.5 flex flex-col items-center justify-end"}>
+      <div className={"p-0.5 flex flex-col items-center justify-end"} onClick={manageTaken}>
         <DoneSquare done={complete} />
       </div>
     </div>
