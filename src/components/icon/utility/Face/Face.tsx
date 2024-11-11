@@ -1,7 +1,7 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const faceIconStyle = cva("", {
+const faceIconStyle = cva("transition-transform transform duration-300", {
     variants: {
         color: {
             selected: "",
@@ -51,7 +51,7 @@ const icons: Record<FaceState, { medium: string, large: string }> = {
         }
 };
 
-const Face: React.FC<FaceProps> = ({ state = "happy", size = "medium", color = "selected" }) => {
+const Face: React.FC<FaceProps> = ({ state = "happy", size = "medium", color = "unselected" }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
