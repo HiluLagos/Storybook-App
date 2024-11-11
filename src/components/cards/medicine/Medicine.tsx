@@ -1,5 +1,5 @@
 import {cva, VariantProps} from "class-variance-authority";
-import React from "react";
+import React, {useState} from "react";
 import StateTag from "../../stateTag/StateTag.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import DoneSquare from "../../icon/utility/done-square/DoneSquare.tsx";
@@ -42,8 +42,10 @@ type MedicineProps = VariantProps<typeof medicine> & {
 //   return schedule.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false});
 // }
 
-const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
+const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17"}: MedicineProps) => {
   // const scheduleHour = getScheduleHour(schedule);
+  const [complete, setComplete] = useState(taken);
+  const [takenHour, setTakenHour] = useState(completeTime);
 
   return (
     <div className={medicine({complete})}>
@@ -60,11 +62,14 @@ const Medicine: React.FC<MedicineProps> = ({complete = false, name = "Cloroplati
         </div>
 
         <div className={takenText({complete})}>
-          <Typography weight={"regular"} size={"m"}>{"Taken at " + completeTime}</Typography>
+          <Typography weight={"regular"} size={"m"}>{"Taken at " + takenHour + "hs"}</Typography>
         </div>
       </div>
 
-      <div className={"p-0.5 flex flex-col items-center justify-end"}>
+      <div className={"p-0.5 flex flex-col items-center justify-end"} onClick={() => {
+        setComplete(!complete);
+        setTakenHour(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit', hour12: false}));
+      }}>
         <DoneSquare done={complete} />
       </div>
     </div>
