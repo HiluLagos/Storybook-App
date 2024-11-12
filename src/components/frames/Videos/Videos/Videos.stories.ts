@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Videos from "./Videos";
+import Videos from "./Videos.tsx";
 
 const meta = {
     title: 'Menu/Videos/Videos',
