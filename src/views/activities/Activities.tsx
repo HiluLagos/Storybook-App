@@ -11,11 +11,12 @@ export const Activities: React.FC = () => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [currentActivity, setCurrentActivity] = useState<"water" | "steps" | "pills" | "salad">("pills");
+    // const [completed, setCompleted] = useState([false]);
 
     const [activityMap, setActivityMap] = useState<Record<"water" | "steps" | "pills" | "salad", { value: number, max: number }>>({
         water: { value: 3, max: 3 },
         steps: { value: 8000, max: 8000 },
-        pills: { value: 1, max: 1 },
+        pills: { value: 0, max: 2 },
         salad: { value: 4, max: 4 }
     });
 
@@ -23,7 +24,7 @@ export const Activities: React.FC = () => {
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        const totalValue = Object.values(activityMap).reduce((sum, activity) => sum + (activity.value / activity.max), 0);
+        const totalValue = Object.values(activityMap).reduce((sum, activity) => sum + (Math.min(activity.value, activity.max) / activity.max), 0);
         const newProgress = (totalValue / Object.keys(activityMap).length) * 100;
         setProgress(Math.floor(newProgress));
 
@@ -42,6 +43,7 @@ export const Activities: React.FC = () => {
     const mockMedicine = (activity: "water" | "steps" | "pills" | "salad") => {
         if (activity === "pills") {
             return (
+                <>
                 <Medicine name={"Paracetamol"}
                           description={"El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre."}
                           schedule={"09:00hs"}
@@ -49,6 +51,14 @@ export const Activities: React.FC = () => {
                           onCompletion={() => sumOperation(currentActivity)}
                           onDecompletion={() => subOperation(currentActivity)}
                 />
+                <Medicine name={"Paracetamol"}
+                          description={"El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre."}
+                          schedule={"09:00hs"}
+                          completeTime={"23.05"}
+                          onCompletion={() => sumOperation(currentActivity)}
+                          onDecompletion={() => subOperation(currentActivity)}
+                />
+                </>
             );
         }
     }
@@ -58,7 +68,7 @@ export const Activities: React.FC = () => {
             ...prevActivityMap,
             [activity]: {
                 ...prevActivityMap[activity],
-                value: Math.min(prevActivityMap[activity].value + 1, prevActivityMap[activity].max)
+                value: prevActivityMap[activity].value + 1
             }
         }));
     };
@@ -125,6 +135,7 @@ export const Activities: React.FC = () => {
                 isCounter={currentActivity === "salad" || currentActivity === "water"}
                 sumOperation={() => sumOperation(currentActivity)}
                 subOperation={() => subOperation(currentActivity)}
+                pxHeight={currentActivity === "pills" ? 720 : 330}
             >
                 {mockMedicine(currentActivity)}
             </DrawerActivityChildren>
