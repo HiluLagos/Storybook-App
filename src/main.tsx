@@ -1,8 +1,8 @@
-import {StrictMode} from "react";
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import TasksView from "./views/tasks/TasksView.tsx";
 // import DrawerActivityNoChildren from "./components/menu/acts/DrawerActivityNoChildren.tsx";
-import App from "./App.tsx";
 
 // const WaterComponent: React.FC = () => {
 //     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -35,7 +35,7 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <TasksView />
     {/*<WaterComponent />*/}
-    <App />
   </StrictMode>
 )

@@ -17,7 +17,7 @@ const salad = cva(
 
 type SaladProps = VariantProps<typeof salad>;
 
-const Searcher: React.FC<SaladProps> = ({size = "medium"}:SaladProps) => {
+const Salad: React.FC<SaladProps> = ({size = "medium"}:SaladProps) => {
   return (
     <svg className={salad({size})} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9.22559 34H26.774" stroke="#28C40B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -37,4 +37,4 @@ const Searcher: React.FC<SaladProps> = ({size = "medium"}:SaladProps) => {
   )
 }
 
-export default Searcher;
+export default Salad;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import Home from "../../button/navbar/Home.tsx";
 import Talks from "../../button/navbar/Talks.tsx";
 import Calendar from "../../button/navbar/Calendar.tsx";
@@ -12,14 +12,14 @@ const NavBar = () => {
     const [settingsState, setSettingsState] = useState<StateType>("default");
     const [talksState, setTalksState] = useState<StateType>("default");
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const handleHomeClick = () => {
         setHomeState("selected");
         setCalendarState("default");
         setSettingsState("default");
         setTalksState("default");
-        navigate('/home');
+        //navigate('/home');
     };
 
     const handleCalendarClick = () => {
@@ -27,7 +27,7 @@ const NavBar = () => {
         setCalendarState("selected");
         setSettingsState("default");
         setTalksState("default");
-        navigate('/calendar');
+        //navigate('/calendar');
     };
 
     const handleSettingsClick = () => {
@@ -35,7 +35,7 @@ const NavBar = () => {
         setCalendarState("default");
         setSettingsState("selected");
         setTalksState("default");
-        navigate('/settings');
+        //navigate('/settings');
     };
 
     const handleTalksClick = () => {
@@ -43,15 +43,17 @@ const NavBar = () => {
         setCalendarState("default");
         setSettingsState("default");
         setTalksState("selected");
-        navigate('/talks');
+        //navigate('/talks');
     };
 
     return (
-        <div className={`flex flex-row justify-center items-center gap-3 bg-gray-200 w-[360px] h-[92px]`}>
-            <Home state={homeState} onClick={handleHomeClick}/>
-            <Talks state={talksState} onClick={handleTalksClick}/>
-            <Calendar state={calendarState} onClick={handleCalendarClick}/>
-            <Settings state={settingsState} onClick={handleSettingsClick}/>
+        <div className={'w-[360px] h-[92px] bg-bg-default pt-3 justify-items-center'}>
+            <div className={`flex flex-row gap-3 w-[324px] h-[53px] `}>
+                <Home state={homeState} onClick={handleHomeClick}/>
+                <Talks state={talksState} onClick={handleTalksClick}/>
+                <Calendar state={calendarState} onClick={handleCalendarClick}/>
+                <Settings state={settingsState} onClick={handleSettingsClick}/>
+            </div>
         </div>
     );
 };

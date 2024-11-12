@@ -73,7 +73,7 @@ const AudioDisplay: React.FC<AudioDisplayProps> = ({ time = "0:10", isRecording 
 
     return (
         <div className="space-y-4">
-            <div className="inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
+            <div className="bg-bg-default inline-flex items-center justify-center flex-col border-2 border-primary-500 rounded-3xl p-4 space-y-2">
                 {isRecording ? (
                     <div className={innerContainerStyles({ state: "recording" })}>
                         <div className="flex justify-end w-[222px] h-8 overflow-hidden">
