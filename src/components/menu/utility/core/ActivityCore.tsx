@@ -32,7 +32,7 @@ const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 
         <CircularProgressComponent activity={activity} size={"large"} percentage={percentage}/>
         {children}
       </div>
-      <div className={"pt-2"}>
+      <div className={"py-2"}>
         <Accumulator activity={activity} count={count} isCounter={isCounter} subOperation={subOperation} sumOperation={sumOperation}/>
       </div>
     </div>
