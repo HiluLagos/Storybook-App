@@ -16,4 +16,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-export const Default: Story = {}
+export const Default: Story = {
+  render: () => <div className={"w-[300px] h-[300px]"}><DeleteLogPopUp /></div>
+}
