@@ -14,10 +14,14 @@ const variantText = {
 }
 
 const DrawerButton: React.FC<DrawerButtonProps> = ({variant}) => {
-  return (
-      <div className="flex flex-row bg-white border-2 border-secondary-300 rounded-lg align-middle items-center p-2 gap-4 w-[328px]">
+    const textColor = variant === "logout" ? "text-icon-red" : "text-black";
+
+    return (
+      <div className={`flex flex-row bg-white border-2 border-secondary-300 rounded-lg align-middle items-center p-2 gap-4 w-[328px] ${textColor}`}>
         <SettingsIconProvider icon={variant}/>
-        <Typography size={"p"} weight={"semiBold"}>{variantText[variant]}</Typography>
+        <Typography size={"p"} weight={"semiBold"}>
+            {variantText[variant]}
+        </Typography>
       </div>
   );
 }
