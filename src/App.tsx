@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import DrawerActivityNoChildren from "./components/menu/acts/DrawerActivityNoChildren.tsx";
+import DrawerActivityNoChildren from "./components/menu/acts/nochildren/DrawerActivityNoChildren.tsx";
 
 const WaterComponent: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
