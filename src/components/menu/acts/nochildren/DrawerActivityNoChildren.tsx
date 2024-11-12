@@ -5,7 +5,7 @@ import ActivityCore from "../../utility/core/ActivityCore.tsx";
 interface DrawerActivityNoChildrenProps {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
-  activity: "water" | "steps" | "pills";
+  activity: "water" | "steps" | "pills" | "salad";
   count: number;
   max: number;
   isCounter: boolean;

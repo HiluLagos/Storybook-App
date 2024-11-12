@@ -6,11 +6,12 @@ import Accumulator from "../accumulator/Accumulator.tsx";
 const textMap = {
   water: "Water",
   steps: "Steps",
-  pills: "Medicine"
+  pills: "Medicine",
+  salad: "Salad",
 }
 
 interface ActivityCoreProps {
-  activity: "water" | "steps" | "pills";
+  activity: "water" | "steps" | "pills" | "salad";
   count: number;
   max: number;
   isCounter: boolean;
