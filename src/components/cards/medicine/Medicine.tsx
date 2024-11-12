@@ -42,7 +42,7 @@ type MedicineProps = VariantProps<typeof medicine> & {
 
 const defaultOperation = () => {}
 
-const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:17", onCompletion = defaultOperation, onDecompletion = defaultOperation}: MedicineProps) => {
+const Medicine: React.FC<MedicineProps> = ({complete: taken = false, name = "Cloroplatino", description = "medicine hehe yeah", schedule = "23:00", completeTime = "00:00", onCompletion = defaultOperation, onDecompletion = defaultOperation}: MedicineProps) => {
   const [complete, setComplete] = useState(taken);
   const [takenHour, setTakenHour] = useState(completeTime);
 

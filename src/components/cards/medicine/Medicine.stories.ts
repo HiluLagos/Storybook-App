@@ -26,7 +26,7 @@ const meta = {
       description: 'The schedule of the medicine',
     },
     completeTime: {
-      control: 'text',
+      control: 'select',
       description: 'The time the medicine was taken',
     }
   }
