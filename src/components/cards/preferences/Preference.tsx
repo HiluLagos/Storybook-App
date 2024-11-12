@@ -1,5 +1,5 @@
 import {cva, VariantProps} from "class-variance-authority";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Drag from "../../icon/utility/drag/Drag.tsx";
 import IconProvider from "../../icon/IconProvider.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
@@ -29,16 +29,35 @@ const textMap = {
   steps: "Steps",
 }
 
-const Preference: React.FC<PreferenceProps> = ({state = "default", activity = "pills"}: PreferenceProps) => {
-  return (
-    <div className={preference({state})}>
-      <Drag state={state} />
-      <div className={"px-2.5"}>
-        <IconProvider size={"medium"} variant={activity} />
-      </div>
-      <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
-    </div>
-  )
-}
+const Preference: React.FC<PreferenceProps> = ({ state = "default", activity = "pills" }: PreferenceProps) => {
+    const [dragState, setDragState] = useState(state);
+
+    useEffect(() => {
+        setDragState(state);
+    }, [state]);
+
+    const handleDragStart = () => {
+        setDragState("dragged");
+    };
+
+    const handleDragEnd = () => {
+        setDragState("default");
+    };
+
+    return (
+        <div
+            className={preference({ state: dragState })}
+            draggable
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+        >
+            <Drag state={dragState} />
+            <div className={"px-2.5"}>
+                <IconProvider size={"medium"} variant={activity} />
+            </div>
+            <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
+        </div>
+    );
+};
 
 export default Preference;

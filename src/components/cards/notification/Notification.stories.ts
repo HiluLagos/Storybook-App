@@ -41,3 +41,30 @@ export const Default: Story = {
     date: "19:45 10/09/2002",
   },
 };
+
+export const Danger: Story = {
+  args: {
+    color: 'danger',
+    icon: "pills",
+    description: "You are running out of pills",
+    date: "19:45 10/09/2002",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    color: 'success',
+    icon: "steps",
+    description: "You have completed your steps",
+    date: "19:45 10/09/2002",
+  },
+};
+
+export const Info: Story = {
+  args: {
+    color: 'info',
+    icon: "water",
+    description: "You need 2L to reach your daily goal",
+    date: "19:45 10/09/2002",
+  },
+};
