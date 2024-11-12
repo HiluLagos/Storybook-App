@@ -1,10 +1,11 @@
 import {Meta, StoryObj} from "@storybook/react";
-import DrawerActivityNoChildren from "./DrawerActivityNoChildren.tsx";
+import DrawerActivityChildren from "./DrawerActivityChildren.tsx";
 import React, {useState} from "react";
+import Medicine from "../../../cards/medicine/Medicine.tsx";
 
 const meta = {
-  title: 'Menu/Acts/Drawer Act No Children',
-  component: DrawerActivityNoChildren,
+  title: 'Menu/Acts/Drawer Act Children',
+  component: DrawerActivityChildren,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -13,6 +14,10 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    pxHeight: {
+      control: 'number',
+      description: 'The height of the drawer'
+    },
     isOpen: {
       control: 'boolean',
       description: 'Whether the drawer is open or not'
@@ -44,17 +49,12 @@ const meta = {
       description: 'The operation to perform on the count'
     },
   }
-} satisfies Meta<typeof DrawerActivityNoChildren>;
+} satisfies Meta<typeof DrawerActivityChildren>;
 
 export default meta;
-type Story = StoryObj<typeof DrawerActivityNoChildren>;
+type Story = StoryObj<typeof DrawerActivityChildren>;
 
-type Props = {
-  activity: "water" | "steps",
-  isCounter: boolean,
-}
-
-const DisplayComponent: React.FC<Props> = ({activity, isCounter}) => {
+const DisplayComponent: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [count, setCount] = React.useState(10);
 
@@ -68,29 +68,25 @@ const DisplayComponent: React.FC<Props> = ({activity, isCounter}) => {
 
   return (
     <div className={"flex flex-col justify-items-center"}>
-      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from {activity}</button>
-      <DrawerActivityNoChildren
+      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from pills</button>
+      <DrawerActivityChildren
+        pxHeight={720}
         isOpen={isDrawerOpen}
         setIsOpen={setIsDrawerOpen}
-        activity={activity}
-        count={count}
-        max={30}
-        isCounter={isCounter}
-        subOperation={manageSubtraction}
-        sumOperation={manageAddition}
-      />
+        activity={"pills"}
+        count={10 - count}
+        max={10}
+        isCounter={false}>
+        {Array.from({length: 10}, () => (
+          <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={manageSubtraction} onDecompletion={manageAddition}/>
+        ))}
+      </DrawerActivityChildren>
     </div>
   );
 }
 
-export const Water: Story = {
+export const Pills: Story = {
   render: () => (
-    <DisplayComponent activity={"water"} isCounter={true} />
-  )
-};
-
-export const Steps: Story = {
-  render: () => (
-    <DisplayComponent activity={"steps"} isCounter={false} />
+    <DisplayComponent />
   )
 };
