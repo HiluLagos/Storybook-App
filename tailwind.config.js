@@ -132,6 +132,24 @@ module.exports = {
         'p': '16px',
         'm': '14px',
       },
+
+      //animaciones de tailwind
+      keyframes: {
+        bounceIn: {
+          '0%': { transform: 'scaleY(0.95)' },
+          '60%': { transform: 'scaleY(1.05)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
+        bounceOut: {
+          '0%': { transform: 'scaleY(1)' },
+          '60%': { transform: 'scaleY(1.05)' },
+          '100%': { transform: 'scaleY(0.95)' },
+        },
+      },
+      animation: {
+        bounceIn: 'bounceIn 0.4s ease-out',
+        bounceOut: 'bounceOut 0.3s ease-in',
+      },
     },
   },
   plugins: [

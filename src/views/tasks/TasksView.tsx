@@ -81,11 +81,11 @@ const TasksView: React.FC = () => {
   };
 
   return (
-    <div className={'flex flex-col min-h-screen justify-between w-[360px] h-[800px]'}>
+    <div className={'flex flex-col min-h-screen justify-between'}>
       <div className={'flex flex-col items-center pt-16 pb-2'}>
         <Typography weight={'semiBold'} size={'h2'}>Tasks</Typography>
       </div>
-      <div className={'flex flex-col gap-4 flex-grow items-center justify-start overflow-y-auto'}>
+      <div className={'flex flex-col gap-4 flex-grow items-center justify-start overflow-y-auto pb-24'}>
         <Dropdown
             checkLists={checkLists1}
             title="Medication Refill"
