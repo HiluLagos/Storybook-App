@@ -23,6 +23,7 @@ type ActivityCardProps = VariantProps<typeof activityCard> & {
   activity: "water" | "pills" | "salad" | "steps";
   progress: number;
   maxProgress: number;
+  onClick?: () => void;
 };
 
 const textMap = {
@@ -32,12 +33,12 @@ const textMap = {
   steps: "Steps",
 }
 
-const ActivityCard: React.FC<ActivityCardProps> = ({activity = "water", progress = 45, maxProgress = 100}: ActivityCardProps) => {
+const ActivityCard: React.FC<ActivityCardProps> = ({activity = "water", progress = 45, maxProgress = 100, onClick}: ActivityCardProps) => {
   const percentage = (progress / maxProgress) * 100;
   const finalPercentage = percentage > 100 ? 100 : (percentage < 0 ? 0 : percentage);
 
   return (
-    <div className={`${activityCard({activity})} bg-bg-default`}>
+    <div className={`${activityCard({activity})} bg-bg-default`} onClick={onClick}>
       <CircularProgressComponent activity={activity} size={"medium"} percentage={finalPercentage} />
       <Typography weight={"semiBold"} size={"p"}>{textMap[activity]}</Typography>
       <div className={"text-text-description-bright"}>

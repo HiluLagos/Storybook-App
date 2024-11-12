@@ -10,7 +10,7 @@ const accumulator = cva(
         water: "bg-bg-light-lightblue",
         steps: "bg-bg-light-orange",
         pills: "bg-bg-light-yellow",
-        salad: "bg-bg-light-green"
+        salad: "bg-primary-100"
       },
       isCounter: {
         true: "justify-between",

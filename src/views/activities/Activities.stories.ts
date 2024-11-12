@@ -4,8 +4,9 @@ import Activities from './Activities.tsx';
 const meta: Meta<typeof Activities> = {
     title: 'Views/ActivitiesView',
     component: Activities,
+
     parameters: {
-        layout: 'fullscreen',
+        layout: 'centered',
     },
 };
 
