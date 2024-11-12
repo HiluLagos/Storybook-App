@@ -45,6 +45,10 @@ export const CheckList: React.FC<CheckListProps> = ({ intent, title, onTitleClic
         }
     }
 
+    React.useEffect(() => {
+        setCurrentIntent(intent);
+    }, [intent]);
+
     return <div className={"flex flex-row flex-justify items-center gap-4"} {...props}>
         <div className={checkListIcon({intent: currentIntent})}
             onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}
