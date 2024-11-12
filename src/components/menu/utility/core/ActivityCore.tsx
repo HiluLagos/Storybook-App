@@ -6,11 +6,12 @@ import Accumulator from "../accumulator/Accumulator.tsx";
 const textMap = {
   water: "Water",
   steps: "Steps",
-  pills: "Medicine"
+  pills: "Medicine",
+  salad: "Salad",
 }
 
 interface ActivityCoreProps {
-  activity: "water" | "steps" | "pills";
+  activity: "water" | "steps" | "pills" | "salad";
   count: number;
   max: number;
   isCounter: boolean;
@@ -31,7 +32,7 @@ const ActivityCore: React.FC<ActivityCoreProps> = ({activity = "water", count = 
         <CircularProgressComponent activity={activity} size={"large"} percentage={percentage}/>
         {children}
       </div>
-      <div className={"pt-2"}>
+      <div className={"py-2"}>
         <Accumulator activity={activity} count={count} isCounter={isCounter} subOperation={subOperation} sumOperation={sumOperation}/>
       </div>
     </div>

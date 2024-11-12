@@ -34,7 +34,7 @@ const DraggableDrawer: React.FC<DrawerProps> = ({ children, pxHeight = 300, isOp
       onClose={toggleDrawer(false)}
       onOpen={toggleDrawer(true)}
       PaperProps={{
-        style: { height: `${pxHeight}px`, overflow: "hidden", backgroundColor: "transparent", boxShadow: "none" },
+        style: { maxHeight: `${pxHeight}px`, overflow: "hidden", backgroundColor: "transparent", boxShadow: "none" },
       }}
     >
       <Draggable
@@ -46,12 +46,12 @@ const DraggableDrawer: React.FC<DrawerProps> = ({ children, pxHeight = 300, isOp
       >
         <div
           className="w-full rounded-t-lg flex flex-col items-center bg-secondary-100 transition duration-200 ease-in-out"
-          style={{ height: `${pxHeight}px` }}
+          style={{ maxHeight: `${pxHeight}px` }}
         >
           <div className="handle w-full pt-4 pb-2 flex justify-center h-auto cursor-pointer">
             <TopNotch />
           </div>
-          <div className="overflow-scroll" style={{ msOverflowStyle: "none", scrollbarWidth: "none", pointerEvents: "auto" }}>
+          <div >
             {children}
           </div>
         </div>
