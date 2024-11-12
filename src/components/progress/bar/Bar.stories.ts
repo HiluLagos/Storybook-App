@@ -30,7 +30,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    percentage: 45,
-    text: "Sample Text",
+    percentage: 0,
+  },
+}
+
+export const Half: Story = {
+  args: {
+    percentage: 50,
+  },
+}
+
+export const Full: Story = {
+  args: {
+    percentage: 100,
   },
 }

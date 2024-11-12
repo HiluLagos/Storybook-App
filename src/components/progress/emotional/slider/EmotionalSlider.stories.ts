@@ -11,7 +11,6 @@ const meta = {
     argTypes: {
         state: {
             control: 'select',
-            options: [ 'default', 'happy', 'neutral', 'sad' ],
             description: 'The state of the slider',
         },
     },
