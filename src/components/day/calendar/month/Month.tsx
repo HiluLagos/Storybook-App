@@ -5,6 +5,26 @@ import { PickersDay, PickersDayProps } from '@mui/x-date-pickers/PickersDay';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import React from "react";
 import {dayColor, dot} from "../ServerDayStyle.ts";
+import { createTheme } from '@mui/material/styles';
+import {ThemeProvider} from "@mui/material";
+
+const theme = createTheme({
+  components: {
+    MuiPickersYear: {
+      styleOverrides: {
+        yearButton: {
+          '&.Mui-selected': {
+            backgroundColor: '#8EBA69 !important', // Color for the selected year button
+            color: 'white', // Adjust text color if needed
+          },
+          '&.Mui-selected:hover': {
+            backgroundColor: '#D0F2B5 !important', // Hover style for the selected year button
+          },
+        },
+      },
+    },
+  },
+});
 
 type ServerDayProps = PickersDayProps<Dayjs> & {
     events: number[]
@@ -38,16 +58,18 @@ type MonthProps = {
 
 const Month: React.FC<MonthProps> = ({ events }) => {
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={theme}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateCalendar
-                showDaysOutsideCurrentMonth
-                defaultValue={dayjs()}
-                slots={{
-                    day: (props) => <ServerDay {...props} events={events} />,
-                }}
-                className={"bg-white"}
+              showDaysOutsideCurrentMonth
+              defaultValue={dayjs()}
+              slots={{
+                day: (props) => <ServerDay {...props} events={events} />,
+              }}
+              className={"bg-white"}
             />
-        </LocalizationProvider>
+          </LocalizationProvider>
+        </ThemeProvider>
     );
 }
 
