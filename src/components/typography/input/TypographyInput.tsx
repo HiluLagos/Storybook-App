@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// src/components/typography/input/TypographyInput.tsx
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
 const placeHolderProps = cva("font-montserrat focus:outline-none bg-transparent placeholder:text-current p-0 m-0 border-none w-full", {
@@ -28,33 +29,61 @@ type TypographyInputProps = VariantProps<typeof placeHolderProps> & {
   weight?: "regular" | "semiBold" | "extraBold";
   size?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "m";
   placeholder: string;
-  isPassword?: boolean; // New prop for password input
+  isPassword?: boolean;
+  color?: string;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  IconComponent?: React.ComponentType<any>;
+  iconProps?: any;
 };
 
-const TypographyInput: React.FC<TypographyInputProps> = ({
-                                                                 weight = "regular",
-                                                                 size = "h1",
-                                                                 placeholder,
-                                                                 isPassword = false
-                                                               }) => {
+export type TypographyInputHandle = {
+  clearInput: () => void;
+  getInputValue: () => string;
+};
+
+const TypographyInput = forwardRef<TypographyInputHandle, TypographyInputProps>(({
+  weight = "regular",
+  size = "h1",
+  placeholder,
+  isPassword = false,
+  color = "",
+  onKeyDown,
+  IconComponent,
+  iconProps,
+}, ref) => {
   const [currentText, setCurrentText] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentText(e.target.value);
   };
 
+  const handleClear = () => {
+    setCurrentText("");
+  };
+
+  useImperativeHandle(ref, () => ({
+    clearInput: handleClear,
+    getInputValue: () => currentText,
+  }));
+
   return (
-      <div className="inline-flex items-center w-full">
-        <input
-            type={isPassword ? "password" : "text"}
-            value={currentText}
-            onChange={handleInputChange}
-            className={placeHolderProps({ weight, size })}
-            placeholder={placeholder}
-            autoFocus
-        />
-      </div>
+    <div className={`inline-flex items-center w-full text-${color}`}>
+      <input
+        type={isPassword ? "password" : "text"}
+        value={currentText}
+        onChange={handleInputChange}
+        onKeyDown={onKeyDown}
+        className={placeHolderProps({ weight, size })}
+        placeholder={placeholder}
+        autoFocus
+      />
+      {currentText && (
+        <button onClick={handleClear} className="flex-shrink-0">
+          {IconComponent && <IconComponent {...iconProps} />}
+        </button>
+      )}
+    </div>
   );
-};
+});
 
 export default TypographyInput;
