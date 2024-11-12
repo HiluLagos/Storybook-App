@@ -13,6 +13,13 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    isOpen: {
+      control: 'boolean',
+      description: 'Whether the drawer is open or not'
+    },
+    setIsOpen: {
+      description: 'The function to set the drawer open or not'
+    },
     activity: {
       control: 'select',
       options: ['water', 'steps', 'pills'],
@@ -25,31 +32,29 @@ const meta = {
     max: {
       control: 'number',
       description: 'The maximum count of the activity'
-    }
+    },
+    isCounter: {
+      control: 'boolean',
+      description: 'Whether to display the count or not'
+    },
+    subOperation: {
+      description: 'The operation to perform on the count'
+    },
+    sumOperation: {
+      description: 'The operation to perform on the count'
+    },
   }
 } satisfies Meta<typeof DrawerActivityNoChildren>;
 
 export default meta;
 type Story = StoryObj<typeof DrawerActivityNoChildren>;
 
-const ParentComponent: React.FC = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  return (
-    <div className={"flex flex-col justify-items-center"}>
-      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Parent</button>
-      <DrawerActivityNoChildren isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} activity={"water"} count={15} max={30} isCounter={false}/>
-    </div>
-  );
+type Props = {
+  activity: "water" | "steps",
+  isCounter: boolean,
 }
 
-export const Default: Story = {
-  render: () => (
-    <ParentComponent />
-  )
-};
-
-const WaterComponent: React.FC = () => {
+const DisplayComponent: React.FC<Props> = ({activity, isCounter}) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [count, setCount] = React.useState(10);
 
@@ -63,14 +68,14 @@ const WaterComponent: React.FC = () => {
 
   return (
     <div className={"flex flex-col justify-items-center"}>
-      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Water</button>
+      <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from {activity}</button>
       <DrawerActivityNoChildren
         isOpen={isDrawerOpen}
         setIsOpen={setIsDrawerOpen}
-        activity={"water"}
+        activity={activity}
         count={count}
         max={30}
-        isCounter={true}
+        isCounter={isCounter}
         subOperation={manageSubtraction}
         sumOperation={manageAddition}
       />
@@ -80,6 +85,12 @@ const WaterComponent: React.FC = () => {
 
 export const Water: Story = {
   render: () => (
-    <WaterComponent />
+    <DisplayComponent activity={"water"} isCounter={true} />
+  )
+};
+
+export const Steps: Story = {
+  render: () => (
+    <DisplayComponent activity={"steps"} isCounter={false} />
   )
 };
