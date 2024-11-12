@@ -71,14 +71,6 @@ export const Incomplete: Story = {
   },
 };
 
-export const Complete: Story = {
-  args: {
-    intent: "complete",
-    size: "medium",
-    value: "Click me",
-  },
-};
-
 export const SmallPressed: Story = {
   args: {
     intent: "pressed",
@@ -103,12 +95,5 @@ export const SmallIncomplete: Story = {
   },
 };
 
-export const SmallComplete: Story = {
-  args: {
-    intent: "complete",
-    size: "small",
-    value: "Click me",
-  },
-};
 
 

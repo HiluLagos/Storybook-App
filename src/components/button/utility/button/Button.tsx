@@ -10,7 +10,6 @@ const button = cva(
       disabled: "bg-primary-100 text-primary-900",
       pressed: "bg-primary-900 text-black shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)]",
       incomplete: "bg-primary-300 text-black",
-      complete: "bg-primary-700 text-black",
     },
     size: {
       small: "w-36 h-9",
@@ -33,10 +32,10 @@ export const Button: React.FC<ButtonProps> = ({ intent, size, value, ...props })
   };
 
   const handleMouseUp = () => {
-    if (previousIntent === "complete") {
+    if (previousIntent === "default") {
       setCurrentIntent("incomplete");
     } else if (previousIntent==="incomplete") {
-        setCurrentIntent("complete");
+        setCurrentIntent("default");
     } else {
       setCurrentIntent(previousIntent);
     }
