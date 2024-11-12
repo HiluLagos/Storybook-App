@@ -13,9 +13,9 @@ export const Activities: React.FC = () => {
     const [currentActivity, setCurrentActivity] = useState<"water" | "steps" | "pills" | "salad">("pills");
 
     const [activityMap, setActivityMap] = useState<Record<"water" | "steps" | "pills" | "salad", { value: number, max: number }>>({
-        water: { value: 3, max: 3 },
+        water: { value: 3, max: 4 },
         steps: { value: 8000, max: 8000 },
-        pills: { value: 0, max: 2 },
+        pills: { value: 0, max: 4 },
         salad: { value: 4, max: 4 }
     });
 
@@ -45,7 +45,9 @@ export const Activities: React.FC = () => {
         if (activity === "pills") {
             const medicines = [
                 { name: "Paracetamol", description: "El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre.", schedule: "09:00hs", id: "paracetamol-1" },
-                { name: "Paracetamol", description: "El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre.", schedule: "09:00hs", id: "paracetamol-2" }
+                { name: "Cloroplatino", description: "El cloroplatino es un quimioterápico utilizado para tratar enfermedades.", schedule: "14:00hs", id: "paracetamol-2" },
+                { name: "Sanax", description: "El sanax es un medicamento ansiolítico que se utiliza principalmente para tratar trastornos de ansiedad y de pánico.", schedule: "19:40hs", id: "paracetamol-3" },
+                { name: "Paracetamol", description: "El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre.", schedule: "23:00hs", id: "paracetamol-4" },
             ];
 
             return (
