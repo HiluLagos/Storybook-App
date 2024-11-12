@@ -80,12 +80,9 @@ const MedicineComponent: React.FC = () => {
   const incrementCount = () => setCount(count + 1);
   return (
     <ActivityCore activity="pills" count={6 - count} max={6} isCounter={false}>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
-      <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      {Array.from({length: count}, () => (
+        <Medicine name="Paracetamol" description={""} schedule={""} completeTime={""} onCompletion={decrementCount} onDecompletion={incrementCount}/>
+      ))}
     </ActivityCore>
   )
 };
