@@ -1,0 +1,43 @@
+/* index.css or a specific CSS file */
+@keyframes dropdownOpen {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+  80% {
+    transform: scaleY(1.05);
+  }
+  100% {
+    max-height: 500px; /* Adjust based on your content */
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes dropdownClose {
+  0% {
+    max-height: 500px; /* Adjust based on your content */
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+}
+
+.dropdown-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+.dropdown-content.open {
+  animation: dropdownOpen 0.8s ease-out forwards;
+}
+
+.dropdown-content.close {
+  animation: dropdownClose 0.5s ease-in forwards;
+}

@@ -6,42 +6,52 @@ import QrRecipe from "../../cards/qr/QrRecipe.tsx";
 
 type DescriptionPopUpProps = {
     intent: "incomplete" | "complete";
-    title: string;
+    descTitle: string;
     description: string;
     variant: "info" | "recipe";
+    closePopUp: (title: string, newIntent: "incomplete" | "complete") => void;
+    updateIntent: (title: string, newIntent: "incomplete" | "complete") => void;
 };
 
-const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, title = "Title of tasks", description = "Description of tasks", variant = "info" }) => {
+const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle = "Title of tasks", description = "Description of tasks", variant = "info", closePopUp, updateIntent }) => {
     const [currentIntent, setCurrentIntent] = useState(intent);
 
     const toggleIntent = () => {
-        setCurrentIntent(prevIntent => (prevIntent === "incomplete" ? "complete" : "incomplete"));
+        const newIntent = currentIntent === "incomplete" ? "complete" : "incomplete";
+        setCurrentIntent(newIntent);
+        updateIntent(descTitle, newIntent);
+    };
+
+    const handleClose = () => {
+        closePopUp(descTitle, currentIntent);
     };
 
     const value = currentIntent === "incomplete" ? "To do" : "Done";
 
     return (
-        <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-4 bg-bg-default"}>
-            <div className={"self-end"}>
-                <Cross />
-            </div>
-            <div className={"space-y-2"}>
-                <div className={"flex flex-col space-y-2"}>
-                    <div className={"bg-primary-300 rounded-xl p-2"}>
-                        <Typography weight={"semiBold"} size={"p"}>{title}</Typography>
-                    </div>
-                    <div className={"bg-primary-100 rounded-xl p-2"}>
-                        <Typography weight={"regular"} size={"p"}>{description}</Typography>
-                    </div>
+        <div className={"fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-shadow-black-60"}>
+            <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-4 bg-bg-default"}>
+                <div className={"self-end"} onClick={handleClose}>
+                    <Cross />
                 </div>
-
-                { variant === "recipe" && (
-                    <div className={" flex flex-col items-center"}>
-                        <QrRecipe />
+                <div className={"space-y-2"}>
+                    <div className={"flex flex-col space-y-2"}>
+                        <div className={"bg-primary-300 rounded-xl p-2"}>
+                            <Typography weight={"semiBold"} size={"p"}>{descTitle}</Typography>
+                        </div>
+                        <div className={"bg-primary-100 rounded-xl p-2"}>
+                            <Typography weight={"regular"} size={"p"}>{description}</Typography>
+                        </div>
                     </div>
-                )}
-                <div className={"space-y-2 p-2 flex flex-col items-center justify-center"}>
-                    <Button intent={currentIntent} size={"small"} value={value} onClick={toggleIntent} />
+
+                    { variant === "recipe" && (
+                        <div className={"flex flex-col items-center"}>
+                            <QrRecipe />
+                        </div>
+                    )}
+                    <div className={"space-y-2 p-2 flex flex-col items-center justify-center"}>
+                        <Button intent={currentIntent} size={"small"} value={value} onClick={toggleIntent} />
+                    </div>
                 </div>
             </div>
         </div>

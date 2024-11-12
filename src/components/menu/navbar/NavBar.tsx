@@ -7,7 +7,7 @@ import Settings from "../../button/navbar/Settings.tsx";
 import { StateType } from "../../../../types.ts";
 
 const NavBar = () => {
-    const [homeState, setHomeState] = useState<StateType>("default");
+    const [homeState, setHomeState] = useState<StateType>("selected");
     const [calendarState, setCalendarState] = useState<StateType>("default");
     const [settingsState, setSettingsState] = useState<StateType>("default");
     const [talksState, setTalksState] = useState<StateType>("default");
