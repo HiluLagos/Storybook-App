@@ -11,12 +11,11 @@ const meta = {
     argTypes: {
         intent: {
             control: 'select',
-            options: ['unselected', 'selected'],
             description: 'The way the component is displayed'
         },
         size: {
             control: 'select',
-            options: ['small', 'medium'],
+            options: ['small', 'extraSmall'],
             description: 'The size of the component'
         },
     },
@@ -45,6 +44,14 @@ export const Selected: Story = {
 export const ExtraSmall: Story = {
     args: {
         intent: "unselected",
+        size: "extraSmall",
+        value: "Tag",
+    },
+};
+
+export const ExtraSmallSelected: Story = {
+    args: {
+        intent: "selected",
         size: "extraSmall",
         value: "Tag",
     },
