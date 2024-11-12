@@ -1,5 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
 import Drawer from "./Drawer.tsx";
+import React, { useState } from "react";
+import DraggableDrawer from "./Drawer.tsx";
 
 const meta = {
   title: 'Menu/Utility/Drawer',
@@ -25,11 +27,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Drawer>;
 
-import React, { useState } from "react";
-import DraggableDrawer from "./Drawer.tsx";
-import DrawerHeader from "../../../button/settings/DrawerHeader/DrawerHeader.tsx";
-import DrawerButton from "../../../button/settings/DrawerButton/DrawerButton.tsx";
-
 const ParentComponent: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -37,10 +34,7 @@ const ParentComponent: React.FC = () => {
     <div className={"flex flex-col justify-items-center"}>
       <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Parent</button>
       <DraggableDrawer isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} pxHeight={500}>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"information"}/>
-        <DrawerButton variant={"helpCenter"}/>
-        <DrawerButton variant={"logout"}/>
+        <div className="w-full h-[400px]"></div>
       </DraggableDrawer>
     </div>
   );
