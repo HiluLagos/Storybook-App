@@ -31,15 +31,15 @@ export const Dropdown: React.FC<DropdownProps> = ({ checkLists, title, dropped, 
             </div>
 
             <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
+                className={`overflow-hidden transition-all duration-700 ease-in-out ${
+                    isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
-                style={{ transitionProperty: 'max-height, opacity' }}
+                style={{transitionProperty: 'max-height, opacity'}}
             >
                 {checkLists.length > 0 && (
                     <>
                         <div className="w-[308px]">
-                            <div className="border-b-2 border-primary-700 mt-2" />
+                            <div className="border-b-2 border-primary-700 mt-2"/>
                         </div>
                         <div className="flex flex-col items-center">
                             {checkLists.map((checkList, index) => (
