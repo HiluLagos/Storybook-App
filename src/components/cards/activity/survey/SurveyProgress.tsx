@@ -7,7 +7,7 @@ type SurveyProgressProps = {
 
 const SurveyProgress: React.FC<SurveyProgressProps> = ({percentage = 45}: SurveyProgressProps) => {
   return (
-    <Bar percentage={percentage} text={"Survey progress"} />
+    <Bar percentage={percentage} text={"Progress Survey"} />
   )
 }
 
