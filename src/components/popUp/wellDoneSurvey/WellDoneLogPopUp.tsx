@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Cross from "../../icon/utility/cross/Cross.tsx";
 import Typography from "../../typography/basic/Typography.tsx";
 import Confetti from "../../icon/popUps/confetti/Confetti.tsx";
@@ -10,20 +10,28 @@ type WellDoneLogPopUpProps = {
 };
 
 const WellDoneLogPopUp: React.FC<WellDoneLogPopUpProps> = ({ name = "Homer", onClick }) => {
+    const [isClosing, setIsClosing] = useState(false);
     const message = "Well done " + name + "!";
+
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            if (onClick) onClick();
+        }, 300);
+    };
 
     return (
         <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-shadow-black-60"
+            className={`fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 ${isClosing ? 'animate-fadeOut' : 'animate-fadeIn'} bg-shadow-black-60`}
         >
             <div
-                className="relative flex flex-col w-[288px] rounded-2xl bg-bg-bright-green text-center"
+                className={`relative flex flex-col w-[288px] rounded-2xl bg-bg-bright-green text-center ${isClosing ? 'animate-slideOutToBottom' : 'animate-slideInFromTop'}`}
             >
                 <ConfettiDisplay className="absolute inset-0 pointer-events-none" />
                 <div className="flex flex-col p-5">
                     <div
                         className="self-end z-10"
-                        onClick={onClick}
+                        onClick={handleClose}
                     >
                         <Cross />
                     </div>

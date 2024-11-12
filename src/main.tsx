@@ -8,6 +8,6 @@ import Activities from "./views/activities/Activities.tsx";
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
       <Activities />
-    <TasksView />
+
   </StrictMode>
 )
