@@ -13,7 +13,7 @@ export const Activities: React.FC = () => {
     const [currentActivity, setCurrentActivity] = useState<"water" | "steps" | "pills" | "salad">("pills");
 
     const [activityMap, setActivityMap] = useState<Record<"water" | "steps" | "pills" | "salad", { value: number, max: number }>>({
-        water: { value: 3, max: 3 },
+        water: { value: 3, max: 4 },
         steps: { value: 8000, max: 8000 },
         pills: { value: 0, max: 2 },
         salad: { value: 4, max: 4 }

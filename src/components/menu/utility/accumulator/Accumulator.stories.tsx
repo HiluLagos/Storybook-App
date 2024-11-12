@@ -15,7 +15,6 @@ const meta = {
   argTypes: {
     activity: {
       control: 'select',
-      options: ['water', 'steps', 'pills'],
       description: 'The variant to display'
     },
     count: {
@@ -75,5 +74,13 @@ export const NoCounter: Story = {
     activity: 'water',
     count: 159,
     isCounter: false
+  },
+}
+
+export const Salad: Story = {
+  args: {
+    activity: 'salad',
+    count: 159,
+    isCounter: true
   },
 }
