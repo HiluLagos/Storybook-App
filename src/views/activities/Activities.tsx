@@ -143,7 +143,7 @@ export const Activities: React.FC = () => {
                 {mockMedicine(currentActivity)}
             </DrawerActivityChildren>
 
-            {showPopup && <WellDoneLogPopUp name={"THE MAN"} onClick={() => setShowPopup(false)}/>}
+            {showPopup && <WellDoneLogPopUp name={"John Doe"} onClick={() => setShowPopup(false)}/>}
         </div>
     );
 };

@@ -3,24 +3,34 @@ import { fn } from '@storybook/test';
 
 import { Button } from './Button.tsx';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Button/Utility/Button',
   component: Button,
+  tags: ['autodocs'],
+  argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+      },
+      description: 'The intent of the button',
+    },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['small', 'medium'],
+      description: 'The size of the button',
+    },
+  },
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
     intent: "default",
@@ -52,3 +62,53 @@ export const Small: Story = {
     value: "Click me",
   },
 };
+
+export const Incomplete: Story = {
+  args: {
+    intent: "incomplete",
+    size: "medium",
+    value: "Click me",
+  },
+};
+
+export const Complete: Story = {
+  args: {
+    intent: "complete",
+    size: "medium",
+    value: "Click me",
+  },
+};
+
+export const SmallPressed: Story = {
+  args: {
+    intent: "pressed",
+    size: "small",
+    value: "Click me",
+  },
+};
+
+export const SmallDisabled: Story = {
+  args: {
+    intent: "disabled",
+    size: "small",
+    value: "Click me",
+  },
+};
+
+export const SmallIncomplete: Story = {
+  args: {
+    intent: "incomplete",
+    size: "small",
+    value: "Click me",
+  },
+};
+
+export const SmallComplete: Story = {
+  args: {
+    intent: "complete",
+    size: "small",
+    value: "Click me",
+  },
+};
+
+

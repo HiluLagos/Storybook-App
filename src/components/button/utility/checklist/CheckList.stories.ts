@@ -7,6 +7,21 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
+    argTypes: {
+        intent: {
+            control: {
+                type: 'select',
+            },
+            options: ['default', 'pressed', 'done'],
+            description: 'The intent of the checklist',
+        },
+        title: {
+            control: {
+                type: 'text',
+            },
+            description: 'The title of the checklist',
+        },
+    },
     tags: ['autodocs'],
     } satisfies Meta<typeof CheckList>;
 
