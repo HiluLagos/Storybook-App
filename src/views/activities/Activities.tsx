@@ -11,7 +11,6 @@ export const Activities: React.FC = () => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [currentActivity, setCurrentActivity] = useState<"water" | "steps" | "pills" | "salad">("pills");
-    // const [completed, setCompleted] = useState([false]);
 
     const [activityMap, setActivityMap] = useState<Record<"water" | "steps" | "pills" | "salad", { value: number, max: number }>>({
         water: { value: 3, max: 3 },
@@ -22,16 +21,18 @@ export const Activities: React.FC = () => {
 
     const [progress, setProgress] = useState(0);
     const [showPopup, setShowPopup] = useState(false);
+    const [hasShownPopup, setHasShownPopup] = useState(false);
 
     useEffect(() => {
         const totalValue = Object.values(activityMap).reduce((sum, activity) => sum + (Math.min(activity.value, activity.max) / activity.max), 0);
         const newProgress = (totalValue / Object.keys(activityMap).length) * 100;
         setProgress(Math.floor(newProgress));
 
-        if (Math.floor(newProgress) === 100) {
+        if (Math.floor(newProgress) === 100 && !hasShownPopup) {
             setShowPopup(true);
+            setHasShownPopup(true);
         }
-    }, [activityMap]);
+    }, [activityMap, hasShownPopup]);
 
 
     const openDrawerForActivity = (activity: "water" | "steps" | "pills" | "salad") => {
@@ -42,22 +43,24 @@ export const Activities: React.FC = () => {
     //In a real scenario, this should call backend to get the data
     const mockMedicine = (activity: "water" | "steps" | "pills" | "salad") => {
         if (activity === "pills") {
+            const medicines = [
+                { name: "Paracetamol", description: "El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre.", schedule: "09:00hs", id: "paracetamol-1" },
+                { name: "Paracetamol", description: "El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre.", schedule: "09:00hs", id: "paracetamol-2" }
+            ];
+
             return (
                 <>
-                <Medicine name={"Paracetamol"}
-                          description={"El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre."}
-                          schedule={"09:00hs"}
-                          completeTime={"23.05"}
-                          onCompletion={() => sumOperation(currentActivity)}
-                          onDecompletion={() => subOperation(currentActivity)}
-                />
-                <Medicine name={"Paracetamol"}
-                          description={"El paracetamol es un medicamento que se usa para tratar el dolor y la fiebre."}
-                          schedule={"09:00hs"}
-                          completeTime={"23.05"}
-                          onCompletion={() => sumOperation(currentActivity)}
-                          onDecompletion={() => subOperation(currentActivity)}
-                />
+                    {medicines.map(medicine => (
+                        <Medicine
+                            key={medicine.id}
+                            name={medicine.name}
+                            description={medicine.description}
+                            schedule={medicine.schedule}
+                            completeTime={"23:05"}
+                            onCompletion={() => sumOperation(currentActivity)}
+                            onDecompletion={() => subOperation(currentActivity)}
+                        />
+                    ))}
                 </>
             );
         }
