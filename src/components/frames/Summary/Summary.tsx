@@ -60,7 +60,7 @@ const Summary: React.FC<SummaryProps> = ({ intent, description, observation }) =
         <div className={`flex flex-col gap-4 ${background({intent})}`}>
             <div className={`flex flex-row gap-2.5 ${text({intent})}`}>
                 {componentMap[intent ?? 'default']}
-                <div className={'w-[220px]'}>
+                <div className={'w-[218px]'}>
                     <Typography size={"h5"} weight={"semiBold"}>{titleMap[intent ?? 'default']}</Typography>
                 </div>
             </div>

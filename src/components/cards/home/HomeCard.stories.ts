@@ -10,7 +10,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     type: {
-      options: ['task', 'log', 'saved', 'survey'],
+      options: ['task', 'log', 'saved', 'activities'],
     },
     progress: {
       control: 'number',
@@ -46,6 +46,6 @@ export const Saved: Story = {
 export const Survey: Story = {
   args: {
     progress: 13,
-    type: 'survey',
+    type: 'activities',
   },
 };
