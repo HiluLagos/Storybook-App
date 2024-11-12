@@ -15,7 +15,7 @@ const preview: Preview = {
       values: [
         {
           name: 'celeste',
-          value: '#66ff00', // Color celeste
+          value: '#ffe6a4',
         },
       ],
     },
