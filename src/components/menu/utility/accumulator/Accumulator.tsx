@@ -34,9 +34,9 @@ const defaultOperation = () => {}
 const Accumulator: React.FC<AccumulatorProps> = ({ count = 159, isCounter = true, activity = "water", subOperation = defaultOperation, sumOperation = defaultOperation }) => {
   return (
     <div className={accumulator({activity, isCounter})}>
-      {isCounter ? <div onPointerDown={subOperation}><Math operation={"sub"}/></div> : null}
+      {isCounter ? <div className={"cursor-pointer"} onPointerDown={subOperation}><Math operation={"sub"}/></div> : null}
       <Typography size={"h3"} weight={"regular"}>{count.toString()}</Typography>
-      {isCounter ? <div onPointerDown={sumOperation}><Math operation={"sum"}/></div> : null}
+      {isCounter ? <div className={"cursor-pointer"} onPointerDown={sumOperation}><Math operation={"sum"}/></div> : null}
     </div>
   );
 };
