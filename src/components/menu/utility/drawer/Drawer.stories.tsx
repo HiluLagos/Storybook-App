@@ -38,18 +38,8 @@ const ParentComponent: React.FC = () => {
       <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Parent</button>
       <DraggableDrawer isOpen={isDrawerOpen} setIsOpen={setIsDrawerOpen} pxHeight={500}>
         <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
-        <DrawerButton variant={"logout"}/>
-        <DrawerHeader clientName={"Client"} doctorName={"Doctor"}/>
+        <DrawerButton variant={"information"}/>
+        <DrawerButton variant={"helpCenter"}/>
         <DrawerButton variant={"logout"}/>
       </DraggableDrawer>
     </div>

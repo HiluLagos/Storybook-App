@@ -27,7 +27,6 @@ const meta = {
     },
     activity: {
       control: 'select',
-      options: ['water', 'steps', 'pills'],
       description: 'The activity to display in the drawer'
     },
     count: {

@@ -16,7 +16,6 @@ const meta = {
   argTypes: {
     activity: {
       control: 'select',
-      options: ['water', 'steps', 'pills'],
       description: 'The activity it displays'
     },
     count: {
@@ -61,6 +60,12 @@ const WaterComponent: React.FC = () => {
 export const Water: StoryObj<typeof ActivityCore> = {
   render: () => (
     <WaterComponent/>
+  )
+}
+
+export const Salad: StoryObj<typeof ActivityCore> = {
+  render: () => (
+    <ActivityCore activity="salad" count={2} max={2} isCounter={true}/>
   )
 }
 
