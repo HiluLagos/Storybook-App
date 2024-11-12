@@ -19,10 +19,10 @@ const WellDoneLogPopUp: React.FC<WellDoneLogPopUpProps> = ({ name = "Homer", onC
             <div
                 className="relative flex flex-col w-[288px] rounded-2xl bg-bg-bright-green text-center"
             >
-
+                <ConfettiDisplay className="absolute inset-0 pointer-events-none" />
                 <div className="flex flex-col p-5">
                     <div
-                        className="self-end bg-teal-400"
+                        className="self-end z-10"
                         onClick={onClick}
                     >
                         <Cross />
