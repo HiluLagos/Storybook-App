@@ -15,6 +15,7 @@ type DescriptionPopUpProps = {
 
 const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle = "Title of tasks", description = "Description of tasks", variant = "info", closePopUp, updateIntent }) => {
     const [currentIntent, setCurrentIntent] = useState(intent);
+    const [isClosing, setIsClosing] = useState(false);
 
     const toggleIntent = () => {
         const newIntent = currentIntent === "incomplete" ? "complete" : "incomplete";
@@ -23,16 +24,20 @@ const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle =
     };
 
     const handleClose = () => {
-        closePopUp(descTitle, currentIntent);
+        setIsClosing(true);
+        setTimeout(() => closePopUp(descTitle, currentIntent), 300);
     };
 
     const value = currentIntent === "incomplete" ? "To do" : "Done";
 
     return (
-        <div className={"fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-shadow-black-60"}>
-            <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-4 bg-bg-default"}>
+        <div
+            className={`fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 ${isClosing ? 'animate-fadeOut' : 'animate-fadeIn'} bg-shadow-black-60`}>
+            <div
+                className={`flex flex-col w-72 rounded-2xl p-5 space-y-4 bg-bg-default ${isClosing ? 'animate-slideOutToBottom' : 'animate-slideInFromTop'}`}
+            >
                 <div className={"self-end"} onClick={handleClose}>
-                    <Cross />
+                    <Cross/>
                 </div>
                 <div className={"space-y-2"}>
                     <div className={"flex flex-col space-y-2"}>
@@ -44,13 +49,13 @@ const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle =
                         </div>
                     </div>
 
-                    { variant === "recipe" && (
+                    {variant === "recipe" && (
                         <div className={"flex flex-col items-center"}>
-                            <QrRecipe />
+                            <QrRecipe/>
                         </div>
                     )}
                     <div className={"space-y-2 p-2 flex flex-col items-center justify-center"}>
-                        <Button intent={currentIntent} size={"small"} value={value} onClick={toggleIntent} />
+                        <Button intent={currentIntent} size={"small"} value={value} onClick={toggleIntent}/>
                     </div>
                 </div>
             </div>
