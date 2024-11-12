@@ -3,7 +3,7 @@ import DrawerActivityNoChildren from "./DrawerActivityNoChildren.tsx";
 import React, {useState} from "react";
 
 const meta = {
-  title: 'Menu/Acts/DrawerActNoChildren',
+  title: 'Menu/Acts/Drawer Act No Children',
   component: DrawerActivityNoChildren,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -54,21 +54,26 @@ const WaterComponent: React.FC = () => {
   const [count, setCount] = React.useState(10);
 
   const manageSubtraction = () => {
-    const newValue = count - 1;
-    setCount(newValue < 0 ? 0 : newValue);
+    setCount((prevCount) => Math.max(prevCount - 1, 0));
+  };
+
+  const manageAddition = () => {
+    setCount((prevCount) => prevCount + 1);
   };
 
   return (
     <div className={"flex flex-col justify-items-center"}>
       <button className={"bg-secondary-500 text-black"} onClick={() => setIsDrawerOpen(true)}>Open Drawer from Water</button>
-      <DrawerActivityNoChildren isOpen={isDrawerOpen}
-                                setIsOpen={setIsDrawerOpen}
-                                activity={"water"}
-                                count={15}
-                                max={30}
-                                isCounter={true}
-                                subOperation={manageSubtraction}
-                                sumOperation={() => setCount(count + 1)}/>
+      <DrawerActivityNoChildren
+        isOpen={isDrawerOpen}
+        setIsOpen={setIsDrawerOpen}
+        activity={"water"}
+        count={count}
+        max={30}
+        isCounter={true}
+        subOperation={manageSubtraction}
+        sumOperation={manageAddition}
+      />
     </div>
   );
 }
