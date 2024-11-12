@@ -44,8 +44,8 @@ const TasksView: React.FC = () => {
   ]);
 
   const [checkLists2, setCheckLists2] = useState<Array<CheckListProps>>([
-    { intent: 'done', title: 'Get medical records', onTitleClick: () => openPopUpInfo('Get medical records', 'done', 'Request records from the hospital') },
-    { intent: 'default', title: 'Go to the A4 clinic', onTitleClick: () => openPopUpInfo('Go to the A4 clinic', 'default', 'Visit the clinic for a checkup') },
+    { intent: 'done', title: 'Get medical records', onTitleClick: () => openPopUpRecipe('Get medical records', 'done', 'Request records from the hospital') },
+    { intent: 'default', title: 'Go to the A4 clinic', onTitleClick: () => openPopUpInfo('Go to the A4 clinic', 'default', 'Visit the clinic for a checkup with Dr. Henderson') },
   ]);
 
   const [checkLists3, setCheckLists3] = useState<Array<CheckListProps>>([
