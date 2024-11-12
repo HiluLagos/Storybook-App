@@ -1,3 +1,4 @@
+// src/components/inputs/type/Type.tsx
 import TypographyInput from "../../typography/input/TypographyInput.tsx";
 import SendIcon from "../../icon/tech/log/send/SendIcon.tsx";
 
@@ -8,8 +9,9 @@ const Type = () => {
           size="p"
           weight="regular"
           placeholder={"Comment"}
+          IconComponent={SendIcon}
+          iconProps={{ color: "green" }}
       />
-      <SendIcon pressed={false} color={"green"} />
     </div>
   );
 };

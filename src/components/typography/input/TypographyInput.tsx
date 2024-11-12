@@ -1,7 +1,6 @@
 // src/components/typography/input/TypographyInput.tsx
 import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import Cross from "../../icon/utility/cross/Cross.tsx";
 
 const placeHolderProps = cva("font-montserrat focus:outline-none bg-transparent placeholder:text-current p-0 m-0 border-none w-full", {
   variants: {
@@ -33,6 +32,8 @@ type TypographyInputProps = VariantProps<typeof placeHolderProps> & {
   isPassword?: boolean;
   color?: string;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  IconComponent?: React.ComponentType<any>;
+  iconProps?: any;
 };
 
 export type TypographyInputHandle = {
@@ -47,6 +48,8 @@ const TypographyInput = forwardRef<TypographyInputHandle, TypographyInputProps>(
   isPassword = false,
   color = "",
   onKeyDown,
+  IconComponent,
+  iconProps,
 }, ref) => {
   const [currentText, setCurrentText] = useState("");
 
@@ -76,7 +79,7 @@ const TypographyInput = forwardRef<TypographyInputHandle, TypographyInputProps>(
       />
       {currentText && (
         <button onClick={handleClear} className="flex-shrink-0">
-          <Cross color={color} />
+          {IconComponent && <IconComponent {...iconProps} />}
         </button>
       )}
     </div>

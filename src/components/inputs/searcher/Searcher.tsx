@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import SearchIcon from "../../icon/utility/searcher/SearchIcon.tsx";
 import TypographyInput, { TypographyInputHandle } from "../../typography/input/TypographyInput.tsx";
+import Cross from "../../icon/utility/cross/Cross.tsx";
 
 type SearcherProps = {
     // If the user presses a key, this function will be called (useful for when an external calling needed)
@@ -25,6 +26,8 @@ const Searcher: React.FC<SearcherProps> = ({ onKeyDown, color= "primary-900" }) 
           weight={"regular"}
           color={color}
           onKeyDown={onKeyDown}
+          IconComponent={Cross}
+          iconProps={{ color: "primary-900" }}
         />
       </div>
     </>
