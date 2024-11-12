@@ -21,7 +21,8 @@ export const Dropdown: React.FC<DropdownProps> = ({ checkLists, title, dropped, 
     };
 
     return (
-        <div className={`w-[328px] border-2 border-primary-100 rounded-2xl p-2 h-fit bg-bg-default transition-all ${isOpen ? 'animate-bounceIn' : 'animate-bounceOut'}`}>
+        <div className="w-[328px] border-2 border-primary-100 rounded-2xl p-2 h-fit bg-bg-default transition-all">
+            {/* Parte superior fija del dropdown */}
             <div className="flex justify-between items-center w-[308px] h-[24px] p-2 cursor-pointer">
                 <div className="flex items-center h-full">
                     <Arrow orientation={isOpen ? 'down' : 'right'} state="default" onToggleAction={toggleDropdown}/>
@@ -31,7 +32,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ checkLists, title, dropped, 
             </div>
 
             <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[1000px]' : 'max-h-0'}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'animate-bounceIn max-h-[1000px]' : 'animate-bounceOut max-h-0'}`}
                 style={{ transitionProperty: 'max-height', maxHeight: isOpen ? `${checkLists.length * 50}px` : '0' }}
             >
                 {checkLists.length > 0 && (

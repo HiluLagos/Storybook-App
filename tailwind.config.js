@@ -136,14 +136,14 @@ module.exports = {
       //animaciones de tailwind
       keyframes: {
         bounceIn: {
-          '0%': { transform: 'scaleY(0.95)' },
+          '0%': { transform: 'scaleY(0.9)' },
           '60%': { transform: 'scaleY(1.05)' },
           '100%': { transform: 'scaleY(1)' },
         },
         bounceOut: {
           '0%': { transform: 'scaleY(1)' },
           '60%': { transform: 'scaleY(1.05)' },
-          '100%': { transform: 'scaleY(0.95)' },
+          '100%': { transform: 'scaleY(0.9)' },
         },
       },
       animation: {
