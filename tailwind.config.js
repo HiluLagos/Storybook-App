@@ -35,8 +35,8 @@ module.exports = {
         },
         'shadow': {
           'black':{
-            60: 'rgba(0, 0, 0, 0.06)',
-            40 : 'rgba(0, 0, 0, 0.04)',
+            60: 'rgba(0, 0, 0, 0.6)',
+            40 : 'rgba(0, 0, 0, 0.4)',
           },
           'green':{
             25: 'rgba(40, 196, 11, 0.6)',
@@ -131,6 +131,45 @@ module.exports = {
         'h5': '20px',
         'p': '16px',
         'm': '14px',
+      },
+
+      //animaciones de tailwind
+      keyframes: {
+        bounceIn: {
+          '0%': { transform: 'scaleY(0.9)' },
+          '60%': { transform: 'scaleY(1.05)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
+        bounceOut: {
+          '0%': { transform: 'scaleY(1)' },
+          '60%': { transform: 'scaleY(1.05)' },
+          '100%': { transform: 'scaleY(0.9)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        slideInFromTop: {
+          '0%': { transform: 'translateY(-100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideOutToBottom: {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(100%)', opacity: '0' },
+        },
+      },
+      animation: {
+        bounceIn: 'bounceIn 0.4s ease-out',
+        bounceOut: 'bounceOut 0.3s ease-in',
+        fadeIn: 'fadeIn 300ms ease-out',
+        fadeOut: 'fadeOut 300ms ease-out',
+        slideInFromTop: 'slideInFromTop 300ms ease-out forwards',
+        slideOutToBottom: 'slideOutToBottom 300ms ease-in forwards',
+
       },
     },
   },
