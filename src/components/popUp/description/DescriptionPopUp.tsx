@@ -9,13 +9,21 @@ type DescriptionPopUpProps = {
     descTitle: string;
     description: string;
     variant: "info" | "recipe";
+    closePopUp: (title: string, newIntent: "incomplete" | "complete") => void;
+    updateIntent: (title: string, newIntent: "incomplete" | "complete") => void;
 };
 
-const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle = "Title of tasks", description = "Description of tasks", variant = "info" }) => {
+const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle = "Title of tasks", description = "Description of tasks", variant = "info", closePopUp, updateIntent }) => {
     const [currentIntent, setCurrentIntent] = useState(intent);
 
     const toggleIntent = () => {
-        setCurrentIntent(prevIntent => (prevIntent === "incomplete" ? "complete" : "incomplete"));
+        const newIntent = currentIntent === "incomplete" ? "complete" : "incomplete";
+        setCurrentIntent(newIntent);
+        updateIntent(descTitle, newIntent);
+    };
+
+    const handleClose = () => {
+        closePopUp(descTitle, currentIntent);
     };
 
     const value = currentIntent === "incomplete" ? "To do" : "Done";
@@ -23,7 +31,7 @@ const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle =
     return (
         <div className={"fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-shadow-black-60"}>
             <div className={"flex flex-col w-72 rounded-2xl p-5 space-y-4 bg-bg-default"}>
-                <div className={"self-end"}>
+                <div className={"self-end"} onClick={handleClose}>
                     <Cross />
                 </div>
                 <div className={"space-y-2"}>
@@ -37,7 +45,7 @@ const DescriptionPopUp: React.FC<DescriptionPopUpProps> = ({ intent, descTitle =
                     </div>
 
                     { variant === "recipe" && (
-                        <div className={" flex flex-col items-center"}>
+                        <div className={"flex flex-col items-center"}>
                             <QrRecipe />
                         </div>
                     )}

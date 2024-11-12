@@ -24,9 +24,11 @@ const checkListText = cva("flex flex-row flex-justify items-center rounded-lg p-
 
 export interface CheckListProps
     extends React.HTMLAttributes<HTMLDivElement>,
-        VariantProps<typeof checkListText>, VariantProps<typeof checkListIcon>  {}
+        VariantProps<typeof checkListText>, VariantProps<typeof checkListIcon>  {
+    onTitleClick?: () => void;
+}
 
-export const CheckList: React.FC<CheckListProps> = ({ intent, title, ...props }) => {
+export const CheckList: React.FC<CheckListProps> = ({ intent, title, onTitleClick, ...props }) => {
     const [currentIntent, setCurrentIntent] = React.useState(intent);
     const [previousIntent, setPreviousIntent] = React.useState(currentIntent);
 
@@ -53,7 +55,7 @@ export const CheckList: React.FC<CheckListProps> = ({ intent, title, ...props })
               previousIntent === 'done' ? 'tick' : 'untick'
             } />
         </div>
-        <div className={checkListText({ intent: currentIntent })}>
+        <div className={checkListText({ intent: currentIntent })} onClick={onTitleClick}>
             {title}
         </div>
     </div>;
