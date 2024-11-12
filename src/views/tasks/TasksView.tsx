@@ -81,13 +81,15 @@ const TasksView: React.FC = () => {
   };
 
   return (
-    <div className={'flex flex-col min-h-screen justify-between'}>
-      <div className={'flex flex-col gap-4 flex-grow items-center overflow-y-auto pt-16 pb-24'}>
+    <div className={'flex flex-col min-h-screen justify-between w-[360px] h-[800px]'}>
+      <div className={'flex flex-col items-center pt-16 pb-2'}>
         <Typography weight={'semiBold'} size={'h2'}>Tasks</Typography>
+      </div>
+      <div className={'flex flex-col gap-4 flex-grow items-center justify-start overflow-y-auto'}>
         <Dropdown
-          checkLists={checkLists1}
-          title="Medication Refill"
-          dropped={false}
+            checkLists={checkLists1}
+            title="Medication Refill"
+            dropped={false}
           topRightText="12/11"
         />
         <Dropdown
@@ -109,7 +111,7 @@ const TasksView: React.FC = () => {
           topRightText="9/12"
         />
       </div>
-      <div className="fixed bottom-0 w-full">
+      <div className="fixed bottom-0 w-full items-center">
         <NavBar />
       </div>
       {showPopUp && <DescriptionPopUp  {...popUpData} closePopUp={closePopUp} updateIntent={updateIntent}/>}
